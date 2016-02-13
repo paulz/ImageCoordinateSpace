@@ -57,6 +57,16 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
             }
 
+            context("top left") {
+                beforeEach {
+                    imageView.contentMode = .TopLeft
+                }
+
+                it("should be same as view") {
+                    expectViewPointMatchImagePoint()
+                }
+            }
+
             context("center") {
                 beforeEach {
                     imageView.contentMode = .Center
