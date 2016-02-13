@@ -23,14 +23,24 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         let viewSize  = imageView.bounds.size;
         let ratioX = viewSize.width / imageSize.width
         let ratioY = viewSize.height / imageSize.height
-        let scale = min(ratioX, ratioY);
-
         var viewPoint = point
-        viewPoint.x *= scale;
-        viewPoint.y *= scale;
+        let scale : CGFloat
+        switch imageView.contentMode {
+        case .ScaleAspectFill:
+            scale = max(ratioX, ratioY)
+            break
+        case .ScaleAspectFit:
+            scale = min(ratioX, ratioY)
+            break
+        default:
+            scale = 1
+        }
 
-        viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2;
-        viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2;
+        viewPoint.x *= scale
+        viewPoint.y *= scale
+
+        viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2
+        viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2
 
         return imageView.convertPoint(viewPoint, toCoordinateSpace: coordinateSpace)
     }

@@ -32,32 +32,62 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 }
             }
 
-            context("aspect fit") {
+            context("scale") {
                 beforeEach {
                     let square = CGSize(width: 100, height: 100)
                     imageView.bounds = CGRect(origin: CGPointZero, size: square)
-                    imageView.contentMode = .ScaleAspectFit
                 }
 
-                it("should be within the view") {
-                    let imageSpace = imageView.imageCoordinatedSpace()
-                    let imageSize = image.size;
-                    let viewSize  = imageView.bounds.size;
-                    let ratioX = viewSize.width / imageSize.width
-                    let ratioY = viewSize.height / imageSize.height
-                    let scale = min(ratioX, ratioY);
+                context("aspect fill") {
+                    beforeEach {
+                        imageView.contentMode = .ScaleAspectFill
+                    }
+                    it("should be within the view") {
+                        let imageSpace = imageView.imageCoordinatedSpace()
+                        let imageSize = image.size;
+                        let viewSize  = imageView.bounds.size;
+                        let ratioX = viewSize.width / imageSize.width
+                        let ratioY = viewSize.height / imageSize.height
+                        let scale = max(ratioX, ratioY);
 
-                    let imagePoint = CGPointZero
+                        let imagePoint = CGPointZero
 
-                    var viewPoint = imagePoint
-                    viewPoint.x *= scale;
-                    viewPoint.y *= scale;
+                        var viewPoint = imagePoint
+                        viewPoint.x *= scale;
+                        viewPoint.y *= scale;
 
-                    viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2;
-                    viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2;
+                        viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2;
+                        viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2;
 
-                    expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == viewPoint
+                        expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == viewPoint
 
+                    }
+                }
+
+                context("aspect fit") {
+                    beforeEach {
+                        imageView.contentMode = .ScaleAspectFit
+                    }
+                    it("should be within the view") {
+                        let imageSpace = imageView.imageCoordinatedSpace()
+                        let imageSize = image.size;
+                        let viewSize  = imageView.bounds.size;
+                        let ratioX = viewSize.width / imageSize.width
+                        let ratioY = viewSize.height / imageSize.height
+                        let scale = min(ratioX, ratioY);
+
+                        let imagePoint = CGPointZero
+
+                        var viewPoint = imagePoint
+                        viewPoint.x *= scale;
+                        viewPoint.y *= scale;
+
+                        viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2;
+                        viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2;
+                        
+                        expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == viewPoint
+                        
+                    }
                 }
             }
         }
