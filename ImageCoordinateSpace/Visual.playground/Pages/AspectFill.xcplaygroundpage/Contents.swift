@@ -14,9 +14,9 @@ let topLeft = imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)
 image.size
 let bottomRight = CGPoint(x: image.size.width, y: image.size.height)
 let lowerRight = imageSpace.convertPoint(bottomRight, toCoordinateSpace: imageView)
-let bottomMargin = imageView.bounds.height - lowerRight.y
-let topMargin  = topLeft.y
-//: margins should be the same
+let bottomMargin = imageView.bounds.width - lowerRight.x
+let topMargin  = topLeft.x
+//: negative margins should be the same
 topMargin == bottomMargin
 
 
