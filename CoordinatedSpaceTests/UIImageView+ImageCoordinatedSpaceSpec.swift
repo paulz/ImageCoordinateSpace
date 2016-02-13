@@ -38,6 +38,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
             var widthRatio : CGFloat!
             var heightRatio : CGFloat!
             let imagePoint = CGPointZero
+            var viewPoint : CGPoint!
 
             beforeEach {
                 let square = CGSize(width: 100, height: 100)
@@ -48,6 +49,8 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 viewSize  = imageView.bounds.size
                 widthRatio = viewSize.width / imageSize.width
                 heightRatio = viewSize.height / imageSize.height
+
+                viewPoint = imagePoint
             }
 
             context("center") {
@@ -56,7 +59,6 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 }
 
                 it("should not stretch the image") {
-                    var viewPoint = imagePoint
                     viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
                     viewPoint.y += viewSize.height / 2 - imageSize.height / 2
 
@@ -71,7 +73,6 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                     }
 
                     it("should scale image to the view size") {
-                        var viewPoint = imagePoint
                         viewPoint.x *= widthRatio
                         viewPoint.y *= heightRatio
 
@@ -86,7 +87,6 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                     }
                     it("should be scale to maximize ratio") {
                         let scale = max(widthRatio, heightRatio)
-                        var viewPoint = imagePoint
                         viewPoint.x *= scale
                         viewPoint.y *= scale
 
@@ -103,7 +103,6 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                     }
                     it("should scale image to minimize") {
                         let scale = min(widthRatio, heightRatio)
-                        var viewPoint = imagePoint
                         viewPoint.x *= scale
                         viewPoint.y *= scale
 
