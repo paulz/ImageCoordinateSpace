@@ -13,6 +13,10 @@
 		4B87113A1C6F3D4D0027F0C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */; };
 		4B87113D1C6F3D4D0027F0C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B87113B1C6F3D4D0027F0C9 /* LaunchScreen.storyboard */; };
 		4B8711481C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8711471C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift */; };
+		4B8711651C6F3FBC0027F0C9 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; };
+		4B8711661C6F3FBC0027F0C9 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
+		4B8711671C6F3FC10027F0C9 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B8711681C6F3FC10027F0C9 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +29,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4B87115E1C6F3F730027F0C9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B8711671C6F3FC10027F0C9 /* Nimble.framework in CopyFiles */,
+				4B8711681C6F3FC10027F0C9 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4B87112F1C6F3D4D0027F0C9 /* ImageCoordinateSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCoordinateSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +54,8 @@
 		4B8711431C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageCoordinateSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8711471C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinateSpaceTests.swift; sourceTree = "<group>"; };
 		4B8711491C6F3D4D0027F0C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B8711631C6F3FBC0027F0C9 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		4B8711641C6F3FBC0027F0C9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8711651C6F3FBC0027F0C9 /* Nimble.framework in Frameworks */,
+				4B8711661C6F3FBC0027F0C9 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +83,7 @@
 			children = (
 				4B8711311C6F3D4D0027F0C9 /* ImageCoordinateSpace */,
 				4B8711461C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests */,
+				4B8711691C6F3FC60027F0C9 /* Frameworks */,
 				4B8711301C6F3D4D0027F0C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +119,15 @@
 			path = ImageCoordinateSpaceTests;
 			sourceTree = "<group>";
 		};
+		4B8711691C6F3FC60027F0C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B8711631C6F3FBC0027F0C9 /* Nimble.framework */,
+				4B8711641C6F3FBC0027F0C9 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +155,7 @@
 				4B87113F1C6F3D4D0027F0C9 /* Sources */,
 				4B8711401C6F3D4D0027F0C9 /* Frameworks */,
 				4B8711411C6F3D4D0027F0C9 /* Resources */,
+				4B87115E1C6F3F730027F0C9 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -324,6 +357,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ImageCoordinateSpace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ImageCoordinateSpace;
@@ -335,6 +372,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ImageCoordinateSpace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ImageCoordinateSpace;
@@ -346,6 +387,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ImageCoordinateSpaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ImageCoordinateSpaceTests;
@@ -358,6 +403,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ImageCoordinateSpaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ImageCoordinateSpaceTests;
