@@ -67,6 +67,17 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 }
             }
 
+            context("left") {
+                beforeEach {
+                    imageView.contentMode = .Left
+                }
+
+                it("should change y to the center") {
+                    viewPoint.y += viewSize.height / 2 - imageSize.height / 2;
+                    expectViewPointMatchImagePoint()
+                }
+            }
+            
             context("center") {
                 beforeEach {
                     imageView.contentMode = .Center
