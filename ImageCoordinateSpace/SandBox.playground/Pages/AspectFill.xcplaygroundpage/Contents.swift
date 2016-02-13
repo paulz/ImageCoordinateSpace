@@ -1,7 +1,7 @@
 //: [Previous](@previous)
 
 import UIKit
-
+import CoordinatedSpace
 //: Aspect Fill
 let image = UIImage(named: "rose.jpg")!
 let imageView = UIImageView(image: image)

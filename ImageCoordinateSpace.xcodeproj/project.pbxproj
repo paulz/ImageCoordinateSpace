@@ -12,19 +12,21 @@
 		4B017D911C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B017D901C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift */; };
 		4B017D951C6F6A02003ECCE7 /* CoordinatedSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B017D801C6F6A02003ECCE7 /* CoordinatedSpace.framework */; };
 		4B017D971C6F6A02003ECCE7 /* CoordinatedSpace.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B017D801C6F6A02003ECCE7 /* CoordinatedSpace.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B017D9E1C6F6B52003ECCE7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; };
+		4B017D9F1C6F6B52003ECCE7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
+		4B017DA11C6F6B67003ECCE7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B017DA21C6F6B67003ECCE7 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B017DA31C6F6BD5003ECCE7 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */; };
+		4B017DA41C6F6BDB003ECCE7 /* UIImageView+UICoordinatedSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */; };
 		4B8711331C6F3D4D0027F0C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */; };
 		4B8711351C6F3D4D0027F0C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8711341C6F3D4D0027F0C9 /* ViewController.swift */; };
 		4B8711381C6F3D4D0027F0C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711361C6F3D4D0027F0C9 /* Main.storyboard */; };
 		4B87113A1C6F3D4D0027F0C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */; };
 		4B87113D1C6F3D4D0027F0C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B87113B1C6F3D4D0027F0C9 /* LaunchScreen.storyboard */; };
-		4B8711481C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8711471C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift */; };
 		4B8711651C6F3FBC0027F0C9 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; };
 		4B8711661C6F3FBC0027F0C9 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
 		4B8711671C6F3FC10027F0C9 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B8711681C6F3FC10027F0C9 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4B87116B1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */; };
-		4B87116D1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */; };
-		4B87116F1C6F44D20027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */; };
 		4B8711741C6F5BB90027F0C9 /* SandBox.playground in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711731C6F5B260027F0C9 /* SandBox.playground */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4B017DA01C6F6B61003ECCE7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4B017DA11C6F6B67003ECCE7 /* Nimble.framework in CopyFiles */,
+				4B017DA21C6F6B67003ECCE7 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4B87115E1C6F3F730027F0C9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,13 +112,10 @@
 		4B87113C1C6F3D4D0027F0C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B87113E1C6F3D4D0027F0C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8711431C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageCoordinateSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B8711471C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoordinateSpaceTests.swift; sourceTree = "<group>"; };
-		4B8711491C6F3D4D0027F0C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8711631C6F3FBC0027F0C9 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4B8711641C6F3FBC0027F0C9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageCoordinatedSpaceSpec.swift"; sourceTree = "<group>"; };
 		4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+UICoordinatedSpace.swift"; sourceTree = "<group>"; };
-		4B8711701C6F54000027F0C9 /* CoordinatePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CoordinatePlayground.playground; sourceTree = "<group>"; };
 		4B8711731C6F5B260027F0C9 /* SandBox.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SandBox.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +132,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B017D8A1C6F6A02003ECCE7 /* CoordinatedSpace.framework in Frameworks */,
+				4B017D9E1C6F6B52003ECCE7 /* Nimble.framework in Frameworks */,
+				4B017D9F1C6F6B52003ECCE7 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +160,7 @@
 		4B017D811C6F6A02003ECCE7 /* CoordinatedSpace */ = {
 			isa = PBXGroup;
 			children = (
+				4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */,
 				4B017D821C6F6A02003ECCE7 /* CoordinatedSpace.h */,
 				4B017D841C6F6A02003ECCE7 /* Info.plist */,
 			);
@@ -157,6 +170,7 @@
 		4B017D8F1C6F6A02003ECCE7 /* CoordinatedSpaceTests */ = {
 			isa = PBXGroup;
 			children = (
+				4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */,
 				4B017D901C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift */,
 				4B017D921C6F6A02003ECCE7 /* Info.plist */,
 			);
@@ -167,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				4B8711311C6F3D4D0027F0C9 /* ImageCoordinateSpace */,
-				4B8711461C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests */,
 				4B017D811C6F6A02003ECCE7 /* CoordinatedSpace */,
 				4B017D8F1C6F6A02003ECCE7 /* CoordinatedSpaceTests */,
 				4B8711691C6F3FC60027F0C9 /* Frameworks */,
@@ -191,7 +204,6 @@
 			children = (
 				4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */,
 				4B8711731C6F5B260027F0C9 /* SandBox.playground */,
-				4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */,
 				4B8711341C6F3D4D0027F0C9 /* ViewController.swift */,
 				4B8711361C6F3D4D0027F0C9 /* Main.storyboard */,
 				4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */,
@@ -199,17 +211,6 @@
 				4B87113E1C6F3D4D0027F0C9 /* Info.plist */,
 			);
 			path = ImageCoordinateSpace;
-			sourceTree = "<group>";
-		};
-		4B8711461C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests */ = {
-			isa = PBXGroup;
-			children = (
-				4B8711471C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift */,
-				4B8711701C6F54000027F0C9 /* CoordinatePlayground.playground */,
-				4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */,
-				4B8711491C6F3D4D0027F0C9 /* Info.plist */,
-			);
-			path = ImageCoordinateSpaceTests;
 			sourceTree = "<group>";
 		};
 		4B8711691C6F3FC60027F0C9 /* Frameworks */ = {
@@ -260,6 +261,7 @@
 				4B017D851C6F6A02003ECCE7 /* Sources */,
 				4B017D861C6F6A02003ECCE7 /* Frameworks */,
 				4B017D871C6F6A02003ECCE7 /* Resources */,
+				4B017DA01C6F6B61003ECCE7 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -396,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B017DA41C6F6BDB003ECCE7 /* UIImageView+UICoordinatedSpace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B017D911C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift in Sources */,
+				4B017DA31C6F6BD5003ECCE7 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +417,6 @@
 			files = (
 				4B8711351C6F3D4D0027F0C9 /* ViewController.swift in Sources */,
 				4B8711331C6F3D4D0027F0C9 /* AppDelegate.swift in Sources */,
-				4B87116D1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,9 +424,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B8711481C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift in Sources */,
-				4B87116B1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */,
-				4B87116F1C6F44D20027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +515,10 @@
 		4B017D9A1C6F6A02003ECCE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CoordinatedSpaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.CoordinatedSpaceTests;
@@ -526,6 +530,10 @@
 		4B017D9B1C6F6A02003ECCE7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CoordinatedSpaceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.CoordinatedSpaceTests;
@@ -619,6 +627,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -634,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
