@@ -19,6 +19,7 @@
 		4B8711681C6F3FC10027F0C9 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B87116B1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */; };
 		4B87116D1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */; };
+		4B87116F1C6F44D20027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 			files = (
 				4B8711481C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift in Sources */,
 				4B87116B1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */,
+				4B87116F1C6F44D20027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
