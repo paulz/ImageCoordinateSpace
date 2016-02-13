@@ -3,6 +3,7 @@
     <pages>
         <page name='CoordinatedSpace'/>
         <page name='Aspect Fit'/>
-        <page name='AspectFill'/>
+        <page name='Aspect Fill'/>
+        <page name='Scale To Fill'/>
     </pages>
 </playground>

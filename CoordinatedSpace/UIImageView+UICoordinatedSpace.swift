@@ -10,12 +10,14 @@ import UIKit
 
 public class ImageViewSpace : NSObject, UICoordinateSpace {
     var imageView : UIImageView
-    public var bounds: CGRect
 
     init(view v: UIImageView) {
         imageView = v
-        bounds = v.bounds
         super.init()
+    }
+
+    public var bounds: CGRect {
+        return CGRect(origin: CGPointZero, size: imageView.image!.size)
     }
 
     public func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
