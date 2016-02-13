@@ -40,6 +40,10 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         case .ScaleToFill, .Redraw:
             viewPoint.x *= ratioX
             viewPoint.y *= ratioY
+        case .Center:
+            viewPoint.x += viewSize.width / 2  - imageSize.width  / 2;
+            viewPoint.y += viewSize.height / 2 - imageSize.height / 2;
+
         default:
             assertionFailure("content mode \(mode) is not implemented yet")
         }
