@@ -40,38 +40,46 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
             case full = 1
         }
 
+        func translateWithFactors(tx:CGFloat, _ ty:CGFloat, _ xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
+            return CGAffineTransformMakeTranslation(tx * xFactor.rawValue, ty * yFactor.rawValue)
+        }
+
+        func halfTranslate(tx:CGFloat, _ ty:CGFloat) -> CGAffineTransform {
+            return translateWithFactors(tx, ty, .half, .half)
+        }
+        
         func translate(xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
-            return CGAffineTransformMakeTranslation(widthDiff() * xFactor.rawValue, heightDiff() * yFactor.rawValue)
+            return translateWithFactors(widthDiff(), heightDiff(), xFactor, yFactor)
         }
 
         switch mode {
         case .ScaleAspectFit, .ScaleAspectFill:
             let scale = mode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
-            transform = CGAffineTransformScale(CGAffineTransformMakeTranslation (
-                (viewSize.width  - imageSize.width  * scale) / 2,
-                (viewSize.height  - imageSize.height  * scale) / 2
+            transform = CGAffineTransformScale(halfTranslate(
+                viewSize.width  - imageSize.width  * scale,
+                viewSize.height  - imageSize.height  * scale
                 ), scale, scale)
             break
         case .ScaleToFill, .Redraw:
             transform = CGAffineTransformMakeScale(widthRatio, heightRatio)
         case .Center:
             transform = translate(.half, .half)
-        case .TopLeft:
-            transform = CGAffineTransformIdentity
         case .Left:
             transform = translate(.none, .half)
         case .Right:
             transform = translate(.full, .half)
         case .TopRight:
             transform = translate(.full, .none)
+        case .Bottom:
+            transform = translate(.half, .full)
         case .BottomLeft:
             transform = translate(.none, .full)
         case .BottomRight:
             transform = translate(.full, .full)
-        case .Bottom:
-            transform = translate(.half, .full)
         case .Top:
             transform = translate(.half, .none)
+        case .TopLeft:
+            transform = CGAffineTransformIdentity
         }
         let viewPoint = CGPointApplyAffineTransform(point, transform)
         return imageView.convertPoint(viewPoint, toCoordinateSpace: coordinateSpace)
