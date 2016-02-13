@@ -21,8 +21,8 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
     }
 
     public func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        let imageSize = imageView.image!.size;
-        let viewSize  = imageView.bounds.size;
+        let imageSize = imageView.image!.size
+        let viewSize  = imageView.bounds.size
         let ratioX = viewSize.width / imageSize.width
         let ratioY = viewSize.height / imageSize.height
         var viewPoint = point

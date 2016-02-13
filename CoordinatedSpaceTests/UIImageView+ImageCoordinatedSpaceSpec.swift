@@ -34,11 +34,21 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
 
             context("scale") {
                 var imageSpace : UICoordinateSpace!
+                var imageSize : CGSize!
+                var viewSize  : CGSize!
+                var widthRatio : CGFloat!
+                var heightRatio : CGFloat!
+                let imagePoint = CGPointZero
 
                 beforeEach {
                     let square = CGSize(width: 100, height: 100)
                     imageView.bounds = CGRect(origin: CGPointZero, size: square)
                     imageSpace = imageView.imageCoordinatedSpace()
+
+                    imageSize = image.size
+                    viewSize  = imageView.bounds.size
+                    widthRatio = viewSize.width / imageSize.width
+                    heightRatio = viewSize.height / imageSize.height
                 }
 
                 context("scale to fill") {
@@ -47,18 +57,11 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                     }
 
                     it("should scale image to the view size") {
-                        let imageSize = image.size;
-                        let viewSize  = imageView.bounds.size;
-                        let ratioX = viewSize.width / imageSize.width
-                        let ratioY = viewSize.height / imageSize.height
-
-                        let imagePoint = CGPointZero
-
                         var viewPoint = imagePoint
-                        viewPoint.x *= ratioX;
-                        viewPoint.y *= ratioY;
+                        viewPoint.x *= widthRatio
+                        viewPoint.y *= heightRatio
 
-                        expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == viewPoint
+                        expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)) == viewPoint
                     }
                 }
 
@@ -68,22 +71,15 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                         imageView.contentMode = .ScaleAspectFill
                     }
                     it("should be scale to maximize ratio") {
-                        let imageSize = image.size;
-                        let viewSize  = imageView.bounds.size;
-                        let ratioX = viewSize.width / imageSize.width
-                        let ratioY = viewSize.height / imageSize.height
-                        let scale = max(ratioX, ratioY);
-
-                        let imagePoint = CGPointZero
-
+                        let scale = max(widthRatio, heightRatio)
                         var viewPoint = imagePoint
-                        viewPoint.x *= scale;
-                        viewPoint.y *= scale;
+                        viewPoint.x *= scale
+                        viewPoint.y *= scale
 
-                        viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2;
-                        viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2;
+                        viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2
+                        viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2
 
-                        expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == viewPoint
+                        expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)) == viewPoint
                     }
                 }
 
@@ -92,22 +88,15 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                         imageView.contentMode = .ScaleAspectFit
                     }
                     it("should scale image to minimize") {
-                        let imageSize = image.size;
-                        let viewSize  = imageView.bounds.size;
-                        let ratioX = viewSize.width / imageSize.width
-                        let ratioY = viewSize.height / imageSize.height
-                        let scale = min(ratioX, ratioY);
-
-                        let imagePoint = CGPointZero
-
+                        let scale = min(widthRatio, heightRatio)
                         var viewPoint = imagePoint
-                        viewPoint.x *= scale;
-                        viewPoint.y *= scale;
+                        viewPoint.x *= scale
+                        viewPoint.y *= scale
 
-                        viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2;
-                        viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2;
+                        viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2
+                        viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2
                         
-                        expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == viewPoint
+                        expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)) == viewPoint
                         
                     }
                 }
