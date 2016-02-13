@@ -32,7 +32,6 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 }
             }
 
-            var imageSpace : UICoordinateSpace!
             var imageSize : CGSize!
             var viewSize  : CGSize!
             var widthRatio : CGFloat!
@@ -43,8 +42,6 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
             beforeEach {
                 let square = CGSize(width: 100, height: 100)
                 imageView.bounds = CGRect(origin: CGPointZero, size: square)
-                imageSpace = imageView.imageCoordinatedSpace()
-
                 imageSize = image.size
                 viewSize  = imageView.bounds.size
                 widthRatio = viewSize.width / imageSize.width
@@ -54,7 +51,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
             }
 
             func expectViewPointMatchImagePoint(file: String = __FILE__, line: UInt = __LINE__) {
-                expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
+                expect(imageView.imageCoordinatedSpace().convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
             }
 
             context("top left") {
