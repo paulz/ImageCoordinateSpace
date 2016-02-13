@@ -6,5 +6,6 @@
         <page name='Aspect Fill'/>
         <page name='Scale To Fill'/>
         <page name='Center'/>
+        <page name='Right'/>
     </pages>
 </playground>
