@@ -17,6 +17,8 @@
 		4B8711661C6F3FBC0027F0C9 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
 		4B8711671C6F3FC10027F0C9 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B8711681C6F3FC10027F0C9 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4B87116B1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */; };
+		4B87116D1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		4B8711491C6F3D4D0027F0C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8711631C6F3FBC0027F0C9 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4B8711641C6F3FBC0027F0C9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageCoordinatedSpaceSpec.swift"; sourceTree = "<group>"; };
+		4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+UICoordinatedSpace.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */,
+				4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */,
 				4B8711341C6F3D4D0027F0C9 /* ViewController.swift */,
 				4B8711361C6F3D4D0027F0C9 /* Main.storyboard */,
 				4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */,
@@ -114,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				4B8711471C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift */,
+				4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */,
 				4B8711491C6F3D4D0027F0C9 /* Info.plist */,
 			);
 			path = ImageCoordinateSpaceTests;
@@ -231,6 +237,7 @@
 			files = (
 				4B8711351C6F3D4D0027F0C9 /* ViewController.swift in Sources */,
 				4B8711331C6F3D4D0027F0C9 /* AppDelegate.swift in Sources */,
+				4B87116D1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B8711481C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.swift in Sources */,
+				4B87116B1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
