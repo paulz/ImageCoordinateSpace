@@ -57,8 +57,11 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         case .BottomRight:
             viewPoint.x += viewSize.width - imageSize.width
             viewPoint.y += viewSize.height - imageSize.height
-        default:
-            assertionFailure("content mode \(mode) is not implemented yet")
+        case .Bottom:
+            viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
+            viewPoint.y += viewSize.height - imageSize.height
+        case .Top:
+            viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
         }
         return imageView.convertPoint(viewPoint, toCoordinateSpace: coordinateSpace)
     }

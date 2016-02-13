@@ -123,6 +123,31 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                     expectViewPointMatchImagePoint()
                 }
             }
+
+            context("bottom") {
+                beforeEach {
+                    imageView.contentMode = .Bottom
+                }
+
+                it("should change both x and y by size difference") {
+                    viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
+                    viewPoint.y += viewSize.height - imageSize.height;
+                    expectViewPointMatchImagePoint()
+                }
+            }
+
+            context("top") {
+                beforeEach {
+                    imageView.contentMode = .Top
+                }
+
+                it("should change only x to the center") {
+                    viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
+                    expectViewPointMatchImagePoint()
+                }
+            }
+
+
             context("center") {
                 beforeEach {
                     imageView.contentMode = .Center
