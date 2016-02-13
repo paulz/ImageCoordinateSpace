@@ -53,6 +53,10 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 viewPoint = imagePoint
             }
 
+            func expectViewPointMatchImagePoint(file: String = __FILE__, line: UInt = __LINE__) {
+                expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
+            }
+
             context("center") {
                 beforeEach {
                     imageView.contentMode = .Center
@@ -61,8 +65,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 it("should not stretch the image") {
                     viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
                     viewPoint.y += viewSize.height / 2 - imageSize.height / 2
-
-                    expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)) == viewPoint
+                    expectViewPointMatchImagePoint()
                 }
             }
 
@@ -75,8 +78,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                     it("should scale image to the view size") {
                         viewPoint.x *= widthRatio
                         viewPoint.y *= heightRatio
-
-                        expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)) == viewPoint
+                        expectViewPointMatchImagePoint()
                     }
                 }
 
@@ -93,7 +95,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                         viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2
                         viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2
 
-                        expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)) == viewPoint
+                        expectViewPointMatchImagePoint()
                     }
                 }
 
@@ -109,8 +111,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                         viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2
                         viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2
                         
-                        expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)) == viewPoint
-                        
+                        expectViewPointMatchImagePoint()
                     }
                 }
             }
