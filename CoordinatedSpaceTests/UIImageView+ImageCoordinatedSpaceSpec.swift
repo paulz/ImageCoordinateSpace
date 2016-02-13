@@ -32,25 +32,39 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 }
             }
 
-            context("scale") {
-                var imageSpace : UICoordinateSpace!
-                var imageSize : CGSize!
-                var viewSize  : CGSize!
-                var widthRatio : CGFloat!
-                var heightRatio : CGFloat!
-                let imagePoint = CGPointZero
+            var imageSpace : UICoordinateSpace!
+            var imageSize : CGSize!
+            var viewSize  : CGSize!
+            var widthRatio : CGFloat!
+            var heightRatio : CGFloat!
+            let imagePoint = CGPointZero
 
+            beforeEach {
+                let square = CGSize(width: 100, height: 100)
+                imageView.bounds = CGRect(origin: CGPointZero, size: square)
+                imageSpace = imageView.imageCoordinatedSpace()
+
+                imageSize = image.size
+                viewSize  = imageView.bounds.size
+                widthRatio = viewSize.width / imageSize.width
+                heightRatio = viewSize.height / imageSize.height
+            }
+
+            context("center") {
                 beforeEach {
-                    let square = CGSize(width: 100, height: 100)
-                    imageView.bounds = CGRect(origin: CGPointZero, size: square)
-                    imageSpace = imageView.imageCoordinatedSpace()
-
-                    imageSize = image.size
-                    viewSize  = imageView.bounds.size
-                    widthRatio = viewSize.width / imageSize.width
-                    heightRatio = viewSize.height / imageSize.height
+                    imageView.contentMode = .Center
                 }
 
+                it("should not stretch the image") {
+                    var viewPoint = imagePoint
+                    viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
+                    viewPoint.y += viewSize.height / 2 - imageSize.height / 2
+
+                    expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)) == viewPoint
+                }
+            }
+
+            context("scale") {
                 context("scale to fill") {
                     beforeEach {
                         imageView.contentMode = .ScaleToFill
