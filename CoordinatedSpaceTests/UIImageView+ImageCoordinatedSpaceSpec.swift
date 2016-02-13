@@ -42,7 +42,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                     beforeEach {
                         imageView.contentMode = .ScaleAspectFill
                     }
-                    it("should be within the view") {
+                    it("should be scale to maximize ratio") {
                         let imageSpace = imageView.imageCoordinatedSpace()
                         let imageSize = image.size;
                         let viewSize  = imageView.bounds.size;
@@ -68,7 +68,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                     beforeEach {
                         imageView.contentMode = .ScaleAspectFit
                     }
-                    it("should be within the view") {
+                    it("should scale image to minimize") {
                         let imageSpace = imageView.imageCoordinatedSpace()
                         let imageSize = image.size;
                         let viewSize  = imageView.bounds.size;
