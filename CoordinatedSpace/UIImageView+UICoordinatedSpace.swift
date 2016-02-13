@@ -27,6 +27,7 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         let ratioY = viewSize.height / imageSize.height
         var viewPoint = point
         let mode = imageView.contentMode
+        var transform : CGAffineTransform! = CGAffineTransformIdentity
         switch mode {
         case .ScaleAspectFit, .ScaleAspectFill:
             let scale : CGFloat
@@ -38,31 +39,52 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
             viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2
             break
         case .ScaleToFill, .Redraw:
-            viewPoint.x *= ratioX
-            viewPoint.y *= ratioY
+            transform = CGAffineTransformMakeScale(ratioX, ratioY)
         case .Center:
-            viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
-            viewPoint.y += viewSize.height / 2 - imageSize.height / 2
+            transform = CGAffineTransformMakeTranslation(
+                viewSize.width / 2  - imageSize.width  / 2,
+                viewSize.height / 2 - imageSize.height / 2
+            )
         case .TopLeft:
-            break
+            transform = CGAffineTransformIdentity
         case .Left:
-            viewPoint.y += viewSize.height / 2 - imageSize.height / 2
+            transform = CGAffineTransformMakeTranslation(
+                0,
+                viewSize.height / 2 - imageSize.height / 2
+            )
         case .Right:
-            viewPoint.x += viewSize.width - imageSize.width
-            viewPoint.y += viewSize.height / 2 - imageSize.height / 2
+            transform = CGAffineTransformMakeTranslation(
+                viewSize.width - imageSize.width,
+                viewSize.height / 2 - imageSize.height / 2
+            )
         case .TopRight:
-            viewPoint.x += viewSize.width - imageSize.width
+            transform = CGAffineTransformMakeTranslation(
+                viewSize.width - imageSize.width,
+                0
+            )
         case .BottomLeft:
-            viewPoint.y += viewSize.height - imageSize.height
+            transform = CGAffineTransformMakeTranslation(
+                0,
+                viewSize.height - imageSize.height
+            )
         case .BottomRight:
-            viewPoint.x += viewSize.width - imageSize.width
-            viewPoint.y += viewSize.height - imageSize.height
+            transform = CGAffineTransformMakeTranslation(
+                viewSize.width - imageSize.width,
+                viewSize.height - imageSize.height
+            )
         case .Bottom:
-            viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
-            viewPoint.y += viewSize.height - imageSize.height
+            transform = CGAffineTransformMakeTranslation(
+                viewSize.width / 2  - imageSize.width  / 2,
+                viewSize.height - imageSize.height
+            )
         case .Top:
-            viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
+            transform = CGAffineTransformMakeTranslation(
+                viewSize.width / 2  - imageSize.width  / 2,
+                0
+            )
         }
+        viewPoint = CGPointApplyAffineTransform(viewPoint, transform)
+
         return imageView.convertPoint(viewPoint, toCoordinateSpace: coordinateSpace)
     }
 
