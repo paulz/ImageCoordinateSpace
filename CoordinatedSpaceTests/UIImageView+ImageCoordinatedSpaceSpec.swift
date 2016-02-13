@@ -73,7 +73,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 }
 
                 it("should change y to the center") {
-                    viewPoint.y += viewSize.height / 2 - imageSize.height / 2;
+                    viewPoint.y += viewSize.height / 2 - imageSize.height / 2
                     expectViewPointMatchImagePoint()
                 }
             }
@@ -85,7 +85,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
 
                 it("should change x as top right, y as as left") {
                     viewPoint.x += viewSize.width - imageSize.width
-                    viewPoint.y += viewSize.height / 2 - imageSize.height / 2;
+                    viewPoint.y += viewSize.height / 2 - imageSize.height / 2
                     expectViewPointMatchImagePoint()
                 }
             }
@@ -107,7 +107,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 }
 
                 it("should change only y by height difference") {
-                    viewPoint.y += viewSize.height - imageSize.height;
+                    viewPoint.y += viewSize.height - imageSize.height
                     expectViewPointMatchImagePoint()
                 }
             }
@@ -119,7 +119,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
 
                 it("should change both x and y by size difference") {
                     viewPoint.x += viewSize.width - imageSize.width
-                    viewPoint.y += viewSize.height - imageSize.height;
+                    viewPoint.y += viewSize.height - imageSize.height
                     expectViewPointMatchImagePoint()
                 }
             }
@@ -131,7 +131,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
 
                 it("should change both x and y by size difference") {
                     viewPoint.x += viewSize.width / 2  - imageSize.width  / 2
-                    viewPoint.y += viewSize.height - imageSize.height;
+                    viewPoint.y += viewSize.height - imageSize.height
                     expectViewPointMatchImagePoint()
                 }
             }
