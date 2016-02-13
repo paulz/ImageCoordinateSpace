@@ -23,10 +23,6 @@
 		4B8711381C6F3D4D0027F0C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711361C6F3D4D0027F0C9 /* Main.storyboard */; };
 		4B87113A1C6F3D4D0027F0C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */; };
 		4B87113D1C6F3D4D0027F0C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B87113B1C6F3D4D0027F0C9 /* LaunchScreen.storyboard */; };
-		4B8711651C6F3FBC0027F0C9 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; };
-		4B8711661C6F3FBC0027F0C9 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
-		4B8711671C6F3FC10027F0C9 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4B8711681C6F3FC10027F0C9 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B8711741C6F5BB90027F0C9 /* Visual.playground in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711731C6F5B260027F0C9 /* Visual.playground */; };
 /* End PBXBuildFile section */
 
@@ -51,13 +47,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4B017D7F1C6F6A02003ECCE7;
 			remoteInfo = CoordinatedSpace;
-		};
-		4B8711441C6F3D4D0027F0C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4B8711271C6F3D4D0027F0C9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4B87112E1C6F3D4D0027F0C9;
-			remoteInfo = ImageCoordinateSpace;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -84,17 +73,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B87115E1C6F3F730027F0C9 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4B8711671C6F3FC10027F0C9 /* Nimble.framework in CopyFiles */,
-				4B8711681C6F3FC10027F0C9 /* Quick.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -104,14 +82,13 @@
 		4B017D891C6F6A02003ECCE7 /* CoordinatedSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatedSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B017D901C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatedSpaceTests.swift; sourceTree = "<group>"; };
 		4B017D921C6F6A02003ECCE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B87112F1C6F3D4D0027F0C9 /* ImageCoordinateSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageCoordinateSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B87112F1C6F3D4D0027F0C9 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B8711341C6F3D4D0027F0C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B8711371C6F3D4D0027F0C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B87113C1C6F3D4D0027F0C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B87113E1C6F3D4D0027F0C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B8711431C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageCoordinateSpaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8711631C6F3FBC0027F0C9 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4B8711641C6F3FBC0027F0C9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageCoordinatedSpaceSpec.swift"; sourceTree = "<group>"; };
@@ -142,15 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B017D951C6F6A02003ECCE7 /* CoordinatedSpace.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4B8711401C6F3D4D0027F0C9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B8711651C6F3FBC0027F0C9 /* Nimble.framework in Frameworks */,
-				4B8711661C6F3FBC0027F0C9 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,8 +159,7 @@
 		4B8711301C6F3D4D0027F0C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B87112F1C6F3D4D0027F0C9 /* ImageCoordinateSpace.app */,
-				4B8711431C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.xctest */,
+				4B87112F1C6F3D4D0027F0C9 /* Example.app */,
 				4B017D801C6F6A02003ECCE7 /* CoordinatedSpace.framework */,
 				4B017D891C6F6A02003ECCE7 /* CoordinatedSpaceTests.xctest */,
 			);
@@ -274,9 +241,9 @@
 			productReference = 4B017D891C6F6A02003ECCE7 /* CoordinatedSpaceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4B87112E1C6F3D4D0027F0C9 /* ImageCoordinateSpace */ = {
+		4B87112E1C6F3D4D0027F0C9 /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B87114C1C6F3D4D0027F0C9 /* Build configuration list for PBXNativeTarget "ImageCoordinateSpace" */;
+			buildConfigurationList = 4B87114C1C6F3D4D0027F0C9 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
 				4B87112B1C6F3D4D0027F0C9 /* Sources */,
 				4B87112C1C6F3D4D0027F0C9 /* Frameworks */,
@@ -288,29 +255,10 @@
 			dependencies = (
 				4B017D941C6F6A02003ECCE7 /* PBXTargetDependency */,
 			);
-			name = ImageCoordinateSpace;
+			name = Example;
 			productName = ImageCoordinateSpace;
-			productReference = 4B87112F1C6F3D4D0027F0C9 /* ImageCoordinateSpace.app */;
+			productReference = 4B87112F1C6F3D4D0027F0C9 /* Example.app */;
 			productType = "com.apple.product-type.application";
-		};
-		4B8711421C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4B87114F1C6F3D4D0027F0C9 /* Build configuration list for PBXNativeTarget "ImageCoordinateSpaceTests" */;
-			buildPhases = (
-				4B87113F1C6F3D4D0027F0C9 /* Sources */,
-				4B8711401C6F3D4D0027F0C9 /* Frameworks */,
-				4B8711411C6F3D4D0027F0C9 /* Resources */,
-				4B87115E1C6F3F730027F0C9 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4B8711451C6F3D4D0027F0C9 /* PBXTargetDependency */,
-			);
-			name = ImageCoordinateSpaceTests;
-			productName = ImageCoordinateSpaceTests;
-			productReference = 4B8711431C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -331,10 +279,6 @@
 					4B87112E1C6F3D4D0027F0C9 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
-					4B8711421C6F3D4D0027F0C9 = {
-						CreatedOnToolsVersion = 7.2.1;
-						TestTargetID = 4B87112E1C6F3D4D0027F0C9;
-					};
 				};
 			};
 			buildConfigurationList = 4B87112A1C6F3D4D0027F0C9 /* Build configuration list for PBXProject "ImageCoordinateSpace" */;
@@ -350,8 +294,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4B87112E1C6F3D4D0027F0C9 /* ImageCoordinateSpace */,
-				4B8711421C6F3D4D0027F0C9 /* ImageCoordinateSpaceTests */,
+				4B87112E1C6F3D4D0027F0C9 /* Example */,
 				4B017D7F1C6F6A02003ECCE7 /* CoordinatedSpace */,
 				4B017D881C6F6A02003ECCE7 /* CoordinatedSpaceTests */,
 			);
@@ -384,13 +327,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B8711411C6F3D4D0027F0C9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -420,13 +356,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B87113F1C6F3D4D0027F0C9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -437,18 +366,13 @@
 		};
 		4B017D8E1C6F6A02003ECCE7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4B87112E1C6F3D4D0027F0C9 /* ImageCoordinateSpace */;
+			target = 4B87112E1C6F3D4D0027F0C9 /* Example */;
 			targetProxy = 4B017D8D1C6F6A02003ECCE7 /* PBXContainerItemProxy */;
 		};
 		4B017D941C6F6A02003ECCE7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4B017D7F1C6F6A02003ECCE7 /* CoordinatedSpace */;
 			targetProxy = 4B017D931C6F6A02003ECCE7 /* PBXContainerItemProxy */;
-		};
-		4B8711451C6F3D4D0027F0C9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4B87112E1C6F3D4D0027F0C9 /* ImageCoordinateSpace */;
-			targetProxy = 4B8711441C6F3D4D0027F0C9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -655,38 +579,6 @@
 			};
 			name = Release;
 		};
-		4B8711501C6F3D4D0027F0C9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = ImageCoordinateSpaceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.ImageCoordinateSpaceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageCoordinateSpace.app/ImageCoordinateSpace";
-			};
-			name = Debug;
-		};
-		4B8711511C6F3D4D0027F0C9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = ImageCoordinateSpaceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.ImageCoordinateSpaceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageCoordinateSpace.app/ImageCoordinateSpace";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -697,6 +589,7 @@
 				4B017D991C6F6A02003ECCE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B017D9D1C6F6A02003ECCE7 /* Build configuration list for PBXNativeTarget "CoordinatedSpaceTests" */ = {
 			isa = XCConfigurationList;
@@ -705,6 +598,7 @@
 				4B017D9B1C6F6A02003ECCE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B87112A1C6F3D4D0027F0C9 /* Build configuration list for PBXProject "ImageCoordinateSpace" */ = {
 			isa = XCConfigurationList;
@@ -715,20 +609,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B87114C1C6F3D4D0027F0C9 /* Build configuration list for PBXNativeTarget "ImageCoordinateSpace" */ = {
+		4B87114C1C6F3D4D0027F0C9 /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B87114D1C6F3D4D0027F0C9 /* Debug */,
 				4B87114E1C6F3D4D0027F0C9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4B87114F1C6F3D4D0027F0C9 /* Build configuration list for PBXNativeTarget "ImageCoordinateSpaceTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4B8711501C6F3D4D0027F0C9 /* Debug */,
-				4B8711511C6F3D4D0027F0C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
