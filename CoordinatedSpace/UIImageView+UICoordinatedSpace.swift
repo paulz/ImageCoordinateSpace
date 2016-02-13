@@ -50,6 +50,8 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         case .Right:
             viewPoint.x += viewSize.width - imageSize.width
             viewPoint.y += viewSize.height / 2 - imageSize.height / 2
+        case .TopRight:
+            viewPoint.x += viewSize.width - imageSize.width
         default:
             assertionFailure("content mode \(mode) is not implemented yet")
         }
