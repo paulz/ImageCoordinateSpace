@@ -20,6 +20,7 @@
 		4B87116B1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */; };
 		4B87116D1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */; };
 		4B87116F1C6F44D20027F0C9 /* UIImageView+UICoordinatedSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */; };
+		4B8711741C6F5BB90027F0C9 /* SandBox.playground in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711731C6F5B260027F0C9 /* SandBox.playground */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageCoordinatedSpaceSpec.swift"; sourceTree = "<group>"; };
 		4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+UICoordinatedSpace.swift"; sourceTree = "<group>"; };
 		4B8711701C6F54000027F0C9 /* CoordinatePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CoordinatePlayground.playground; sourceTree = "<group>"; };
+		4B8711731C6F5B260027F0C9 /* SandBox.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SandBox.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */,
+				4B8711731C6F5B260027F0C9 /* SandBox.playground */,
 				4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */,
 				4B8711341C6F3D4D0027F0C9 /* ViewController.swift */,
 				4B8711361C6F3D4D0027F0C9 /* Main.storyboard */,
@@ -218,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8711741C6F5BB90027F0C9 /* SandBox.playground in Resources */,
 				4B87113D1C6F3D4D0027F0C9 /* LaunchScreen.storyboard in Resources */,
 				4B87113A1C6F3D4D0027F0C9 /* Assets.xcassets in Resources */,
 				4B8711381C6F3D4D0027F0C9 /* Main.storyboard in Resources */,
@@ -446,6 +450,7 @@
 				4B87114E1C6F3D4D0027F0C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4B87114F1C6F3D4D0027F0C9 /* Build configuration list for PBXNativeTarget "ImageCoordinateSpaceTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +459,7 @@
 				4B8711511C6F3D4D0027F0C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
