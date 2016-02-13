@@ -169,9 +169,9 @@
 		4B8711311C6F3D4D0027F0C9 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */,
 				4B8711731C6F5B260027F0C9 /* Visual.playground */,
 				4B8711341C6F3D4D0027F0C9 /* ViewController.swift */,
+				4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */,
 				4B8711361C6F3D4D0027F0C9 /* Main.storyboard */,
 				4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */,
 				4B87113B1C6F3D4D0027F0C9 /* LaunchScreen.storyboard */,
