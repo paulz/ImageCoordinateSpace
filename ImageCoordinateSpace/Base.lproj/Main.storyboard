@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +17,34 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="rose" translatesAutoresizingMaskIntoConstraints="NO" id="Lqx-r5-KKy">
+                                <rect key="frame" x="30" y="30" width="540" height="560"/>
+                                <color key="backgroundColor" red="0.012666345573961735" green="0.98901385068893433" blue="0.43557441234588623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lqx-r5-KKy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="T4c-qk-lBz"/>
+                            <constraint firstItem="Lqx-r5-KKy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YoU-Js-GX5"/>
+                            <constraint firstItem="Lqx-r5-KKy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fAN-MN-svM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lqx-r5-KKy" secondAttribute="trailing" constant="10" id="hVg-Jt-LBy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Lqx-r5-KKy" secondAttribute="bottom" constant="10" id="uRW-dn-qhN"/>
+                            <constraint firstItem="Lqx-r5-KKy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="xmV-td-0lA"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YoU-Js-GX5"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="527" y="555"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rose" width="72" height="54"/>
+    </resources>
 </document>
