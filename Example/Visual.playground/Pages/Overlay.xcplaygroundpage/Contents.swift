@@ -12,12 +12,14 @@ containerView.bounds = CGRect(origin: CGPointZero, size: containerSize)
 let placement = CGRect(x: 321, y: 102, width: 63, height: 64)
 let overlayView = UIImageView(image: UIImage(named: "hello.png")!)
 containerView.addSubview(overlayView)
+overlayView.alpha = 0.8
 func updateContentMode(mode: UIViewContentMode) -> UIView {
     containerView.contentMode = mode
     let imageSpace = containerView.imageCoordinatedSpace()
     overlayView.frame = imageSpace.convertRect(placement, toCoordinateSpace: containerView)
     return containerView
 }
+updateContentMode(containerView.contentMode)
 updateContentMode(.ScaleToFill)
 updateContentMode(.ScaleAspectFit)
 updateContentMode(.ScaleAspectFill)
