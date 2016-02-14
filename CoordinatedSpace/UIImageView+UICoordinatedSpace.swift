@@ -89,8 +89,15 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         return CGPointZero
     }
 
-    public func convertRect(rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return CGRectZero
+    public func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
+        let imageBottomRight = CGPoint(x: CGRectGetMaxX(imageRect), y: CGRectGetMaxY(imageRect))
+
+        let viewTopLeft     = convertPoint(imageRect.origin, toCoordinateSpace: coordinateSpace)
+        let viewBottomRight = convertPoint(imageBottomRight, toCoordinateSpace: coordinateSpace)
+
+        let viewRectSize = CGSizeMake(abs(viewBottomRight.x - viewTopLeft.x), abs(viewBottomRight.y - viewTopLeft.y))
+        let viewRect = CGRect(origin: viewTopLeft, size: viewRectSize)
+        return viewRect;
     }
 
     public func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
