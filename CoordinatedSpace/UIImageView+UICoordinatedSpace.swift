@@ -8,6 +8,12 @@
 
 import UIKit
 
+public extension UIImageView {
+    func imageCoordinatedSpace() -> UICoordinateSpace {
+        return ImageViewSpace(view: self)
+    }
+}
+
 public class ImageViewSpace : NSObject, UICoordinateSpace {
     var imageView : UIImageView
 
@@ -19,6 +25,24 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
     public var bounds: CGRect {
         return imageView.image == nil ? imageView.bounds : CGRect(origin: CGPointZero, size: imageView.image!.size)
     }
+
+    public func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
+        return imageView.convertPoint(imageToViewPoint(point), toCoordinateSpace: coordinateSpace)
+    }
+
+    public func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
+        return viewToImagePoint(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace))
+    }
+
+    public func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
+        return imageView.convertRect(convertRect(imageRect, usingConvertPoint: imageToViewPoint), toCoordinateSpace: coordinateSpace)
+    }
+
+    public func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
+        return convertRect(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), usingConvertPoint:viewToImagePoint)
+    }
+
+    // MARK: private
 
     private func imageToViewTransform() -> CGAffineTransform {
         let viewSize  = imageView.bounds.size
@@ -84,47 +108,28 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         return transform
     }
 
-    private func imageToViewPoint(point: CGPoint) -> CGPoint {
-        return CGPointApplyAffineTransform(point, imageToViewTransform())
-    }
-
     private func viewToImageTransform() -> CGAffineTransform {
         return CGAffineTransformInvert(imageToViewTransform())
+    }
+
+    private func imageToViewPoint(point: CGPoint) -> CGPoint {
+        return CGPointApplyAffineTransform(point, imageToViewTransform())
     }
 
     private func viewToImagePoint(point: CGPoint) -> CGPoint {
         return CGPointApplyAffineTransform(point, viewToImageTransform())
     }
     
-    public func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return imageView.convertPoint(imageToViewPoint(point), toCoordinateSpace: coordinateSpace)
-    }
-
-    public func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return viewToImagePoint(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace))
-    }
-
     private func convertRect(rect:CGRect, usingConvertPoint:((CGPoint) -> CGPoint)) -> CGRect {
         let rectBottomRight = CGPoint(x: CGRectGetMaxX(rect), y: CGRectGetMaxY(rect))
 
         let convertedTopLeft     = usingConvertPoint(rect.origin)
         let convertedBottomRight = usingConvertPoint(rectBottomRight)
 
-        let convertedRectSize = CGSizeMake(abs(convertedBottomRight.x - convertedTopLeft.x), abs(convertedBottomRight.y - convertedTopLeft.y))
+        let convertedRectSize = CGSizeMake(
+            abs(convertedBottomRight.x - convertedTopLeft.x),
+            abs(convertedBottomRight.y - convertedTopLeft.y)
+        )
         return CGRect(origin: convertedTopLeft, size: convertedRectSize)
-    }
-
-    public func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return imageView.convertRect(convertRect(imageRect, usingConvertPoint: imageToViewPoint), toCoordinateSpace: coordinateSpace)
-    }
-
-    public func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return convertRect(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), usingConvertPoint:viewToImagePoint)
-    }
-}
-
-public extension UIImageView {
-    func imageCoordinatedSpace() -> UICoordinateSpace {
-        return ImageViewSpace(view: self)
     }
 }
