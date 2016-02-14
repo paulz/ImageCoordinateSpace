@@ -7,12 +7,12 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
         let imageView = UIImageView(image: image)
         let imageSpace = imageView.imageCoordinatedSpace()
 
+        let randomPoint = CGPoint(x: random(), y: random())
+        let randomSize = CGSize(width: random(), height: random())
+        let randomRect = CGRect(origin: randomPoint, size: randomSize)
+
         describe("view UICoordinateSpace") {
             context("same space") {
-                let randomPoint = CGPoint(x: random(), y: random())
-                let randomSize = CGSize(width: random(), height: random())
-                let randomRect = CGRect(origin: randomPoint, size: randomSize)
-
                 it("should not change") {
                     expect(imageView.convertPoint(randomPoint, fromCoordinateSpace: imageView)) == randomPoint
                     expect(imageView.convertPoint(randomPoint, toCoordinateSpace: imageView)) == randomPoint
@@ -40,11 +40,27 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
             }
 
             context("no image") {
+                let frame = CGRect(x: random(), y: random(), width: random(), height: random())
+                let withoutImage = UIImageView(frame: frame)
+                let spaceWithoutImage = withoutImage.imageCoordinatedSpace()
+
                 context("bounds") {
                     it("should equal view bounds") {
-                        let frame = CGRect(x: 5, y: 6, width: 7, height: 8)
-                        let withoutImage = UIImageView(frame: frame)
-                        expect(withoutImage.imageCoordinatedSpace().bounds) == withoutImage.bounds
+                        expect(spaceWithoutImage.bounds) == withoutImage.bounds
+                    }
+                }
+
+                context("convert") {
+                    it("should not convert") {
+                        expect(spaceWithoutImage.convertRect(randomRect, fromCoordinateSpace: spaceWithoutImage)) == randomRect
+                        expect(spaceWithoutImage.convertRect(randomRect, fromCoordinateSpace: withoutImage)) == randomRect
+                        expect(spaceWithoutImage.convertRect(randomRect, toCoordinateSpace: spaceWithoutImage)) == randomRect
+                        expect(spaceWithoutImage.convertRect(randomRect, toCoordinateSpace: withoutImage)) == randomRect
+
+                        expect(spaceWithoutImage.convertPoint(randomPoint, fromCoordinateSpace: spaceWithoutImage)) == randomPoint
+                        expect(spaceWithoutImage.convertPoint(randomPoint, fromCoordinateSpace: withoutImage)) == randomPoint
+                        expect(spaceWithoutImage.convertPoint(randomPoint, toCoordinateSpace: spaceWithoutImage)) == randomPoint
+                        expect(spaceWithoutImage.convertPoint(randomPoint, toCoordinateSpace: withoutImage)) == randomPoint
                     }
                 }
             }

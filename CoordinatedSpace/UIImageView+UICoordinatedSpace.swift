@@ -21,8 +21,8 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
     }
 
     private func imageToViewTransform() -> CGAffineTransform {
-        let imageSize = imageView.image!.size
         let viewSize  = imageView.bounds.size
+        let imageSize = imageView.image == nil ? viewSize : imageView.image!.size
         let widthRatio = viewSize.width / imageSize.width
         let heightRatio = viewSize.height / imageSize.height
         let mode = imageView.contentMode
