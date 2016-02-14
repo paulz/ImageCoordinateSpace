@@ -35,11 +35,11 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
     }
 
     public func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return imageView.convertRect(convertRect(imageRect, usingConvertPoint: imageToViewPoint), toCoordinateSpace: coordinateSpace)
+        return imageView.convertRect(convertRect(imageRect, using: imageToViewPoint), toCoordinateSpace: coordinateSpace)
     }
 
     public func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return convertRect(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), usingConvertPoint:viewToImagePoint)
+        return convertRect(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), using: viewToImagePoint)
     }
 
     // MARK: private
@@ -120,11 +120,11 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         return CGPointApplyAffineTransform(point, viewToImageTransform())
     }
     
-    private func convertRect(rect:CGRect, usingConvertPoint:((CGPoint) -> CGPoint)) -> CGRect {
+    private func convertRect(rect:CGRect, using convertPoint:((CGPoint) -> CGPoint)) -> CGRect {
         let rectBottomRight = CGPoint(x: CGRectGetMaxX(rect), y: CGRectGetMaxY(rect))
 
-        let convertedTopLeft     = usingConvertPoint(rect.origin)
-        let convertedBottomRight = usingConvertPoint(rectBottomRight)
+        let convertedTopLeft     = convertPoint(rect.origin)
+        let convertedBottomRight = convertPoint(rectBottomRight)
 
         let convertedRectSize = CGSizeMake(
             abs(convertedBottomRight.x - convertedTopLeft.x),
