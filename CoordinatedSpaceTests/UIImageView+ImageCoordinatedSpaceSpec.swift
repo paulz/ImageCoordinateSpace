@@ -1,11 +1,11 @@
 import Quick
 import Nimble
 
-class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
+class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
     override func spec() {
         let image = UIImage(named: "rose")!
         let imageView = UIImageView(image: image)
-        let imageSpace = imageView.imageCoordinatedSpace()
+        let imageSpace = imageView.imageCoordinateSpace()
 
         let randomPoint = CGPoint(x: random(), y: random())
         let randomSize = CGSize(width: random(), height: random())
@@ -22,7 +22,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
             }
         }
 
-        describe("imageCoordinatedSpace") {
+        describe("imageCoordinateSpace") {
             context("zero") {
                 it("should return zero") {
                     expect(imageSpace.convertPoint(CGPointZero, fromCoordinateSpace: imageView)) == CGPointZero
@@ -42,7 +42,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
             context("no image") {
                 let frame = CGRect(x: random(), y: random(), width: random(), height: random())
                 let withoutImage = UIImageView(frame: frame)
-                let spaceWithoutImage = withoutImage.imageCoordinatedSpace()
+                let spaceWithoutImage = withoutImage.imageCoordinateSpace()
 
                 context("bounds") {
                     it("should equal view bounds") {

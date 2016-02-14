@@ -9,7 +9,7 @@ let square = CGSize(width: 200, height: 200)
 imageView.bounds = CGRect(origin: CGPointZero, size: square)
 imageView.backgroundColor = UIColor.greenColor()
 imageView.contentMode = .Center
-let imageSpace = imageView.imageCoordinatedSpace()
+let imageSpace = imageView.imageCoordinateSpace()
 let topLeft = imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)
 image.size
 let bottomRight = CGPoint(x: image.size.width, y: image.size.height)

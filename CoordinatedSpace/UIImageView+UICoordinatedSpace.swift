@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIImageView {
-    func imageCoordinatedSpace() -> UICoordinateSpace {
+    func imageCoordinateSpace() -> UICoordinateSpace {
         return ImageViewSpace(view: self)
     }
 }

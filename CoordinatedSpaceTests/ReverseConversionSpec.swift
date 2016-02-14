@@ -26,16 +26,16 @@ class ReverseConversionSpec: QuickSpec {
             }
 
             func expectViewPointMatchImagePoint(file: String = __FILE__, line: UInt = __LINE__) {
-                expect(imageView.imageCoordinatedSpace().convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
+                expect(imageView.imageCoordinateSpace().convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
             }
 
             context("point") {
                 it("should revert to original point") {
                     imageView.contentMode = .ScaleAspectFit
-                    let viewPoint = imageView.imageCoordinatedSpace().convertPoint(imagePoint, toCoordinateSpace: imageView)
+                    let viewPoint = imageView.imageCoordinateSpace().convertPoint(imagePoint, toCoordinateSpace: imageView)
                     print(viewPoint)
                     expect(viewPoint) != imagePoint
-                    let point = imageView.imageCoordinatedSpace().convertPoint(viewPoint, fromCoordinateSpace: imageView)
+                    let point = imageView.imageCoordinateSpace().convertPoint(viewPoint, fromCoordinateSpace: imageView)
                     expect(point) == imagePoint
                 }
 
@@ -43,8 +43,8 @@ class ReverseConversionSpec: QuickSpec {
                     it("should also revert") {
                         for var mode = UIViewContentMode.ScaleToFill.rawValue; mode <= UIViewContentMode.BottomRight.rawValue; mode++ {
                             imageView.contentMode = UIViewContentMode(rawValue: mode)!
-                            let viewPoint = imageView.imageCoordinatedSpace().convertPoint(imagePoint, toCoordinateSpace: imageView)
-                            let point = imageView.imageCoordinatedSpace().convertPoint(viewPoint, fromCoordinateSpace: imageView)
+                            let viewPoint = imageView.imageCoordinateSpace().convertPoint(imagePoint, toCoordinateSpace: imageView)
+                            let point = imageView.imageCoordinateSpace().convertPoint(viewPoint, fromCoordinateSpace: imageView)
                             expect(point) == imagePoint
                         }
                     }
@@ -77,8 +77,8 @@ class ReverseConversionSpec: QuickSpec {
                 for var mode = UIViewContentMode.ScaleToFill.rawValue; mode <= UIViewContentMode.BottomRight.rawValue; mode++ {
                     it("in mode \(mode) should reverse to original") {
                         imageView.contentMode = UIViewContentMode(rawValue: mode)!
-                        let viewRect = imageView.imageCoordinatedSpace().convertRect(randomRect, toCoordinateSpace: imageView)
-                        let imageRect = imageView.imageCoordinatedSpace().convertRect(viewRect, fromCoordinateSpace: imageView)
+                        let viewRect = imageView.imageCoordinateSpace().convertRect(randomRect, toCoordinateSpace: imageView)
+                        let imageRect = imageView.imageCoordinateSpace().convertRect(viewRect, fromCoordinateSpace: imageView)
                         expect(imageRect).to(beVeryCloseTo(randomRect))
                     }
                 }

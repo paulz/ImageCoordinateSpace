@@ -5,7 +5,7 @@ import CoordinatedSpace
 //: Center
 let backgroundImage = [#Image(imageLiteral: "inspiration.jpg")#]
 let containerView = UIImageView(image: backgroundImage)
-let imageSpace = containerView.imageCoordinatedSpace()
+let imageSpace = containerView.imageCoordinateSpace()
 let containerSize = CGSize(width: 200, height: 200)
 containerView.contentMode = .Center
 containerView.bounds = CGRect(origin: CGPointZero, size: containerSize)
