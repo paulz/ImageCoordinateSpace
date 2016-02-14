@@ -11,8 +11,8 @@ import UIKit
 public class ImageViewSpace : NSObject, UICoordinateSpace {
     var imageView : UIImageView
 
-    init(view v: UIImageView) {
-        imageView = v
+    init(view: UIImageView) {
+        imageView = view
         super.init()
     }
 
@@ -101,31 +101,25 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
     }
 
     public func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        let viewPoint = imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace)
-        return viewToImagePoint(viewPoint)
+        return viewToImagePoint(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace))
+    }
+
+    private func convertRect(rect:CGRect, usingConvertPoint:((CGPoint) -> CGPoint)) -> CGRect {
+        let rectBottomRight = CGPoint(x: CGRectGetMaxX(rect), y: CGRectGetMaxY(rect))
+
+        let convertedTopLeft     = usingConvertPoint(rect.origin)
+        let convertedBottomRight = usingConvertPoint(rectBottomRight)
+
+        let convertedRectSize = CGSizeMake(abs(convertedBottomRight.x - convertedTopLeft.x), abs(convertedBottomRight.y - convertedTopLeft.y))
+        return CGRect(origin: convertedTopLeft, size: convertedRectSize)
     }
 
     public func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        let imageBottomRight = CGPoint(x: CGRectGetMaxX(imageRect), y: CGRectGetMaxY(imageRect))
-
-        let viewTopLeft     = imageToViewPoint(imageRect.origin)
-        let viewBottomRight = imageToViewPoint(imageBottomRight)
-
-        let viewRectSize = CGSizeMake(abs(viewBottomRight.x - viewTopLeft.x), abs(viewBottomRight.y - viewTopLeft.y))
-        let viewRect = CGRect(origin: viewTopLeft, size: viewRectSize)
-        return imageView.convertRect(viewRect, toCoordinateSpace: coordinateSpace)
+        return imageView.convertRect(convertRect(imageRect, usingConvertPoint: imageToViewPoint), toCoordinateSpace: coordinateSpace)
     }
 
     public func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        let viewRect = imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace)
-        let viewBottomRight = CGPoint(x: CGRectGetMaxX(viewRect), y: CGRectGetMaxY(viewRect))
-
-        let imageTopLeft     = viewToImagePoint(viewRect.origin)
-        let imageBottomRight = viewToImagePoint(viewBottomRight)
-
-        let imageRectSize = CGSizeMake(abs(imageBottomRight.x - imageTopLeft.x), abs(imageBottomRight.y - imageTopLeft.y))
-        let imageRect = CGRect(origin: imageTopLeft, size: imageRectSize)
-        return imageRect
+        return convertRect(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), usingConvertPoint:viewToImagePoint)
     }
 }
 
