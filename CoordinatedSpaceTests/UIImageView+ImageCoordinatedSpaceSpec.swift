@@ -39,6 +39,16 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
                 }
             }
 
+            context("no image") {
+                context("bounds") {
+                    it("should equal view bounds") {
+                        let frame = CGRect(x: 5, y: 6, width: 7, height: 8)
+                        let withoutImage = UIImageView(frame: frame)
+                        expect(withoutImage.imageCoordinatedSpace().bounds) == withoutImage.bounds
+                    }
+                }
+            }
+
             var imageSize : CGSize!
             var viewSize  : CGSize!
             var widthRatio : CGFloat!

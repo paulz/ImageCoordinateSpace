@@ -17,7 +17,7 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
     }
 
     public var bounds: CGRect {
-        return CGRect(origin: CGPointZero, size: imageView.image!.size)
+        return imageView.image == nil ? imageView.bounds : CGRect(origin: CGPointZero, size: imageView.image!.size)
     }
 
     private func imageToViewTransform() -> CGAffineTransform {
