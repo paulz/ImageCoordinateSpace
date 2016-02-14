@@ -7,5 +7,6 @@
         <page name='Scale To Fill'/>
         <page name='Center'/>
         <page name='Right'/>
+        <page name='Overlay'/>
     </pages>
 </playground>
