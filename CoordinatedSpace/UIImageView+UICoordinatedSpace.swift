@@ -102,7 +102,7 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
 
     public func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
         let viewPoint = imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace)
-        return CGPointApplyAffineTransform(viewPoint, viewToImageTransform())
+        return viewToImagePoint(viewPoint)
     }
 
     public func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
