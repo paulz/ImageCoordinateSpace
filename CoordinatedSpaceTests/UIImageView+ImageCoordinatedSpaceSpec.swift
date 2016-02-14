@@ -5,6 +5,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
     override func spec() {
         let image = UIImage(named: "rose")!
         let imageView = UIImageView(image: image)
+        let imageSpace = imageView.imageCoordinatedSpace()
 
         describe("view UICoordinateSpace") {
             context("same space") {
@@ -22,13 +23,19 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
         }
 
         describe("imageCoordinatedSpace") {
-            context("same space") {
-                it("should not change") {
-                    let imageSpace = imageView.imageCoordinatedSpace()
+            context("zero") {
+                it("should return zero") {
                     expect(imageSpace.convertPoint(CGPointZero, fromCoordinateSpace: imageView)) == CGPointZero
                     expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == CGPointZero
                     expect(imageSpace.convertRect(CGRectZero, fromCoordinateSpace: imageView)) == CGRectZero
                     expect(imageSpace.convertRect(CGRectZero, toCoordinateSpace: imageView)) == CGRectZero
+                }
+            }
+
+            context("bounds") {
+                it("should be size of image") {
+                    expect(imageSpace.bounds.size) == image.size
+                    expect(imageSpace.bounds.origin) == CGPointZero
                 }
             }
 
@@ -51,7 +58,7 @@ class UIImageView_ImageCoordinatedSpaceSpec: QuickSpec {
             }
 
             func expectViewPointMatchImagePoint(file: String = __FILE__, line: UInt = __LINE__) {
-                expect(imageView.imageCoordinatedSpace().convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
+                expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
             }
 
             context("top left") {

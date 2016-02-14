@@ -50,7 +50,7 @@ class ReverseConversionSpec: QuickSpec {
                     }
                 }
             }
-            
+
             context("any rect") {
                 var randomRect : CGRect!
 
