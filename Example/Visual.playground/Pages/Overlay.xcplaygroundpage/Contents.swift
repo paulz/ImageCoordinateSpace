@@ -5,6 +5,7 @@ import CoordinatedSpace
 //: Center
 let backgroundImage = UIImage(named: "inspiration.jpg")!
 let containerView = UIImageView(image: backgroundImage)
+let imageSpace = containerView.imageCoordinatedSpace()
 let containerSize = CGSize(width: 200, height: 200)
 containerView.contentMode = .Center
 containerView.bounds = CGRect(origin: CGPointZero, size: containerSize)
@@ -15,11 +16,13 @@ containerView.addSubview(overlayView)
 overlayView.alpha = 0.8
 func updateContentMode(mode: UIViewContentMode) -> UIView {
     containerView.contentMode = mode
-    let imageSpace = containerView.imageCoordinatedSpace()
     overlayView.frame = imageSpace.convertRect(placement, toCoordinateSpace: containerView)
     return containerView
 }
 updateContentMode(containerView.contentMode)
+overlayView.frame
+imageSpace.convertPoint(overlayView.frame.origin, fromCoordinateSpace: containerView)
+imageSpace.convertRect(overlayView.frame, fromCoordinateSpace: containerView)
 updateContentMode(.ScaleToFill)
 updateContentMode(.ScaleAspectFit)
 updateContentMode(.ScaleAspectFill)
