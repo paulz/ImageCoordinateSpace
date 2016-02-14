@@ -3,15 +3,17 @@
 import UIKit
 import CoordinatedSpace
 //: Center
-let backgroundImage = UIImage(named: "inspiration.jpg")!
+let backgroundImage = [#Image(imageLiteral: "inspiration.jpg")#]
 let containerView = UIImageView(image: backgroundImage)
 let imageSpace = containerView.imageCoordinatedSpace()
 let containerSize = CGSize(width: 200, height: 200)
 containerView.contentMode = .Center
 containerView.bounds = CGRect(origin: CGPointZero, size: containerSize)
-// x="321" y="102" width="63" height="64"
+let svgUrl = NSBundle.mainBundle().URLForResource("overlayed", withExtension: "svg")!
+let svgString = try! String(contentsOfURL: svgUrl)
+assert(svgString.containsString("x=\"321\" y=\"102\" width=\"63\" height=\"64\""))
 let placement = CGRect(x: 321, y: 102, width: 63, height: 64)
-let overlayView = UIImageView(image: UIImage(named: "hello.png")!)
+let overlayView = UIImageView(image:[#Image(imageLiteral: "hello.png")#])
 containerView.addSubview(overlayView)
 overlayView.alpha = 0.8
 func updateContentMode(mode: UIViewContentMode) -> UIView {
@@ -21,8 +23,8 @@ func updateContentMode(mode: UIViewContentMode) -> UIView {
 }
 updateContentMode(containerView.contentMode)
 overlayView.frame
-imageSpace.convertPoint(overlayView.frame.origin, fromCoordinateSpace: containerView)
-imageSpace.convertRect(overlayView.frame, fromCoordinateSpace: containerView)
+assert(imageSpace.convertPoint(overlayView.frame.origin, fromCoordinateSpace: containerView) == placement.origin)
+assert(imageSpace.convertRect(overlayView.frame, fromCoordinateSpace: containerView) == placement)
 updateContentMode(.ScaleToFill)
 updateContentMode(.ScaleAspectFit)
 updateContentMode(.ScaleAspectFill)
