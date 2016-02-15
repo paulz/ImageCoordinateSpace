@@ -14,12 +14,12 @@ enum Factor : CGFloat {
     case full = 1
 }
 
-func translateWithFactors(tx:CGFloat, _ ty:CGFloat, _ xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
+func translateWithFactors(tx tx:CGFloat, ty:CGFloat, xFactor:Factor, yFactor:Factor) -> CGAffineTransform {
     return CGAffineTransformMakeTranslation(tx * xFactor.rawValue, ty * yFactor.rawValue)
 }
 
-func halfTranslate(tx:CGFloat, _ ty:CGFloat) -> CGAffineTransform {
-    return translateWithFactors(tx, ty, .half, .half)
+func halfTranslate(tx tx:CGFloat, ty:CGFloat) -> CGAffineTransform {
+    return translateWithFactors(tx:tx, ty:ty, xFactor:.half, yFactor:.half)
 }
 
 
@@ -59,14 +59,14 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
         let widthRatio = viewSize.width / imageSize.width
         let heightRatio = viewSize.height / imageSize.height
         let mode = imageView.contentMode
-        let transform : CGAffineTransform!
+        let transform : CGAffineTransform
 
         func translate(xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
             return translateWithFactors(
-                viewSize.width - imageSize.width,
-                viewSize.height - imageSize.height,
-                xFactor,
-                yFactor
+                tx: viewSize.width - imageSize.width,
+                ty: viewSize.height - imageSize.height,
+                xFactor: xFactor,
+                yFactor: yFactor
             )
         }
 
@@ -74,8 +74,8 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
         case .ScaleAspectFit, .ScaleAspectFill:
             let scale = mode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
             transform = CGAffineTransformScale(halfTranslate(
-                viewSize.width  - imageSize.width  * scale,
-                viewSize.height  - imageSize.height  * scale
+                tx: viewSize.width  - imageSize.width  * scale,
+                ty: viewSize.height  - imageSize.height  * scale
                 ), scale, scale)
         case .ScaleToFill, .Redraw:
             transform = CGAffineTransformMakeScale(widthRatio, heightRatio)
