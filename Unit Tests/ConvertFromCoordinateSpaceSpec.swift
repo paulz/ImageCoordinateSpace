@@ -38,7 +38,8 @@ class ReverseConversionSpec: QuickSpec {
 
                 context("all modes") {
                     it("should also revert") {
-                        for var mode = UIViewContentMode.ScaleToFill.rawValue; mode <= UIViewContentMode.BottomRight.rawValue; mode++ {
+                        let allModes = UIViewContentMode.ScaleToFill.rawValue.stride(to: UIViewContentMode.BottomRight.rawValue, by: 1)
+                        for mode in allModes {
                             imageView.contentMode = UIViewContentMode(rawValue: mode)!
                             let viewPoint = imageView.imageCoordinateSpace().convertPoint(imagePoint, toCoordinateSpace: imageView)
                             let point = imageView.imageCoordinateSpace().convertPoint(viewPoint, fromCoordinateSpace: imageView)
