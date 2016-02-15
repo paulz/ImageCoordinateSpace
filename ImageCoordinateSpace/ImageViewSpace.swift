@@ -56,11 +56,6 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
     private func imageToViewTransform() -> CGAffineTransform {
         let viewSize  = imageView.bounds.size
         let imageSize = imageView.image == nil ? viewSize : imageView.image!.size
-        let widthRatio = viewSize.width / imageSize.width
-        let heightRatio = viewSize.height / imageSize.height
-        let mode = imageView.contentMode
-        let transform : CGAffineTransform
-
         func translate(xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
             return translateWithFactors(
                 tx: viewSize.width - imageSize.width,
@@ -70,9 +65,14 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
             )
         }
 
-        switch mode {
+        let widthRatio = viewSize.width / imageSize.width
+        let heightRatio = viewSize.height / imageSize.height
+        let transform : CGAffineTransform
+
+        let contentMode = imageView.contentMode
+        switch contentMode {
         case .ScaleAspectFit, .ScaleAspectFill:
-            let scale = mode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
+            let scale = contentMode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
             transform = CGAffineTransformScale(halfTranslate(
                 tx: viewSize.width  - imageSize.width  * scale,
                 ty: viewSize.height  - imageSize.height  * scale
