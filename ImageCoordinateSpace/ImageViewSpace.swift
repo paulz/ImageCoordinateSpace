@@ -56,6 +56,7 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
     private func imageToViewTransform() -> CGAffineTransform {
         let viewSize  = imageView.bounds.size
         let imageSize = imageView.image == nil ? viewSize : imageView.image!.size
+        
         func translate(xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
             return translateWithFactors(
                 tx: viewSize.width - imageSize.width,
@@ -67,38 +68,36 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
 
         let widthRatio = viewSize.width / imageSize.width
         let heightRatio = viewSize.height / imageSize.height
-        let transform : CGAffineTransform
 
         let contentMode = imageView.contentMode
         switch contentMode {
         case .ScaleAspectFit, .ScaleAspectFill:
             let scale = contentMode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
-            transform = CGAffineTransformScale(halfTranslate(
+            return CGAffineTransformScale(halfTranslate(
                 tx: viewSize.width  - imageSize.width  * scale,
                 ty: viewSize.height  - imageSize.height  * scale
                 ), scale, scale)
         case .ScaleToFill, .Redraw:
-            transform = CGAffineTransformMakeScale(widthRatio, heightRatio)
+            return CGAffineTransformMakeScale(widthRatio, heightRatio)
         case .Center:
-            transform = translate(.half, .half)
+            return translate(.half, .half)
         case .Left:
-            transform = translate(.none, .half)
+            return translate(.none, .half)
         case .Right:
-            transform = translate(.full, .half)
+            return translate(.full, .half)
         case .TopRight:
-            transform = translate(.full, .none)
+            return translate(.full, .none)
         case .Bottom:
-            transform = translate(.half, .full)
+            return translate(.half, .full)
         case .BottomLeft:
-            transform = translate(.none, .full)
+            return translate(.none, .full)
         case .BottomRight:
-            transform = translate(.full, .full)
+            return translate(.full, .full)
         case .Top:
-            transform = translate(.half, .none)
+            return translate(.half, .none)
         case .TopLeft:
-            transform = CGAffineTransformIdentity
+            return CGAffineTransformIdentity
         }
-        return transform
     }
 
     private func viewToImageTransform() -> CGAffineTransform {
