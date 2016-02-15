@@ -26,7 +26,7 @@ func halfTranslate(tx tx:CGFloat, ty:CGFloat) -> CGAffineTransform {
 class ImageViewSpace : NSObject, UICoordinateSpace {
     var imageView : UIImageView
 
-    init(view: UIImageView) {
+    init(_ view: UIImageView) {
         imageView = view
         super.init()
     }
@@ -39,12 +39,12 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
         return imageView.convertPoint(CGPointApplyAffineTransform(point, imageToViewTransform()), toCoordinateSpace: coordinateSpace)
     }
 
-    func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return CGPointApplyAffineTransform(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace), viewToImageTransform())
+    func convertRect(rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
+        return imageView.convertRect(CGRectApplyAffineTransform(rect, imageToViewTransform()), toCoordinateSpace: coordinateSpace)
     }
 
-    func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return imageView.convertRect(CGRectApplyAffineTransform(imageRect, imageToViewTransform()), toCoordinateSpace: coordinateSpace)
+    func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
+        return CGPointApplyAffineTransform(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace), viewToImageTransform())
     }
 
     func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
