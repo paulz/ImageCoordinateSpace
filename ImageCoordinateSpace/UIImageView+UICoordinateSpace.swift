@@ -34,6 +34,9 @@ public extension UIImageView {
      ```
      let imageRect = imageSpace.convertRect(viewRect, fromCoordinateSpace: imageView)
      ```
+     
+     - Note: image coordinate space depends on view bounds, image size and view content mode, so you need to
+     obtain current imageCoordinateSpace if any of those properties change
 
      - Returns: image UICoordinateSpace
      - Note: when content mode is .Redraw image coordinate space assumes whole image is fully drawn in view bounds
