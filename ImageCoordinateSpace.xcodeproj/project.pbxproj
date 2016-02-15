@@ -106,6 +106,8 @@
 		4BE2CB281C718CE3008BB9E0 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		4BE2CB2D1C7191B9008BB9E0 /* ImageViewSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewSpace.swift; sourceTree = "<group>"; };
+		4BE2CB2F1C71953C008BB9E0 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		4BE2CB301C71953C008BB9E0 /* .xctool-args */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xctool-args"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,8 @@
 				4BE2CB281C718CE3008BB9E0 /* Cartfile.private */,
 				4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */,
 				4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */,
+				4BE2CB2F1C71953C008BB9E0 /* .travis.yml */,
+				4BE2CB301C71953C008BB9E0 /* .xctool-args */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
