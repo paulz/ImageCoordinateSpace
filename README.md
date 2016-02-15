@@ -62,7 +62,7 @@ carthage bootstrap
 Run tests:
 
 ```sh
-xctool tests
+xctool test
 ```
 
 ## Author
