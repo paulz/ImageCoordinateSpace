@@ -24,15 +24,19 @@ func halfTranslate(tx tx:CGFloat, ty:CGFloat) -> CGAffineTransform {
 
 
 class ImageCoordinateSpace : NSObject, UICoordinateSpace {
-    var imageView : UIImageView
+    var imageView : UICoordinateSpace
+    var imageSize : CGSize?
+    var contentMode : UIViewContentMode
 
     init(_ view: UIImageView) {
         imageView = view
+        imageSize = view.image?.size
+        contentMode = view.contentMode
         super.init()
     }
 
     var bounds: CGRect {
-        return imageView.image == nil ? imageView.bounds : CGRect(origin: CGPointZero, size: imageView.image!.size)
+        return imageSize == nil ? imageView.bounds : CGRect(origin: CGPointZero, size: imageSize!)
     }
 
     func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
@@ -55,8 +59,8 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
 
     private lazy var imageToViewTransform : CGAffineTransform = {
         let viewSize  = self.imageView.bounds.size
-        let imageSize = self.imageView.image == nil ? viewSize : self.imageView.image!.size
-        
+        let imageSize = self.imageSize == nil ? viewSize : self.imageSize!
+
         func translate(xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
             return translateWithFactors(
                 tx: viewSize.width - imageSize.width,
@@ -69,10 +73,9 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
         let widthRatio = viewSize.width / imageSize.width
         let heightRatio = viewSize.height / imageSize.height
 
-        let contentMode = self.imageView.contentMode
-        switch contentMode {
+        switch self.contentMode {
         case .ScaleAspectFit, .ScaleAspectFill:
-            let scale = contentMode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
+            let scale = self.contentMode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
             return CGAffineTransformScale(halfTranslate(
                 tx: viewSize.width  - imageSize.width  * scale,
                 ty: viewSize.height  - imageSize.height  * scale

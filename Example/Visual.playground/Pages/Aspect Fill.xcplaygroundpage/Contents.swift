@@ -17,7 +17,7 @@ let lowerRight = imageSpace.convertPoint(bottomRight, toCoordinateSpace: imageVi
 let bottomMargin = imageView.bounds.width - lowerRight.x
 let topMargin  = topLeft.x
 //: negative margins should be the same
-topMargin == bottomMargin
+assert(topMargin == bottomMargin)
 
 
 //: [Next](@next)
