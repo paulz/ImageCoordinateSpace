@@ -29,7 +29,7 @@
 		4BE2CB271C71885C008BB9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */; };
 		4BE2CB2A1C718CE3008BB9E0 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CB281C718CE3008BB9E0 /* Cartfile.private */; };
 		4BE2CB2B1C718CE3008BB9E0 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */; };
-		4BE2CB2E1C7191B9008BB9E0 /* ImageViewSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2CB2D1C7191B9008BB9E0 /* ImageViewSpace.swift */; };
+		4BE2CB2E1C7191B9008BB9E0 /* ImageCoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2CB2D1C7191B9008BB9E0 /* ImageCoordinateSpace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +105,7 @@
 		4B8711731C6F5B260027F0C9 /* Visual.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Visual.playground; path = Example/Visual.playground; sourceTree = "<group>"; };
 		4BE2CB281C718CE3008BB9E0 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
-		4BE2CB2D1C7191B9008BB9E0 /* ImageViewSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewSpace.swift; sourceTree = "<group>"; };
+		4BE2CB2D1C7191B9008BB9E0 /* ImageCoordinateSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCoordinateSpace.swift; sourceTree = "<group>"; };
 		4BE2CB2F1C71953C008BB9E0 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		4BE2CB301C71953C008BB9E0 /* .xctool-args */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".xctool-args"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinateSpace.swift */,
-				4BE2CB2D1C7191B9008BB9E0 /* ImageViewSpace.swift */,
+				4BE2CB2D1C7191B9008BB9E0 /* ImageCoordinateSpace.swift */,
 				4B017D821C6F6A02003ECCE7 /* ImageCoordinateSpace.h */,
 				4B017D841C6F6A02003ECCE7 /* Info.plist */,
 			);
@@ -368,7 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B017DA41C6F6BDB003ECCE7 /* UIImageView+UICoordinateSpace.swift in Sources */,
-				4BE2CB2E1C7191B9008BB9E0 /* ImageViewSpace.swift in Sources */,
+				4BE2CB2E1C7191B9008BB9E0 /* ImageCoordinateSpace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

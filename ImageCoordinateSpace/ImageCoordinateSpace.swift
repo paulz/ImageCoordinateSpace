@@ -1,5 +1,5 @@
 //
-//  ImageViewSpace.swift
+//  ImageCoordinateSpace.swift
 //  ImageCoordinateSpace
 //
 //  Created by Paul Zabelin on 2/14/16.
@@ -23,7 +23,7 @@ func halfTranslate(tx tx:CGFloat, ty:CGFloat) -> CGAffineTransform {
 }
 
 
-class ImageViewSpace : NSObject, UICoordinateSpace {
+class ImageCoordinateSpace : NSObject, UICoordinateSpace {
     var imageView : UIImageView
 
     init(_ view: UIImageView) {

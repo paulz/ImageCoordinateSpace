@@ -40,6 +40,6 @@ public extension UIImageView {
      and behaves as for content mode .ScaleToFill
      */
     func imageCoordinateSpace() -> UICoordinateSpace {
-        return ImageViewSpace(self)
+        return ImageCoordinateSpace(self)
     }
 }
