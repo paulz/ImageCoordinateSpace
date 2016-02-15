@@ -36,26 +36,26 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
     }
 
     func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return imageView.convertPoint(CGPointApplyAffineTransform(point, imageToViewTransform()), toCoordinateSpace: coordinateSpace)
+        return imageView.convertPoint(CGPointApplyAffineTransform(point, imageToViewTransform), toCoordinateSpace: coordinateSpace)
     }
 
     func convertRect(rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return imageView.convertRect(CGRectApplyAffineTransform(rect, imageToViewTransform()), toCoordinateSpace: coordinateSpace)
+        return imageView.convertRect(CGRectApplyAffineTransform(rect, imageToViewTransform), toCoordinateSpace: coordinateSpace)
     }
 
     func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return CGPointApplyAffineTransform(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace), viewToImageTransform())
+        return CGPointApplyAffineTransform(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace), viewToImageTransform)
     }
 
     func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return CGRectApplyAffineTransform(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), viewToImageTransform())
+        return CGRectApplyAffineTransform(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), viewToImageTransform)
     }
 
     // MARK: private
 
-    private func imageToViewTransform() -> CGAffineTransform {
-        let viewSize  = imageView.bounds.size
-        let imageSize = imageView.image == nil ? viewSize : imageView.image!.size
+    private lazy var imageToViewTransform : CGAffineTransform = {
+        let viewSize  = self.imageView.bounds.size
+        let imageSize = self.imageView.image == nil ? viewSize : self.imageView.image!.size
         
         func translate(xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
             return translateWithFactors(
@@ -69,7 +69,7 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
         let widthRatio = viewSize.width / imageSize.width
         let heightRatio = viewSize.height / imageSize.height
 
-        let contentMode = imageView.contentMode
+        let contentMode = self.imageView.contentMode
         switch contentMode {
         case .ScaleAspectFit, .ScaleAspectFill:
             let scale = contentMode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
@@ -98,10 +98,10 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
         case .TopLeft:
             return CGAffineTransformIdentity
         }
-    }
+    }()
 
-    private func viewToImageTransform() -> CGAffineTransform {
-        return CGAffineTransformInvert(imageToViewTransform())
-    }
+    private lazy var viewToImageTransform : CGAffineTransform = {
+        return CGAffineTransformInvert(self.imageToViewTransform)
+    }()
 }
 
