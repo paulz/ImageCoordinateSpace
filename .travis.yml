@@ -7,5 +7,5 @@ cache:
   bundler: true
   directories:
     - Carthage/Build/iOS
-before_install:
+install:
   - ls -la Carthage/Build/iOS/?*.framework || carthage bootstrap --platform iOS

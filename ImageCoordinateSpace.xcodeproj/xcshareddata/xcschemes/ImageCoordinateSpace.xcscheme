@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B017D7F1C6F6A02003ECCE7"
-               BuildableName = "CoordinatedSpace.framework"
-               BlueprintName = "CoordinatedSpace"
+               BuildableName = "ImageCoordinateSpace.framework"
+               BlueprintName = "ImageCoordinateSpace"
                ReferencedContainer = "container:ImageCoordinateSpace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B017D881C6F6A02003ECCE7"
-               BuildableName = "CoordinatedSpaceTests.xctest"
-               BlueprintName = "CoordinatedSpaceTests"
+               BuildableName = "Unit Tests.xctest"
+               BlueprintName = "Unit Tests"
                ReferencedContainer = "container:ImageCoordinateSpace.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,8 +44,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B017D7F1C6F6A02003ECCE7"
-            BuildableName = "CoordinatedSpace.framework"
-            BlueprintName = "CoordinatedSpace"
+            BuildableName = "ImageCoordinateSpace.framework"
+            BlueprintName = "ImageCoordinateSpace"
             ReferencedContainer = "container:ImageCoordinateSpace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B017D7F1C6F6A02003ECCE7"
-            BuildableName = "CoordinatedSpace.framework"
-            BlueprintName = "CoordinatedSpace"
+            BuildableName = "ImageCoordinateSpace.framework"
+            BlueprintName = "ImageCoordinateSpace"
             ReferencedContainer = "container:ImageCoordinateSpace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,8 +84,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B017D7F1C6F6A02003ECCE7"
-            BuildableName = "CoordinatedSpace.framework"
-            BlueprintName = "CoordinatedSpace"
+            BuildableName = "ImageCoordinateSpace.framework"
+            BlueprintName = "ImageCoordinateSpace"
             ReferencedContainer = "container:ImageCoordinateSpace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 
-//: Coordinated Space between views
+//: The UICoordinateSpace protocol defines methods for converting between different frames of reference on a screen.
 
 import UIKit
 let screen = UIScreen.mainScreen()

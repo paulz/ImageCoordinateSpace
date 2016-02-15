@@ -1,5 +1,5 @@
 //
-//  UIImageView+UICoordinatedSpace.swift
+//  UIImageView+UICoordinateSpace.swift
 //  ImageCoordinateSpace
 //
 //  Created by Paul Zabelin on 2/13/16.
