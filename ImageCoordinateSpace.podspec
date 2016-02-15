@@ -11,16 +11,11 @@ Convert CGPoint and CGRect between UIImage and UIImageView coordinates respectin
   s.author           = { "Paul Zabelin" => "https://github.com/paulz" }
   s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/ImageCoordinateSpace.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/iospaulz'
-
   s.platform     = :ios, '8.0'
   s.requires_arc = true
-
-  s.source_files = 'Pod/Classes/**/*'
+  s.source_files = 'ImageCoordinateSpace/**/*'
   s.resource_bundles = {
     'ImageCoordinateSpace' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
 end
