@@ -44,26 +44,26 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("no image") {
                 let frame = CGRect(x: random(), y: random(), width: random(), height: random())
-                let withoutImage = UIImageView(frame: frame)
-                let spaceWithoutImage = withoutImage.imageCoordinateSpace()
+                let noImageView = UIImageView(frame: frame)
+                let noImageSpace = noImageView.imageCoordinateSpace()
 
                 context("bounds") {
                     it("should equal view bounds") {
-                        expect(spaceWithoutImage.bounds) == withoutImage.bounds
+                        expect(noImageSpace.bounds) == noImageView.bounds
                     }
                 }
 
                 context("convert") {
                     it("should not convert") {
-                        expect(spaceWithoutImage.convertRect(randomRect, fromCoordinateSpace: spaceWithoutImage)) == randomRect
-                        expect(spaceWithoutImage.convertRect(randomRect, fromCoordinateSpace: withoutImage)) == randomRect
-                        expect(spaceWithoutImage.convertRect(randomRect, toCoordinateSpace: spaceWithoutImage)) == randomRect
-                        expect(spaceWithoutImage.convertRect(randomRect, toCoordinateSpace: withoutImage)) == randomRect
+                        expect(noImageSpace.convertRect(randomRect, fromCoordinateSpace: noImageSpace)) == randomRect
+                        expect(noImageSpace.convertRect(randomRect, fromCoordinateSpace: noImageView)) == randomRect
+                        expect(noImageSpace.convertRect(randomRect, toCoordinateSpace: noImageSpace)) == randomRect
+                        expect(noImageSpace.convertRect(randomRect, toCoordinateSpace: noImageView)) == randomRect
 
-                        expect(spaceWithoutImage.convertPoint(randomPoint, fromCoordinateSpace: spaceWithoutImage)) == randomPoint
-                        expect(spaceWithoutImage.convertPoint(randomPoint, fromCoordinateSpace: withoutImage)) == randomPoint
-                        expect(spaceWithoutImage.convertPoint(randomPoint, toCoordinateSpace: spaceWithoutImage)) == randomPoint
-                        expect(spaceWithoutImage.convertPoint(randomPoint, toCoordinateSpace: withoutImage)) == randomPoint
+                        expect(noImageSpace.convertPoint(randomPoint, fromCoordinateSpace: noImageSpace)) == randomPoint
+                        expect(noImageSpace.convertPoint(randomPoint, fromCoordinateSpace: noImageView)) == randomPoint
+                        expect(noImageSpace.convertPoint(randomPoint, toCoordinateSpace: noImageSpace)) == randomPoint
+                        expect(noImageSpace.convertPoint(randomPoint, toCoordinateSpace: noImageView)) == randomPoint
                     }
                 }
             }
@@ -87,7 +87,8 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             }
 
             func expectViewPointMatchImagePoint(file: String = __FILE__, line: UInt = __LINE__) {
-                expect(imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
+                let result = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
+                expect(result, file:file, line: line) == viewPoint
             }
 
             context("top left") {

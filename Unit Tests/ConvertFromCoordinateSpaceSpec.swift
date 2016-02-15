@@ -8,6 +8,7 @@ class ReverseConversionSpec: QuickSpec {
             let testBundle = NSBundle(forClass: self.dynamicType)
             let image = UIImage(named: "rose", inBundle: testBundle, compatibleWithTraitCollection: nil)!
             let imageView = UIImageView(image: image)
+            let imageSpace = imageView.imageCoordinateSpace()
 
             var imageSize : CGSize!
             var viewSize  : CGSize!
@@ -27,22 +28,26 @@ class ReverseConversionSpec: QuickSpec {
                 viewPoint = imagePoint
             }
 
+            let allModes = UIViewContentMode.ScaleToFill.rawValue.stride(
+                to: UIViewContentMode.BottomRight.rawValue,
+                by: 1
+            )
+
             context("point") {
                 it("should revert to original point") {
                     imageView.contentMode = .ScaleAspectFit
-                    let viewPoint = imageView.imageCoordinateSpace().convertPoint(imagePoint, toCoordinateSpace: imageView)
+                    let viewPoint = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
                     expect(viewPoint) != imagePoint
-                    let point = imageView.imageCoordinateSpace().convertPoint(viewPoint, fromCoordinateSpace: imageView)
+                    let point = imageSpace.convertPoint(viewPoint, fromCoordinateSpace: imageView)
                     expect(point) == imagePoint
                 }
 
                 context("all modes") {
                     it("should also revert") {
-                        let allModes = UIViewContentMode.ScaleToFill.rawValue.stride(to: UIViewContentMode.BottomRight.rawValue, by: 1)
                         for mode in allModes {
                             imageView.contentMode = UIViewContentMode(rawValue: mode)!
-                            let viewPoint = imageView.imageCoordinateSpace().convertPoint(imagePoint, toCoordinateSpace: imageView)
-                            let point = imageView.imageCoordinateSpace().convertPoint(viewPoint, fromCoordinateSpace: imageView)
+                            let viewPoint = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
+                            let point = imageSpace.convertPoint(viewPoint, fromCoordinateSpace: imageView)
                             expect(point) == imagePoint
                         }
                     }
@@ -53,18 +58,21 @@ class ReverseConversionSpec: QuickSpec {
                 var randomRect : CGRect!
 
                 func smallRandom() -> Int {
-                    return random() % 100
+                    return random() % 1000
                 }
 
                 beforeEach {
-                    randomRect = CGRect(origin: CGPoint(x: smallRandom(), y: smallRandom()), size: CGSize(width: smallRandom(), height: smallRandom()))
+                    randomRect = CGRect(
+                        origin: CGPoint(x: smallRandom(), y: smallRandom()),
+                        size: CGSize(width: smallRandom(), height: smallRandom())
+                    )
                 }
 
                 func beVeryCloseTo(expectedValue: CGRect!) -> MatcherFunc <CGRect> {
                     return MatcherFunc { actualExpression, failureMessage in
                         failureMessage.postfixMessage = "equal <\(expectedValue)>"
                         let actual = try actualExpression.evaluate()!
-                        let delta : CGFloat = 0.0000000000001
+                        let delta : CGFloat = 0.000000000001
                         return actual.origin.x - expectedValue.origin.x < delta &&
                             actual.origin.y - expectedValue.origin.y < delta &&
                             actual.size.width - expectedValue.size.width < delta &&
@@ -72,11 +80,11 @@ class ReverseConversionSpec: QuickSpec {
                     }
                 }
 
-                for var mode = UIViewContentMode.ScaleToFill.rawValue; mode <= UIViewContentMode.BottomRight.rawValue; mode++ {
+                for mode in allModes {
                     it("in mode \(mode) should reverse to original") {
                         imageView.contentMode = UIViewContentMode(rawValue: mode)!
-                        let viewRect = imageView.imageCoordinateSpace().convertRect(randomRect, toCoordinateSpace: imageView)
-                        let imageRect = imageView.imageCoordinateSpace().convertRect(viewRect, fromCoordinateSpace: imageView)
+                        let viewRect = imageSpace.convertRect(randomRect, toCoordinateSpace: imageView)
+                        let imageRect = imageSpace.convertRect(viewRect, fromCoordinateSpace: imageView)
                         expect(imageRect).to(beVeryCloseTo(randomRect))
                     }
                 }
