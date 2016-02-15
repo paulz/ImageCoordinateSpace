@@ -36,19 +36,19 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
     }
 
     func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return imageView.convertPoint(imageToViewPoint(point), toCoordinateSpace: coordinateSpace)
+        return imageView.convertPoint(CGPointApplyAffineTransform(point, imageToViewTransform()), toCoordinateSpace: coordinateSpace)
     }
 
     func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return viewToImagePoint(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace))
+        return CGPointApplyAffineTransform(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace), viewToImageTransform())
     }
 
     func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return imageView.convertRect(convertRect(imageRect, using: imageToViewPoint), toCoordinateSpace: coordinateSpace)
+        return imageView.convertRect(CGRectApplyAffineTransform(imageRect, imageToViewTransform()), toCoordinateSpace: coordinateSpace)
     }
 
     func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return convertRect(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), using: viewToImagePoint)
+        return CGRectApplyAffineTransform(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), viewToImageTransform())
     }
 
     // MARK: private
@@ -102,27 +102,6 @@ class ImageViewSpace : NSObject, UICoordinateSpace {
 
     private func viewToImageTransform() -> CGAffineTransform {
         return CGAffineTransformInvert(imageToViewTransform())
-    }
-
-    private func imageToViewPoint(point: CGPoint) -> CGPoint {
-        return CGPointApplyAffineTransform(point, imageToViewTransform())
-    }
-
-    private func viewToImagePoint(point: CGPoint) -> CGPoint {
-        return CGPointApplyAffineTransform(point, viewToImageTransform())
-    }
-
-    private func convertRect(rect:CGRect, using convertPoint:((CGPoint) -> CGPoint)) -> CGRect {
-        let rectBottomRight = CGPoint(x: CGRectGetMaxX(rect), y: CGRectGetMaxY(rect))
-
-        let convertedTopLeft     = convertPoint(rect.origin)
-        let convertedBottomRight = convertPoint(rectBottomRight)
-
-        let convertedRectSize = CGSizeMake(
-            abs(convertedBottomRight.x - convertedTopLeft.x),
-            abs(convertedBottomRight.y - convertedTopLeft.y)
-        )
-        return CGRect(origin: convertedTopLeft, size: convertedRectSize)
     }
 }
 
