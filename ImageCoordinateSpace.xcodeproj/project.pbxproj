@@ -102,7 +102,7 @@
 		4B8711641C6F3FBC0027F0C9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		4B87116A1C6F402C0027F0C9 /* UIImageView+UICoordinateSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+UICoordinateSpaceSpec.swift"; sourceTree = "<group>"; };
 		4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinateSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+UICoordinateSpace.swift"; sourceTree = "<group>"; };
-		4B8711731C6F5B260027F0C9 /* Visual.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Visual.playground; sourceTree = "<group>"; };
+		4B8711731C6F5B260027F0C9 /* Visual.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Visual.playground; path = Example/Visual.playground; sourceTree = "<group>"; };
 		4BE2CB281C718CE3008BB9E0 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
 		4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		4BE2CB2D1C7191B9008BB9E0 /* ImageViewSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewSpace.swift; sourceTree = "<group>"; };
@@ -165,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				4B320CC01C71718200FA8663 /* README.md */,
+				4B8711731C6F5B260027F0C9 /* Visual.playground */,
 				4B8711311C6F3D4D0027F0C9 /* Example */,
 				4B017D811C6F6A02003ECCE7 /* ImageCoordinateSpace */,
 				4B017D8F1C6F6A02003ECCE7 /* Unit Tests */,
@@ -187,7 +188,6 @@
 		4B8711311C6F3D4D0027F0C9 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				4B8711731C6F5B260027F0C9 /* Visual.playground */,
 				4B8711341C6F3D4D0027F0C9 /* ViewController.swift */,
 				4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */,
 				4B8711361C6F3D4D0027F0C9 /* Main.storyboard */,

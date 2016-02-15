@@ -1,7 +1,7 @@
 //: [Previous](@previous)
 
 import UIKit
-import CoordinatedSpace
+import ImageCoordinateSpace
 //: Right
 let image = UIImage(named: "rose.jpg")!
 let imageView = UIImageView(image: image)

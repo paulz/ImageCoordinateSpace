@@ -1,7 +1,7 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
-import CoordinatedSpace
+import ImageCoordinateSpace
 
 //: Aspect Fit
 let image = UIImage(named: "rose.jpg")!

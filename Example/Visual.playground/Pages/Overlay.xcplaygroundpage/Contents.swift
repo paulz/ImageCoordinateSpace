@@ -1,7 +1,7 @@
 //: [Previous](@previous)
 
 import UIKit
-import CoordinatedSpace
+import ImageCoordinateSpace
 //: Center
 let backgroundImage = [#Image(imageLiteral: "inspiration.jpg")#]
 let containerView = UIImageView(image: backgroundImage)
