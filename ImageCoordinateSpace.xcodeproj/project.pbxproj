@@ -21,6 +21,7 @@
 		4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */; };
 		4B19855A1C70B6A000BD1208 /* ReverseConversionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */; };
 		4B320CC11C71718200FA8663 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4B320CC01C71718200FA8663 /* README.md */; };
+		4B320CC41C71767800FA8663 /* ImageCoordinateSpace.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */; };
 		4B8711331C6F3D4D0027F0C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */; };
 		4B8711351C6F3D4D0027F0C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8711341C6F3D4D0027F0C9 /* ViewController.swift */; };
 		4B8711381C6F3D4D0027F0C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711361C6F3D4D0027F0C9 /* Main.storyboard */; };
@@ -88,6 +89,7 @@
 		4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransformInvertSpec.swift; sourceTree = "<group>"; };
 		4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseConversionSpec.swift; sourceTree = "<group>"; };
 		4B320CC01C71718200FA8663 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ImageCoordinateSpace.podspec; sourceTree = "<group>"; };
 		4B87112F1C6F3D4D0027F0C9 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B8711341C6F3D4D0027F0C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,17 +133,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B017D811C6F6A02003ECCE7 /* CoordinatedSpace */ = {
+		4B017D811C6F6A02003ECCE7 /* CoordinateSpace */ = {
 			isa = PBXGroup;
 			children = (
 				4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinatedSpace.swift */,
 				4B017D821C6F6A02003ECCE7 /* CoordinatedSpace.h */,
 				4B017D841C6F6A02003ECCE7 /* Info.plist */,
 			);
-			path = CoordinatedSpace;
+			path = CoordinateSpace;
 			sourceTree = "<group>";
 		};
-		4B017D8F1C6F6A02003ECCE7 /* CoordinatedSpaceTests */ = {
+		4B017D8F1C6F6A02003ECCE7 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
 				4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */,
@@ -150,7 +152,7 @@
 				4B017D901C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift */,
 				4B017D921C6F6A02003ECCE7 /* Info.plist */,
 			);
-			path = CoordinatedSpaceTests;
+			path = "Unit Tests";
 			sourceTree = "<group>";
 		};
 		4B8711261C6F3D4D0027F0C9 = {
@@ -158,10 +160,11 @@
 			children = (
 				4B320CC01C71718200FA8663 /* README.md */,
 				4B8711311C6F3D4D0027F0C9 /* Example */,
-				4B017D811C6F6A02003ECCE7 /* CoordinatedSpace */,
-				4B017D8F1C6F6A02003ECCE7 /* CoordinatedSpaceTests */,
+				4B017D811C6F6A02003ECCE7 /* CoordinateSpace */,
+				4B017D8F1C6F6A02003ECCE7 /* Unit Tests */,
 				4B8711691C6F3FC60027F0C9 /* Frameworks */,
 				4B8711301C6F3D4D0027F0C9 /* Products */,
+				4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */,
 			);
 			sourceTree = "<group>";
 		};
@@ -331,6 +334,7 @@
 			files = (
 				4B8711741C6F5BB90027F0C9 /* Visual.playground in Resources */,
 				4B87113D1C6F3D4D0027F0C9 /* LaunchScreen.storyboard in Resources */,
+				4B320CC41C71767800FA8663 /* ImageCoordinateSpace.podspec in Resources */,
 				4B87113A1C6F3D4D0027F0C9 /* Assets.xcassets in Resources */,
 				4B8711381C6F3D4D0027F0C9 /* Main.storyboard in Resources */,
 			);
@@ -416,10 +420,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CoordinatedSpace/Info.plist;
+				INFOPLIST_FILE = CoordinateSpace/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.CoordinatedSpace;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.ImageCoordinateSpace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -436,10 +440,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CoordinatedSpace/Info.plist;
+				INFOPLIST_FILE = CoordinateSpace/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.CoordinatedSpace;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.ImageCoordinateSpace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -455,9 +459,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = CoordinatedSpaceTests/Info.plist;
+				INFOPLIST_FILE = "Unit Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.CoordinatedSpaceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.ImageCoordinateSpaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
@@ -470,9 +474,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = CoordinatedSpaceTests/Info.plist;
+				INFOPLIST_FILE = "Unit Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.CoordinatedSpaceTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.ImageCoordinateSpaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
