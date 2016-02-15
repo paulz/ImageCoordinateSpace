@@ -3,3 +3,9 @@ language: objective-c
 xcode_project: ImageCoordinateSpace.xcodeproj
 xcode_scheme: CoordinatedSpace
 xcode_sdk: iphonesimulator
+cache:
+  bundler: true
+  directories:
+    - Carthage/Build/iOS
+before_install:
+  - ls -la Carthage/Build/iOS/?*.framework || carthage bootstrap --platform iOS
