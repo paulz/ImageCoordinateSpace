@@ -36,7 +36,7 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
     }
 
     var bounds: CGRect {
-        return imageSize == nil ? imageView.bounds : CGRect(origin: CGPointZero, size: imageSize!)
+        return CGRect(origin: CGPointZero, size: imageSize ?? imageView.bounds.size)
     }
 
     func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
@@ -58,27 +58,31 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
     // MARK: private
 
     private lazy var imageToViewTransform : CGAffineTransform = {
+        guard self.imageSize != nil else {
+            return CGAffineTransformIdentity
+        }
         let viewSize  = self.imageView.bounds.size
-        let imageSize = self.imageSize == nil ? viewSize : self.imageSize!
+        let imageHeight = self.imageSize!.height
+        let imageWidth = self.imageSize!.width
 
         func translate(xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
             return translateWithFactors(
-                tx: viewSize.width - imageSize.width,
-                ty: viewSize.height - imageSize.height,
+                tx: viewSize.width - imageWidth,
+                ty: viewSize.height - imageHeight,
                 xFactor: xFactor,
                 yFactor: yFactor
             )
         }
 
-        let widthRatio = viewSize.width / imageSize.width
-        let heightRatio = viewSize.height / imageSize.height
+        let widthRatio = viewSize.width / imageWidth
+        let heightRatio = viewSize.height / imageHeight
 
         switch self.contentMode {
         case .ScaleAspectFit, .ScaleAspectFill:
             let scale = self.contentMode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
             return CGAffineTransformScale(halfTranslate(
-                tx: viewSize.width  - imageSize.width  * scale,
-                ty: viewSize.height  - imageSize.height  * scale
+                tx: viewSize.width  - imageWidth  * scale,
+                ty: viewSize.height  - imageHeight  * scale
                 ), scale, scale)
         case .ScaleToFill, .Redraw:
             return CGAffineTransformMakeScale(widthRatio, heightRatio)
