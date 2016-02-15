@@ -4,7 +4,7 @@ import ImageCoordinateSpace
 
 class ReverseConversionSpec: QuickSpec {
     override func spec() {
-        describe("reverse conversion") {
+        describe("convert fromCoordinateSpace") {
             let testBundle = NSBundle(forClass: self.dynamicType)
             let image = UIImage(named: "rose", inBundle: testBundle, compatibleWithTraitCollection: nil)!
             let imageView = UIImageView(image: image)
@@ -27,15 +27,10 @@ class ReverseConversionSpec: QuickSpec {
                 viewPoint = imagePoint
             }
 
-            func expectViewPointMatchImagePoint(file: String = __FILE__, line: UInt = __LINE__) {
-                expect(imageView.imageCoordinateSpace().convertPoint(imagePoint, toCoordinateSpace: imageView), file:file, line: line) == viewPoint
-            }
-
             context("point") {
                 it("should revert to original point") {
                     imageView.contentMode = .ScaleAspectFit
                     let viewPoint = imageView.imageCoordinateSpace().convertPoint(imagePoint, toCoordinateSpace: imageView)
-                    print(viewPoint)
                     expect(viewPoint) != imagePoint
                     let point = imageView.imageCoordinateSpace().convertPoint(viewPoint, fromCoordinateSpace: imageView)
                     expect(point) == imagePoint

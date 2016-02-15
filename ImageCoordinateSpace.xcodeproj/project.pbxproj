@@ -15,10 +15,10 @@
 		4B017D9F1C6F6B52003ECCE7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
 		4B017DA11C6F6B67003ECCE7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B017DA21C6F6B67003ECCE7 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4B017DA31C6F6BD5003ECCE7 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */; };
+		4B017DA31C6F6BD5003ECCE7 /* UIImageView+UICoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+UICoordinateSpaceSpec.swift */; };
 		4B017DA41C6F6BDB003ECCE7 /* UIImageView+UICoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinateSpace.swift */; };
 		4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */; };
-		4B19855A1C70B6A000BD1208 /* ReverseConversionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */; };
+		4B19855A1C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985591C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift */; };
 		4B320CC41C71767800FA8663 /* ImageCoordinateSpace.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */; };
 		4B8711331C6F3D4D0027F0C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8711321C6F3D4D0027F0C9 /* AppDelegate.swift */; };
 		4B8711351C6F3D4D0027F0C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8711341C6F3D4D0027F0C9 /* ViewController.swift */; };
@@ -88,7 +88,7 @@
 		4B017D891C6F6A02003ECCE7 /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B017D921C6F6A02003ECCE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransformInvertSpec.swift; sourceTree = "<group>"; };
-		4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseConversionSpec.swift; sourceTree = "<group>"; };
+		4B1985591C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertFromCoordinateSpaceSpec.swift; sourceTree = "<group>"; };
 		4B320CC01C71718200FA8663 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ImageCoordinateSpace.podspec; sourceTree = "<group>"; };
 		4B87112F1C6F3D4D0027F0C9 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +100,7 @@
 		4B87113E1C6F3D4D0027F0C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B8711631C6F3FBC0027F0C9 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		4B8711641C6F3FBC0027F0C9 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
-		4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageCoordinatedSpaceSpec.swift"; sourceTree = "<group>"; };
+		4B87116A1C6F402C0027F0C9 /* UIImageView+UICoordinateSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+UICoordinateSpaceSpec.swift"; sourceTree = "<group>"; };
 		4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinateSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+UICoordinateSpace.swift"; sourceTree = "<group>"; };
 		4B8711731C6F5B260027F0C9 /* Visual.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Visual.playground; sourceTree = "<group>"; };
 		4BE2CB281C718CE3008BB9E0 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
@@ -141,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				4B87116C1C6F404F0027F0C9 /* UIImageView+UICoordinateSpace.swift */,
-				4B017D821C6F6A02003ECCE7 /* ImageCoordinateSpace.h */,
 				4BE2CB2D1C7191B9008BB9E0 /* ImageViewSpace.swift */,
+				4B017D821C6F6A02003ECCE7 /* ImageCoordinateSpace.h */,
 				4B017D841C6F6A02003ECCE7 /* Info.plist */,
 			);
 			path = ImageCoordinateSpace;
@@ -151,9 +151,9 @@
 		4B017D8F1C6F6A02003ECCE7 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */,
+				4B87116A1C6F402C0027F0C9 /* UIImageView+UICoordinateSpaceSpec.swift */,
 				4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */,
-				4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */,
+				4B1985591C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift */,
 				4B017D921C6F6A02003ECCE7 /* Info.plist */,
 			);
 			path = "Unit Tests";
@@ -373,8 +373,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */,
-				4B017DA31C6F6BD5003ECCE7 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */,
-				4B19855A1C70B6A000BD1208 /* ReverseConversionSpec.swift in Sources */,
+				4B017DA31C6F6BD5003ECCE7 /* UIImageView+UICoordinateSpaceSpec.swift in Sources */,
+				4B19855A1C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

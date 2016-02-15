@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ImageViewSpace : NSObject, UICoordinateSpace {
+class ImageViewSpace : NSObject, UICoordinateSpace {
     var imageView : UIImageView
 
     init(view: UIImageView) {
@@ -16,23 +16,23 @@ public class ImageViewSpace : NSObject, UICoordinateSpace {
         super.init()
     }
 
-    public var bounds: CGRect {
+    var bounds: CGRect {
         return imageView.image == nil ? imageView.bounds : CGRect(origin: CGPointZero, size: imageView.image!.size)
     }
 
-    public func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
+    func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
         return imageView.convertPoint(imageToViewPoint(point), toCoordinateSpace: coordinateSpace)
     }
 
-    public func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
+    func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
         return viewToImagePoint(imageView.convertPoint(point, fromCoordinateSpace: coordinateSpace))
     }
 
-    public func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
+    func convertRect(imageRect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
         return imageView.convertRect(convertRect(imageRect, using: imageToViewPoint), toCoordinateSpace: coordinateSpace)
     }
 
-    public func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
+    func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
         return convertRect(imageView.convertRect(rect, fromCoordinateSpace: coordinateSpace), using: viewToImagePoint)
     }
 
