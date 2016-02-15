@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: Adds UIImageView method to get image UICoordinateSpace
+// MARK: Adds UIImageView imageCoordinateSpace property
 public extension UIImageView {
     /**
      Image coordinate space that accounts for view content mode
@@ -17,7 +17,7 @@ public extension UIImageView {
      
      To convert a point from a view’s current coordinate space to the image coordinate space:
      ```
-     let imageSpace = imageView.imageCoordinateSpace()
+     let imageSpace = imageView.imageCoordinateSpace
      let imagePoint = imageSpace.convertPoint(viewPoint, fromCoordinateSpace: imageView)
      ```
 
@@ -39,7 +39,7 @@ public extension UIImageView {
      - Note: when content mode is .Redraw image coordinate space assumes whole image is fully drawn in view bounds
      and behaves as for content mode .ScaleToFill
      */
-    func imageCoordinateSpace() -> UICoordinateSpace {
+    var imageCoordinateSpace : UICoordinateSpace {
         return ImageCoordinateSpace(self)
     }
 }

@@ -15,7 +15,7 @@ Convert `CGPoint` from image coordinates to view coordinates:
 ```swift
 import ImageCoordinateSpace
 
-let imageSpace = imageView.imageCoordinateSpace()
+let imageSpace = imageView.imageCoordinateSpace
 let imageTopLeft = imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)
 ```
 

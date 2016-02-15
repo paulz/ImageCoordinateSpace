@@ -8,7 +8,7 @@ class ReverseConversionSpec: QuickSpec {
             let testBundle = NSBundle(forClass: self.dynamicType)
             let image = UIImage(named: "rose", inBundle: testBundle, compatibleWithTraitCollection: nil)!
             let imageView = UIImageView(image: image)
-            let imageSpace = imageView.imageCoordinateSpace()
+            let imageSpace = imageView.imageCoordinateSpace
 
             var imageSize : CGSize!
             var viewSize  : CGSize!

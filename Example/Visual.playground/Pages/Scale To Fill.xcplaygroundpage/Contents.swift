@@ -9,7 +9,7 @@ let square = CGSize(width: 100, height: 100)
 imageView.bounds = CGRect(origin: CGPointZero, size: square)
 imageView.backgroundColor = UIColor.greenColor()
 imageView.contentMode = .ScaleToFill
-let imageSpace = imageView.imageCoordinateSpace()
+let imageSpace = imageView.imageCoordinateSpace
 let topLeft = imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)
 //: top left corners should be the same
 assert(topLeft == CGPointZero)

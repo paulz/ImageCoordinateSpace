@@ -5,7 +5,7 @@ import ImageCoordinateSpace
 //: Center
 let backgroundImage = [#Image(imageLiteral: "inspiration.jpg")#]
 let containerView = UIImageView(image: backgroundImage)
-let imageSpace = containerView.imageCoordinateSpace()
+let imageSpace = containerView.imageCoordinateSpace
 let containerSize = CGSize(width: 200, height: 200)
 containerView.bounds = CGRect(origin: CGPointZero, size: containerSize)
 let svgUrl = NSBundle.mainBundle().URLForResource("overlayed", withExtension: "svg")!
@@ -17,7 +17,7 @@ containerView.addSubview(overlayView)
 overlayView.alpha = 0.8
 func updateContentMode(mode: UIViewContentMode) -> UIView {
     containerView.contentMode = mode
-    overlayView.frame = imageSpace.convertRect(placement, toCoordinateSpace: containerView)
+    overlayView.frame = containerView.imageCoordinateSpace.convertRect(placement, toCoordinateSpace: containerView)
     return containerView
 }
 updateContentMode(containerView.contentMode)
