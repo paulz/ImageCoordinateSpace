@@ -11,3 +11,11 @@ before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
   - ls -la Carthage/Build/iOS/?*.framework || carthage bootstrap --platform iOS
+before_deploy:
+  - carthage build --no-skip-current
+  - carthage archive ImageCoordinateSpace
+deploy:
+  provider: releases
+  file: ImageCoordinateSpace.framework.zip
+  on:
+    tags:true
