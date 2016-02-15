@@ -18,11 +18,6 @@ func translateWithFactors(tx tx:CGFloat, ty:CGFloat, xFactor:Factor, yFactor:Fac
     return CGAffineTransformMakeTranslation(tx * xFactor.rawValue, ty * yFactor.rawValue)
 }
 
-func halfTranslate(tx tx:CGFloat, ty:CGFloat) -> CGAffineTransform {
-    return translateWithFactors(tx:tx, ty:ty, xFactor:.half, yFactor:.half)
-}
-
-
 class ImageCoordinateSpace : NSObject, UICoordinateSpace {
     var viewSpace : UICoordinateSpace
     var imageSize : CGSize?
@@ -40,19 +35,31 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
     }
 
     func convertPoint(point: CGPoint, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return viewSpace.convertPoint(CGPointApplyAffineTransform(point, imageToViewTransform), toCoordinateSpace: coordinateSpace)
+        return viewSpace.convertPoint(
+            CGPointApplyAffineTransform(point, imageToViewTransform),
+            toCoordinateSpace: coordinateSpace
+        )
     }
 
     func convertRect(rect: CGRect, toCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return viewSpace.convertRect(CGRectApplyAffineTransform(rect, imageToViewTransform), toCoordinateSpace: coordinateSpace)
+        return viewSpace.convertRect(
+            CGRectApplyAffineTransform(rect, imageToViewTransform),
+            toCoordinateSpace: coordinateSpace
+        )
     }
 
     func convertPoint(point: CGPoint, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return CGPointApplyAffineTransform(viewSpace.convertPoint(point, fromCoordinateSpace: coordinateSpace), viewToImageTransform)
+        return CGPointApplyAffineTransform(
+            viewSpace.convertPoint(point, fromCoordinateSpace: coordinateSpace),
+            viewToImageTransform
+        )
     }
 
     func convertRect(rect: CGRect, fromCoordinateSpace coordinateSpace: UICoordinateSpace) -> CGRect {
-        return CGRectApplyAffineTransform(viewSpace.convertRect(rect, fromCoordinateSpace: coordinateSpace), viewToImageTransform)
+        return CGRectApplyAffineTransform(
+            viewSpace.convertRect(rect, fromCoordinateSpace: coordinateSpace),
+            viewToImageTransform
+        )
     }
 
     // MARK: private
@@ -79,11 +86,17 @@ class ImageCoordinateSpace : NSObject, UICoordinateSpace {
 
         switch self.contentMode {
         case .ScaleAspectFit, .ScaleAspectFill:
-            let scale = self.contentMode == .ScaleAspectFill ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
-            return CGAffineTransformScale(halfTranslate(
-                tx: viewSize.width  - imageWidth  * scale,
-                ty: viewSize.height  - imageHeight  * scale
-                ), scale, scale)
+            let expand = self.contentMode == .ScaleAspectFill
+            let scale = expand ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
+            return CGAffineTransformScale(
+                translateWithFactors(
+                    tx: viewSize.width - imageWidth * scale,
+                    ty: viewSize.height - imageHeight * scale,
+                    xFactor: .half,
+                    yFactor: .half
+                ),
+                scale,
+                scale)
         case .ScaleToFill, .Redraw:
             return CGAffineTransformMakeScale(widthRatio, heightRatio)
         case .Center:
