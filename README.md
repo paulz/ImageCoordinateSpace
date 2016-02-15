@@ -29,18 +29,28 @@ let viewTopLeft = imageSpace.convertPoint(CGPointZero, fromCoordinateSpace: imag
 
 ## Examples
 
+### Add positioned image overlay
 Open included Xcode Example project to see Xcode Playground: [Example/Visual.playground](Example/Visual.playground)
 
-
-###This is the answer to popular Stackoverflow questions:
-
-[http://stackoverflow.com/questions/15968251/get-the-zoomed-coordinates-of-an-image](http://stackoverflow.com/questions/15968251/get-the-zoomed-coordinates-of-an-image)
-[http://stackoverflow.com/questions/16733419/how-to-get-uiimage-coordinates-x-y-width-height-in-uiimageview-in-xcode](http://stackoverflow.com/questions/16733419/how-to-get-uiimage-coordinates-x-y-width-height-in-uiimageview-in-xcode)
-[http://stackoverflow.com/questions/17200191/converting-uiimageview-touch-coordinates-to-uiimage-coordinates](http://stackoverflow.com/questions/17200191/converting-uiimageview-touch-coordinates-to-uiimage-coordinates)
-[http://stackoverflow.com/questions/1813432/how-to-determine-image-coordinates-for-a-large-cropped-image-within-a-uiimagevie](http://stackoverflow.com/questions/1813432/how-to-determine-image-coordinates-for-a-large-cropped-image-within-a-uiimagevie)
+### Converting image face detection regions to view touch points
+[http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates](http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates)
 [http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates](http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates)
 
+###Other uses from popular Stackoverflow questions:
+ - Show image popover:
+[http://stackoverflow.com/questions/15968251/get-the-zoomed-coordinates-of-an-image](http://stackoverflow.com/questions/15968251/get-the-zoomed-coordinates-of-an-image)
+ - Reposition image:
+[http://stackoverflow.com/questions/16733419/how-to-get-uiimage-coordinates-x-y-width-height-in-uiimageview-in-xcode](http://stackoverflow.com/questions/16733419/how-to-get-uiimage-coordinates-x-y-width-height-in-uiimageview-in-xcode)
+ - Add touch events to image:
+[http://stackoverflow.com/questions/17200191/converting-uiimageview-touch-coordinates-to-uiimage-coordinates](http://stackoverflow.com/questions/17200191/converting-uiimageview-touch-coordinates-to-uiimage-coordinates)
+ - Implement pan and zoom for the image:
+[http://stackoverflow.com/questions/1813432/how-to-determine-image-coordinates-for-a-large-cropped-image-within-a-uiimagevie](http://stackoverflow.com/questions/1813432/how-to-determine-image-coordinates-for-a-large-cropped-image-within-a-uiimagevie)
+
 ![Sample image](Example/Visual.playground/Resources/rose.jpg)
+
+## Documentation
+
+HeaderDoc is included, see [UIImageView+UICoordinateSpace.swift](ImageCoordinateSpace/UIImageView%2BUICoordinateSpace.swift)
 
 ## Installation
 
