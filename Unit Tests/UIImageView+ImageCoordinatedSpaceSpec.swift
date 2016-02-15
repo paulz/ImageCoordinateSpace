@@ -1,9 +1,12 @@
 import Quick
 import Nimble
+import ImageCoordinateSpace
 
 class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
     override func spec() {
-        let image = UIImage(named: "rose")!
+        let testBundle = NSBundle(forClass: self.dynamicType)
+        let image = UIImage(named: "rose", inBundle: testBundle, compatibleWithTraitCollection: nil)!
+
         let imageView = UIImageView(image: image)
         let imageSpace = imageView.imageCoordinateSpace()
 

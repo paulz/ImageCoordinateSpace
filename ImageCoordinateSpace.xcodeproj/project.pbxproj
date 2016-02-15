@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B017D831C6F6A02003ECCE7 /* ImageCoordinateSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B017D821C6F6A02003ECCE7 /* ImageCoordinateSpace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B017D8A1C6F6A02003ECCE7 /* ImageCoordinateSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B017D801C6F6A02003ECCE7 /* ImageCoordinateSpace.framework */; };
-		4B017D911C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B017D901C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift */; };
 		4B017D951C6F6A02003ECCE7 /* ImageCoordinateSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B017D801C6F6A02003ECCE7 /* ImageCoordinateSpace.framework */; };
 		4B017D971C6F6A02003ECCE7 /* ImageCoordinateSpace.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4B017D801C6F6A02003ECCE7 /* ImageCoordinateSpace.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B017D9E1C6F6B52003ECCE7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; };
@@ -27,6 +26,7 @@
 		4B87113A1C6F3D4D0027F0C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */; };
 		4B87113D1C6F3D4D0027F0C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B87113B1C6F3D4D0027F0C9 /* LaunchScreen.storyboard */; };
 		4B8711741C6F5BB90027F0C9 /* Visual.playground in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711731C6F5B260027F0C9 /* Visual.playground */; };
+		4BE2CB271C71885C008BB9E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8711391C6F3D4D0027F0C9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +83,6 @@
 		4B017D821C6F6A02003ECCE7 /* ImageCoordinateSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCoordinateSpace.h; sourceTree = "<group>"; };
 		4B017D841C6F6A02003ECCE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B017D891C6F6A02003ECCE7 /* Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B017D901C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatedSpaceTests.swift; sourceTree = "<group>"; };
 		4B017D921C6F6A02003ECCE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransformInvertSpec.swift; sourceTree = "<group>"; };
 		4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseConversionSpec.swift; sourceTree = "<group>"; };
@@ -148,7 +147,6 @@
 				4B87116A1C6F402C0027F0C9 /* UIImageView+ImageCoordinatedSpaceSpec.swift */,
 				4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */,
 				4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */,
-				4B017D901C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift */,
 				4B017D921C6F6A02003ECCE7 /* Info.plist */,
 			);
 			path = "Unit Tests";
@@ -285,7 +283,6 @@
 					};
 					4B017D881C6F6A02003ECCE7 = {
 						CreatedOnToolsVersion = 7.2.1;
-						TestTargetID = 4B87112E1C6F3D4D0027F0C9;
 					};
 					4B87112E1C6F3D4D0027F0C9 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -324,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE2CB271C71885C008BB9E0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +352,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4B017D911C6F6A02003ECCE7 /* CoordinatedSpaceTests.swift in Sources */,
 				4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */,
 				4B017DA31C6F6BD5003ECCE7 /* UIImageView+ImageCoordinatedSpaceSpec.swift in Sources */,
 				4B19855A1C70B6A000BD1208 /* ReverseConversionSpec.swift in Sources */,
@@ -463,7 +460,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.ImageCoordinateSpaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Debug;
 		};
@@ -478,7 +474,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.ImageCoordinateSpaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Release;
 		};

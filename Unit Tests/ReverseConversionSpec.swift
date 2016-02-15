@@ -1,10 +1,12 @@
 import Quick
 import Nimble
+import ImageCoordinateSpace
 
 class ReverseConversionSpec: QuickSpec {
     override func spec() {
         describe("reverse conversion") {
-            let image = UIImage(named: "rose")!
+            let testBundle = NSBundle(forClass: self.dynamicType)
+            let image = UIImage(named: "rose", inBundle: testBundle, compatibleWithTraitCollection: nil)!
             let imageView = UIImageView(image: image)
 
             var imageSize : CGSize!
