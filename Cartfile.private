@@ -1,2 +1,3 @@
 github "Quick/Quick"
-github "Quick/Nimble"
+# Use master to include fix for https://github.com/Carthage/Carthage/issues/400
+github "Quick/Nimble" "master"
