@@ -46,6 +46,9 @@ let imageRect = imageSpace.convertRect(viewRect, fromCoordinateSpace: imageView)
 ### Add positioned image overlay
 Open included Xcode Example project to see Xcode Playground: [Example/Visual.playground](Example/Visual.playground)
 
+![Demonstrate image ovelay placement](Example/demo.gif)
+
+
 ### Converting image face detection regions to view touch points
 [http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates](http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates)
 [http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates](http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates)
@@ -59,8 +62,6 @@ Open included Xcode Example project to see Xcode Playground: [Example/Visual.pla
 [http://stackoverflow.com/questions/17200191/converting-uiimageview-touch-coordinates-to-uiimage-coordinates](http://stackoverflow.com/questions/17200191/converting-uiimageview-touch-coordinates-to-uiimage-coordinates)
  - Implement pan and zoom for the image:
 [http://stackoverflow.com/questions/1813432/how-to-determine-image-coordinates-for-a-large-cropped-image-within-a-uiimagevie](http://stackoverflow.com/questions/1813432/how-to-determine-image-coordinates-for-a-large-cropped-image-within-a-uiimagevie)
-
-![Sample image](Example/Visual.playground/Resources/rose.jpg)
 
 ## Documentation
 
