@@ -18,9 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="rose" translatesAutoresizingMaskIntoConstraints="NO" id="Lqx-r5-KKy">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="inspiration" translatesAutoresizingMaskIntoConstraints="NO" id="Lqx-r5-KKy">
                                 <rect key="frame" x="30" y="30" width="540" height="560"/>
                                 <color key="backgroundColor" red="0.012666345573961735" green="0.98901385068893433" blue="0.43557441234588623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IFI-Oy-CXy" appends="YES" id="w9B-7u-ytA"/>
+                                </connections>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="hello" translatesAutoresizingMaskIntoConstraints="NO" id="NVn-yz-Z6u">
+                                <rect key="frame" x="302" y="255" width="88" height="90"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -32,13 +39,23 @@
                             <constraint firstItem="Lqx-r5-KKy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="xmV-td-0lA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="Lqx-r5-KKy" id="lgf-dC-PPh"/>
+                        <outlet property="overlayImageView" destination="NVn-yz-Z6u" id="6K7-kd-m3C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IFI-Oy-CXy">
+                    <connections>
+                        <action selector="didTap:" destination="BYZ-38-t0r" id="iKN-DK-BlB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="527" y="555"/>
         </scene>
     </scenes>
     <resources>
-        <image name="rose" width="72" height="54"/>
+        <image name="hello" width="88" height="90"/>
+        <image name="inspiration" width="300" height="150"/>
     </resources>
 </document>
