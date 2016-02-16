@@ -1,4 +1,4 @@
-//: Playground - noun: a place where people can play
+//: [Previous](@previous)
 
 import UIKit
 import ImageCoordinateSpace
@@ -20,3 +20,4 @@ let topMargin  = topLeft.y
 //: margins should be the same
 topMargin == bottomMargin
 
+//: [Next](@next)

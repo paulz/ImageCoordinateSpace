@@ -1,8 +1,15 @@
-//: [Previous](@previous)
+/*: 
+
+# Image Overlay Demo
+
+- Example: given image coordinates position another view over the image
+- Experiment: change image view content mode and update overlay
+
+*/
 
 import UIKit
 import ImageCoordinateSpace
-//: Center
+//: Using ImageCoordinateSpace we can position overlay relative to the image
 let backgroundImage = [#Image(imageLiteral: "inspiration.jpg")#]
 let containerView = UIImageView(image: backgroundImage)
 let imageSpace = containerView.imageCoordinateSpace

@@ -24,10 +24,6 @@ class ViewController: UIViewController {
         }
     }
 
-    override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
-        showNextContentMode()
-    }
-
     func nextContentMode() {
         backgroundImageView.contentMode = UIViewContentMode(rawValue: backgroundImageView.contentMode.rawValue + 1)!
     }
@@ -42,6 +38,10 @@ class ViewController: UIViewController {
             nextContentMode()
         }
         updateOvelayPositionAnimated()
+    }
+
+    override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
+        showNextContentMode()
     }
 
     @IBAction func didTap(sender: AnyObject) {
