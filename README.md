@@ -26,6 +26,20 @@ Convert `CGPoint` from view coordinates to image coordinates:
 let viewTopLeft = imageSpace.convertPoint(CGPointZero, fromCoordinateSpace: imageView)
 ```
 
+Similar conversions are available for `CGRect`:
+
+```swift
+let imageRect = CGRect(x: 321, y: 102, width: 63, height: 64)
+let viewRect = imageSpace.convertRect(imageRect, toCoordinateSpace: imageView)
+```
+and from view coordinates to image coordinates:
+
+```swift
+let viewRect = CGRect(x: 107, y: 68, width: 21, height: 42.667)
+let imageRect = imageSpace.convertRect(viewRect, fromCoordinateSpace: imageView)
+```
+
+
 
 ## Examples
 
@@ -54,16 +68,25 @@ HeaderDoc is included, see [UIImageView+UICoordinateSpace.swift](ImageCoordinate
 
 ## Installation
 
-ImageCoordinateSpace is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+### [CocoaPods](http://cocoapods.org)
+- add the following line to your Podfile:
 
-```ruby
-pod 'ImageCoordinateSpace'
-```
+ `pod 'ImageCoordinateSpace'`
+- run `pod install`
+
+
+### [Carthage](https://github.com/Carthage/Carthage)
+- add to your Cartfile:
+
+  `github "paulz/ImageCoordinateSpace"`
+
+- run `carthage update`
+- link your app with `ImageCoordinateSpace.framework` from `Carthage/Build/iOS` folder
+
 
 ## Unit tests
 
-To run included unit tests install dependencies via carthage:
+To run included unit tests install dependencies via Carthage:
 
 ```sh
 carthage bootstrap
