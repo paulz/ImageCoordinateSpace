@@ -18,13 +18,18 @@ class ViewController: UIViewController {
         overlayImageView.frame = backgroundImageView.imageCoordinateSpace.convertRect(placement, toCoordinateSpace: view)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        updateOvelayPosition()
+    func updateOvelayPositionAnimated() {
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.updateOvelayPosition()
+        }
     }
 
     func nextContentMode() {
         backgroundImageView.contentMode = UIViewContentMode(rawValue: backgroundImageView.contentMode.rawValue + 1)!
+    }
+
+    override func viewDidLayoutSubviews() {
+        updateOvelayPositionAnimated()
     }
 
     @IBAction func didTap(sender: AnyObject) {
@@ -32,10 +37,6 @@ class ViewController: UIViewController {
         if backgroundImageView.contentMode == .Redraw {
             nextContentMode()
         }
-        UIView.animateWithDuration(0.5) { () -> Void in
-            self.updateOvelayPosition()
-        }
+        updateOvelayPositionAnimated()
     }
-
 }
-
