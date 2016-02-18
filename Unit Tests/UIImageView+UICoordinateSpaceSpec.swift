@@ -49,22 +49,27 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                 let noImageSpace = noImageView.contentSpace()
 
                 context("bounds") {
-                    it("should equal view bounds") {
-                        expect(noImageSpace.bounds) == noImageView.bounds
+                    it("should equal to -1 rect") {
+                        expect(noImageSpace.bounds) == CGRectMake(0, 0, -1, -1)
                     }
                 }
 
                 context("convert") {
-                    it("should not convert") {
-                        expect(noImageSpace.convertRect(randomRect, fromCoordinateSpace: noImageSpace)) == randomRect
-                        expect(noImageSpace.convertRect(randomRect, fromCoordinateSpace: noImageView)) == randomRect
-                        expect(noImageSpace.convertRect(randomRect, toCoordinateSpace: noImageSpace)) == randomRect
-                        expect(noImageSpace.convertRect(randomRect, toCoordinateSpace: noImageView)) == randomRect
-
-                        expect(noImageSpace.convertPoint(randomPoint, fromCoordinateSpace: noImageSpace)) == randomPoint
-                        expect(noImageSpace.convertPoint(randomPoint, fromCoordinateSpace: noImageView)) == randomPoint
-                        expect(noImageSpace.convertPoint(randomPoint, toCoordinateSpace: noImageSpace)) == randomPoint
-                        expect(noImageSpace.convertPoint(randomPoint, toCoordinateSpace: noImageView)) == randomPoint
+                    context("within own space") {
+                        it("should return original") {
+                            expect(noImageSpace.convertRect(randomRect, fromCoordinateSpace: noImageSpace)).to(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convertRect(randomRect, toCoordinateSpace: noImageSpace)).to(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convertPoint(randomPoint, fromCoordinateSpace:noImageSpace)).to(beVeryCloseTo(randomPoint))
+                            expect(noImageSpace.convertPoint(randomPoint, toCoordinateSpace: noImageSpace)).to(beVeryCloseTo(randomPoint))
+                        }
+                    }
+                    context("within foreign space") {
+                        it("should not convert") {
+                            expect(noImageSpace.convertRect(randomRect, fromCoordinateSpace: noImageView)).notTo(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convertRect(randomRect, toCoordinateSpace: noImageView)).notTo(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convertPoint(randomPoint, fromCoordinateSpace: noImageView)).notTo(beVeryCloseTo(randomPoint))
+                            expect(noImageSpace.convertPoint(randomPoint, toCoordinateSpace: noImageView)).notTo(beVeryCloseTo(randomPoint))
+                        }
                     }
                 }
             }
@@ -136,7 +141,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     expectViewPointMatchImagePoint()
                 }
             }
-            
+
             context("bottom left") {
                 beforeEach {
                     imageView.contentMode = .BottomLeft
@@ -147,7 +152,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     expectViewPointMatchImagePoint()
                 }
             }
-            
+
             context("bottom right") {
                 beforeEach {
                     imageView.contentMode = .BottomRight
@@ -234,7 +239,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                         let scale = min(widthRatio, heightRatio)
                         viewPoint.x *= scale
                         viewPoint.y *= scale
-
+                        
                         viewPoint.x += (viewSize.width  - imageSize.width  * scale) / 2
                         viewPoint.y += (viewSize.height  - imageSize.height  * scale) / 2
                         

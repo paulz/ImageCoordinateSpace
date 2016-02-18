@@ -69,18 +69,6 @@ class ReverseConversionSpec: QuickSpec {
                     )
                 }
 
-                func beVeryCloseTo(expectedValue: CGRect!) -> MatcherFunc <CGRect> {
-                    return MatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "equal <\(expectedValue)>"
-                        let actual = try actualExpression.evaluate()!
-                        let delta : CGFloat = 0.000000000001
-                        return actual.origin.x - expectedValue.origin.x < delta &&
-                            actual.origin.y - expectedValue.origin.y < delta &&
-                            actual.size.width - expectedValue.size.width < delta &&
-                            actual.size.height - expectedValue.size.height < delta
-                    }
-                }
-
                 for mode in allModes {
                     it("in mode \(mode) should reverse to original") {
                         imageView.contentMode = UIViewContentMode(rawValue: mode)!
