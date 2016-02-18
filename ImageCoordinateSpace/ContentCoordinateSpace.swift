@@ -32,11 +32,14 @@ class ContentCoordinateSpace {
         }
     }
 
+    func contentToBoundsTransform() -> CGAffineTransform {
+        return transform(contentSize, viewSize: viewSpace.bounds.size)
+    }
+
     func transformedSpace() -> UICoordinateSpace {
-        let viewSize = viewSpace.bounds.size
         return TransformedCoordinateSpace(
             size: contentSize,
-            transform: transform(contentSize, viewSize: viewSize),
+            transform: contentToBoundsTransform(),
             destination: viewSpace
         )
     }

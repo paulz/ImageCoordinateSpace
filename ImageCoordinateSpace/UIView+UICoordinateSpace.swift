@@ -45,4 +45,8 @@ public extension UIView {
     func contentSpace() -> UICoordinateSpace {
         return ContentCoordinateSpace(self).transformedSpace()
     }
+
+    func contentToBoundsTransform() -> CGAffineTransform {
+        return ContentCoordinateSpace(self).contentToBoundsTransform()
+    }
 }
