@@ -1,5 +1,5 @@
 //
-//  ContentCoordinateSpace.swift
+//  ContentAdjustment.swift
 //  ImageCoordinateSpace
 //
 //  Created by Paul Zabelin on 2/14/16.
@@ -9,12 +9,12 @@
 import UIKit
 
 extension UIView {
-    func contentCoordinateSpace() -> ContentCoordinateSpace {
-        return ContentCoordinateSpace(contentSize: self.intrinsicContentSize(), contentMode: self.contentMode)
+    func contentAdjustment() -> ContentAdjustment {
+        return ContentAdjustment(contentSize: self.intrinsicContentSize(), contentMode: self.contentMode)
     }
 }
 
-class ContentCoordinateSpace {
+class ContentAdjustment {
     var contentSize : CGSize
     var contentMode : UIViewContentMode
 
