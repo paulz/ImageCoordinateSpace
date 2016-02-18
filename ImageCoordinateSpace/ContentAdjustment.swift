@@ -36,14 +36,14 @@ class ContentAdjustment {
         }
     }
 
-    func contentSizeTransform(size: CGSize) -> CGAffineTransform {
+    func contentTransformToSize(size: CGSize) -> CGAffineTransform {
         return transform(contentSize, viewSize: size)
     }
 
-    func transformedSpace(space: UICoordinateSpace) -> UICoordinateSpace {
+    func transformingToSpace(space: UICoordinateSpace) -> UICoordinateSpace {
         return TransformedCoordinateSpace(
             size: contentSize,
-            transform: contentSizeTransform(space.bounds.size),
+            transform: contentTransformToSize(space.bounds.size),
             destination: space
         )
     }
