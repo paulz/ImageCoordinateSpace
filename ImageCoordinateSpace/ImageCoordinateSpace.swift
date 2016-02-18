@@ -10,12 +10,12 @@ import UIKit
 
 class ImageCoordinateSpace {
     var viewSpace : UICoordinateSpace
-    var imageSize : CGSize?
+    var contentSize : CGSize
     var contentMode : UIViewContentMode
 
-    init(_ view: UIImageView) {
+    init(_ view: UIView) {
         viewSpace = view
-        imageSize = view.image?.size
+        contentSize = view.intrinsicContentSize()
         contentMode = view.contentMode
     }
 
@@ -34,7 +34,6 @@ class ImageCoordinateSpace {
 
     func transformedSpace() -> UICoordinateSpace {
         let viewSize = viewSpace.bounds.size
-        let contentSize = imageSize ?? viewSize
         return TransformedCoordinateSpace(
             size: contentSize,
             transform: transform(contentSize, viewSize: viewSize),

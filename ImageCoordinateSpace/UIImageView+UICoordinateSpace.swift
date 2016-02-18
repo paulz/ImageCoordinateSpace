@@ -8,8 +8,8 @@
 
 import UIKit
 
-// MARK: Adds UIImageView imageCoordinateSpace property
-public extension UIImageView {
+// MARK: Adds UIView contentCoordinateSpace property
+public extension UIView {
     /**
      Image coordinate space that accounts for view content mode
      
