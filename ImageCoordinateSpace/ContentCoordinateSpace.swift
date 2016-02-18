@@ -1,5 +1,5 @@
 //
-//  ImageCoordinateSpace.swift
+//  ContentCoordinateSpace.swift
 //  ImageCoordinateSpace
 //
 //  Created by Paul Zabelin on 2/14/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageCoordinateSpace {
+class ContentCoordinateSpace {
     var viewSpace : UICoordinateSpace
     var contentSize : CGSize
     var contentMode : UIViewContentMode

@@ -1,5 +1,5 @@
 //
-//  UIImageView+UICoordinateSpace.swift
+//  UIView+UICoordinateSpace.swift
 //  ImageCoordinateSpace
 //
 //  Created by Paul Zabelin on 2/13/16.
@@ -11,7 +11,7 @@ import UIKit
 // MARK: Adds UIView contentCoordinateSpace property
 public extension UIView {
     /**
-     Image coordinate space that accounts for view content mode
+     View coordinate space that accounts for view content mode
      
      Allows converting coordinates to and from image
      
@@ -35,14 +35,14 @@ public extension UIView {
      let imageRect = imageSpace.convertRect(viewRect, fromCoordinateSpace: imageView)
      ```
      
-     - Note: image coordinate space depends on view bounds, image size and view content mode, so you need to
+     - Note: content coordinate space depends on view bounds, image size and view content mode, so you need to
      obtain current contentSpace() if any of those properties change
 
-     - Returns: image UICoordinateSpace
-     - Note: when content mode is .Redraw image coordinate space assumes whole image is fully drawn in view bounds
+     - Returns: view content UICoordinateSpace
+     - Note: when content mode is .Redraw content coordinate space assumes all view content is fully drawn in view bounds
      and behaves as for content mode .ScaleToFill
      */
     func contentSpace() -> UICoordinateSpace {
-        return ImageCoordinateSpace(self).transformedSpace()
+        return ContentCoordinateSpace(self).transformedSpace()
     }
 }
