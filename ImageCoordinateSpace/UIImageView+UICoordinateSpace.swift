@@ -17,7 +17,7 @@ public extension UIView {
      
      To convert a point from a view’s current coordinate space to the image coordinate space:
      ```
-     let imageSpace = imageView.imageCoordinateSpace
+     let imageSpace = imageView.contentSpace()
      let imagePoint = imageSpace.convertPoint(viewPoint, fromCoordinateSpace: imageView)
      ```
 
@@ -36,13 +36,13 @@ public extension UIView {
      ```
      
      - Note: image coordinate space depends on view bounds, image size and view content mode, so you need to
-     obtain current imageCoordinateSpace if any of those properties change
+     obtain current contentSpace() if any of those properties change
 
      - Returns: image UICoordinateSpace
      - Note: when content mode is .Redraw image coordinate space assumes whole image is fully drawn in view bounds
      and behaves as for content mode .ScaleToFill
      */
-    var imageCoordinateSpace : UICoordinateSpace {
+    func contentSpace() -> UICoordinateSpace {
         return ImageCoordinateSpace(self).transformedSpace()
     }
 }

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     let placement = CGRect(x: 321/2, y: 102/2, width: 63/2, height: 64/2)
 
     func updateOvelayPosition() {
-        overlayImageView.frame = backgroundImageView.imageCoordinateSpace.convertRect(placement, toCoordinateSpace: view)
+        overlayImageView.frame = backgroundImageView.contentSpace().convertRect(placement, toCoordinateSpace: view)
     }
 
     func updateOvelayPositionAnimated() {

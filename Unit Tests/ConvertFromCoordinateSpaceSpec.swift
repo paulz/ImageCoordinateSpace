@@ -35,7 +35,7 @@ class ReverseConversionSpec: QuickSpec {
             context("point") {
                 it("should revert to original point") {
                     imageView.contentMode = .ScaleAspectFit
-                    let imageSpace = imageView.imageCoordinateSpace
+                    let imageSpace = imageView.contentSpace()
                     let viewPoint = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
                     expect(viewPoint) != imagePoint
                     let point = imageSpace.convertPoint(viewPoint, fromCoordinateSpace: imageView)
@@ -46,7 +46,7 @@ class ReverseConversionSpec: QuickSpec {
                     it("should also revert") {
                         for mode in allModes {
                             imageView.contentMode = UIViewContentMode(rawValue: mode)!
-                            let imageSpace = imageView.imageCoordinateSpace
+                            let imageSpace = imageView.contentSpace()
                             let viewPoint = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
                             let point = imageSpace.convertPoint(viewPoint, fromCoordinateSpace: imageView)
                             expect(point) == imagePoint
@@ -84,7 +84,7 @@ class ReverseConversionSpec: QuickSpec {
                 for mode in allModes {
                     it("in mode \(mode) should reverse to original") {
                         imageView.contentMode = UIViewContentMode(rawValue: mode)!
-                        let imageSpace = imageView.imageCoordinateSpace
+                        let imageSpace = imageView.contentSpace()
                         let viewRect = imageSpace.convertRect(randomRect, toCoordinateSpace: imageView)
                         let imageRect = imageSpace.convertRect(viewRect, fromCoordinateSpace: imageView)
                         expect(imageRect).to(beVeryCloseTo(randomRect))

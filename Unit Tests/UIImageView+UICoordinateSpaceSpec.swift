@@ -24,9 +24,9 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             }
         }
 
-        describe("imageCoordinateSpace") {
+        describe("contentSpace()") {
             context("zero") {
-                let imageSpace = imageView.imageCoordinateSpace
+                let imageSpace = imageView.contentSpace()
                 it("should return zero") {
                     expect(imageSpace.convertPoint(CGPointZero, fromCoordinateSpace: imageView)) == CGPointZero
                     expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == CGPointZero
@@ -36,7 +36,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             }
 
             context("bounds") {
-                let imageSpace = imageView.imageCoordinateSpace
+                let imageSpace = imageView.contentSpace()
                 it("should be size of image") {
                     expect(imageSpace.bounds.size) == image.size
                     expect(imageSpace.bounds.origin) == CGPointZero
@@ -46,7 +46,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             context("no image") {
                 let frame = CGRect(x: random(), y: random(), width: random(), height: random())
                 let noImageView = UIImageView(frame: frame)
-                let noImageSpace = noImageView.imageCoordinateSpace
+                let noImageSpace = noImageView.contentSpace()
 
                 context("bounds") {
                     it("should equal view bounds") {
@@ -88,7 +88,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             }
 
             func expectViewPointMatchImagePoint(file: String = __FILE__, line: UInt = __LINE__) {
-                let imageSpace = imageView.imageCoordinateSpace
+                let imageSpace = imageView.contentSpace()
                 let result = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
                 expect(result, file:file, line: line) == viewPoint
             }
