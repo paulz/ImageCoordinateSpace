@@ -12,9 +12,9 @@ import ImageCoordinateSpace
 //: Using ImageCoordinateSpace we can position overlay relative to the image
 let backgroundImage = [#Image(imageLiteral: "inspiration.jpg")#]
 let containerView = UIImageView(image: backgroundImage)
-let imageSpace = containerView.imageCoordinateSpace
 let containerSize = CGSize(width: 200, height: 200)
 containerView.bounds = CGRect(origin: CGPointZero, size: containerSize)
+var imageSpace = containerView.imageCoordinateSpace
 let svgUrl = NSBundle.mainBundle().URLForResource("overlayed", withExtension: "svg")!
 let svgString = try! String(contentsOfURL: svgUrl)
 assert(svgString.containsString("x=\"321\" y=\"102\" width=\"63\" height=\"64\""))
@@ -30,8 +30,8 @@ func updateContentMode(mode: UIViewContentMode) -> UIView {
 updateContentMode(containerView.contentMode)
 updateContentMode(.Redraw) // notice redraw here is using default mode - scale to fill
 overlayView.frame
-assert(imageSpace.convertPoint(overlayView.frame.origin, fromCoordinateSpace: containerView) == placement.origin)
-assert(imageSpace.convertRect(overlayView.frame, fromCoordinateSpace: containerView) == placement)
+assert(imageSpace.convertPoint(overlayView.frame.origin, fromCoordinateSpace: containerView) == placement.origin, "converting overlay frame origin from view should be equal to placement origin")
+assert(imageSpace.convertRect(overlayView.frame, fromCoordinateSpace: containerView) == placement, "converting overlay frame from view coordinates should equal to placement")
 updateContentMode(.ScaleToFill)
 updateContentMode(.ScaleAspectFit)
 updateContentMode(.ScaleAspectFill)

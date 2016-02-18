@@ -1,5 +1,4 @@
 //: [Previous](@previous)
-
 import UIKit
 import ImageCoordinateSpace
 
