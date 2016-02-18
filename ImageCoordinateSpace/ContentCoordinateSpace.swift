@@ -8,15 +8,19 @@
 
 import UIKit
 
+extension UIView {
+    func contentCoordinateSpace() -> ContentCoordinateSpace {
+        return ContentCoordinateSpace(contentSize: self.intrinsicContentSize(), contentMode: self.contentMode)
+    }
+}
+
 class ContentCoordinateSpace {
-    var viewSpace : UICoordinateSpace
     var contentSize : CGSize
     var contentMode : UIViewContentMode
 
-    init(_ view: UIView) {
-        viewSpace = view
-        contentSize = view.intrinsicContentSize()
-        contentMode = view.contentMode
+    init(contentSize size: CGSize, contentMode mode: UIViewContentMode) {
+        contentSize = size
+        contentMode = mode
     }
 
     func transform(contentSize:CGSize, viewSize:CGSize) -> CGAffineTransform {
@@ -32,15 +36,15 @@ class ContentCoordinateSpace {
         }
     }
 
-    func contentToBoundsTransform() -> CGAffineTransform {
-        return transform(contentSize, viewSize: viewSpace.bounds.size)
+    func contentSizeTransform(size: CGSize) -> CGAffineTransform {
+        return transform(contentSize, viewSize: size)
     }
 
-    func transformedSpace() -> UICoordinateSpace {
+    func transformedSpace(space: UICoordinateSpace) -> UICoordinateSpace {
         return TransformedCoordinateSpace(
             size: contentSize,
-            transform: contentToBoundsTransform(),
-            destination: viewSpace
+            transform: contentSizeTransform(space.bounds.size),
+            destination: space
         )
     }
 }
