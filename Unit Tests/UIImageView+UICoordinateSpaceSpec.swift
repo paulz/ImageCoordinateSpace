@@ -4,8 +4,8 @@ import ImageCoordinateSpace
 
 class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
     override func spec() {
-        let testBundle = NSBundle(forClass: self.dynamicType)
-        let image = UIImage(named: "rose", inBundle: testBundle, compatibleWithTraitCollection: nil)!
+        let testBundle = Bundle(for: type(of: self))
+        let image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
 
         let imageView = UIImageView(image: image)
 
@@ -92,7 +92,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                 viewPoint = imagePoint
             }
 
-            func expectViewPointMatchImagePoint(file: String = __FILE__, line: UInt = __LINE__) {
+            func expectViewPointMatchImagePoint(_ file: String = #file, line: UInt = #line) {
                 let imageSpace = imageView.contentSpace()
                 let result = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
                 expect(result, file:file, line: line) == viewPoint

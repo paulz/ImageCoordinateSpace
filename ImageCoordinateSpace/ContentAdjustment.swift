@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     func contentAdjustment() -> ContentAdjustment {
-        return ContentAdjustment(contentSize: self.intrinsicContentSize(), contentMode: self.contentMode)
+        return ContentAdjustment(contentSize: self.intrinsicContentSize, contentMode: self.contentMode)
     }
 }
 
@@ -23,7 +23,7 @@ class ContentAdjustment {
         contentMode = mode
     }
 
-    func transform(contentSize:CGSize, viewSize:CGSize) -> CGAffineTransform {
+    func transform(_ contentSize:CGSize, viewSize:CGSize) -> CGAffineTransform {
         if contentSize != viewSize {
             let transformer = ViewContentModeTransformer(
                 viewSize: viewSize,
@@ -32,15 +32,15 @@ class ContentAdjustment {
             )
             return transformer.contentToViewTransform()
         } else {
-            return CGAffineTransformIdentity
+            return CGAffineTransform.identity
         }
     }
 
-    func contentTransformToSize(size: CGSize) -> CGAffineTransform {
+    func contentTransformToSize(_ size: CGSize) -> CGAffineTransform {
         return transform(contentSize, viewSize: size)
     }
 
-    func transformingToSpace(space: UICoordinateSpace) -> UICoordinateSpace {
+    func transformingToSpace(_ space: UICoordinateSpace) -> UICoordinateSpace {
         return TransformedCoordinateSpace(
             size: contentSize,
             transform: contentTransformToSize(space.bounds.size),

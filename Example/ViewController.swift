@@ -15,13 +15,13 @@ class ViewController: UIViewController {
     let placement = CGRect(x: 321/2, y: 102/2, width: 63/2, height: 64/2)
 
     func updateOvelayPosition() {
-        overlayImageView.frame = backgroundImageView.contentSpace().convertRect(placement, toCoordinateSpace: view)
+        overlayImageView.frame = backgroundImageView.contentSpace().convert(placement, to: view)
     }
 
     func updateOvelayPositionAnimated() {
-        UIView.animateWithDuration(0.5) { () -> Void in
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.updateOvelayPosition()
-        }
+        }) 
     }
 
     func nextContentMode() {
@@ -34,17 +34,17 @@ class ViewController: UIViewController {
 
     func showNextContentMode() {
         nextContentMode()
-        if backgroundImageView.contentMode == .Redraw {
+        if backgroundImageView.contentMode == .redraw {
             nextContentMode()
         }
         updateOvelayPositionAnimated()
     }
 
-    override func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
         showNextContentMode()
     }
 
-    @IBAction func didTap(sender: AnyObject) {
+    @IBAction func didTap(_ sender: AnyObject) {
         showNextContentMode()
     }
 }

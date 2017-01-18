@@ -5,7 +5,7 @@ import ImageCoordinateSpace
 class ReverseConversionSpec: QuickSpec {
     override func spec() {
         describe("convert fromCoordinateSpace") {
-            let testBundle = NSBundle(forClass: self.dynamicType)
+            let testBundle = NSBundle(forClass: type(of: self))
             let image = UIImage(named: "rose", inBundle: testBundle, compatibleWithTraitCollection: nil)!
             let imageView = UIImageView(image: image)
 

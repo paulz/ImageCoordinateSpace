@@ -9,7 +9,7 @@
 import Nimble
 import UIKit
 
-func beVeryCloseTo(expectedValue: CGRect!) -> MatcherFunc <CGRect> {
+func beVeryCloseTo(_ expectedValue: CGRect!) -> MatcherFunc <CGRect> {
     return MatcherFunc { actualExpression, failureMessage in
         failureMessage.postfixMessage = "equal <\(expectedValue)>"
         let actual = try actualExpression.evaluate()!
@@ -21,7 +21,7 @@ func beVeryCloseTo(expectedValue: CGRect!) -> MatcherFunc <CGRect> {
     }
 }
 
-func beVeryCloseTo(expectedValue: CGPoint!) -> MatcherFunc <CGPoint> {
+func beVeryCloseTo(_ expectedValue: CGPoint!) -> MatcherFunc <CGPoint> {
     return MatcherFunc { actualExpression, failureMessage in
         failureMessage.postfixMessage = "equal <\(expectedValue)>"
         let actual = try actualExpression.evaluate()!
