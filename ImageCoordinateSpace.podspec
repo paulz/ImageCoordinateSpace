@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     s.screenshot          = 'https://raw.githubusercontent.com/paulz/ImageCoordinateSpace/master/Example/demo.gif'
     s.license             = 'MIT'
     s.author              = { 'Paul Zabelin' => 'https://github.com/paulz' }
-    s.source              = {   :git => 'https://github.com/paulz/ImageCoordinateSpace.git',
+    s.source              = {   :git => 'https://github.com/JulianKniephoff/ImageCoordinateSpace.git',
                                 :tag => s.version.to_s
     }
     s.social_media_url    = 'https://twitter.com/iospaulz'
