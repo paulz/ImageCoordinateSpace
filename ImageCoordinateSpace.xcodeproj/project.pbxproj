@@ -15,10 +15,8 @@
 		4B017D9F1C6F6B52003ECCE7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
 		4B017DA11C6F6B67003ECCE7 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B017DA21C6F6B67003ECCE7 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4B017DA31C6F6BD5003ECCE7 /* UIImageView+UICoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+UICoordinateSpaceSpec.swift */; };
 		4B017DA41C6F6BDB003ECCE7 /* UIView+UICoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIView+UICoordinateSpace.swift */; };
 		4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */; };
-		4B19855A1C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985591C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift */; };
 		4B320CC41C71767800FA8663 /* ImageCoordinateSpace.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */; };
 		4B7AFC721C758E2D00BBC46D /* TransformedCoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */; };
 		4B7AFC741C759C5D00BBC46D /* ViewContentModeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AFC731C759C5D00BBC46D /* ViewContentModeTransformer.swift */; };
@@ -33,6 +31,8 @@
 		4BE2CB2A1C718CE3008BB9E0 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CB281C718CE3008BB9E0 /* Cartfile.private */; };
 		4BE2CB2B1C718CE3008BB9E0 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */; };
 		4BE2CB2E1C7191B9008BB9E0 /* ContentAdjustment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2CB2D1C7191B9008BB9E0 /* ContentAdjustment.swift */; };
+		8B338F211FE036D9008D59CD /* ConvertFromCoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985591C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift */; };
+		8B338F221FE037D9008D59CD /* UIImageView+UICoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIImageView+UICoordinateSpaceSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -392,8 +392,8 @@
 			files = (
 				4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */,
 				4B7AFC761C75B02200BBC46D /* ApproximateMatchers.swift in Sources */,
-				4B017DA31C6F6BD5003ECCE7 /* UIImageView+UICoordinateSpaceSpec.swift in Sources */,
-				4B19855A1C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift in Sources */,
+				8B338F221FE037D9008D59CD /* UIImageView+UICoordinateSpaceSpec.swift in Sources */,
+				8B338F211FE036D9008D59CD /* ConvertFromCoordinateSpaceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

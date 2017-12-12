@@ -1,5 +1,5 @@
 # Image Coordinate Space
-`UICoordinateSpace` for `UIImageView` image written in [Swift 2](https://developer.apple.com/swift/)
+`UICoordinateSpace` for `UIImageView` image written in [Swift 3](https://developer.apple.com/swift/)
 
 [![Build Status](https://travis-ci.org/paulz/ImageCoordinateSpace.svg?branch=master)](https://travis-ci.org/paulz/ImageCoordinateSpace)
 [![Version](https://img.shields.io/cocoapods/v/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
@@ -16,27 +16,27 @@ Convert `CGPoint` from image coordinates to view coordinates:
 import ImageCoordinateSpace
 
 let imageSpace = imageView.contentSpace()
-let imageTopLeft = imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)
+let imageTopLeft = imageSpace.convert(CGPoint.zero, to: imageView)
 ```
 
 Convert `CGPoint` from view coordinates to image coordinates:
 
 
 ```swift
-let viewTopLeft = imageSpace.convertPoint(CGPointZero, fromCoordinateSpace: imageView)
+let viewTopLeft = imageSpace.convert(CGPoint.zero, from: imageView)
 ```
 
 Similar conversions are available for `CGRect`:
 
 ```swift
 let imageRect = CGRect(x: 321, y: 102, width: 63, height: 64)
-let viewRect = imageSpace.convertRect(imageRect, toCoordinateSpace: imageView)
+let viewRect = imageSpace.convertRect(imageRect, to: imageView)
 ```
 and from view coordinates to image coordinates:
 
 ```swift
 let viewRect = CGRect(x: 107, y: 68, width: 21, height: 42.667)
-let imageRect = imageSpace.convertRect(viewRect, fromCoordinateSpace: imageView)
+let imageRect = imageSpace.convertRect(viewRect, from: imageView)
 ```
 
 

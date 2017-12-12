@@ -30,4 +30,3 @@ func beVeryCloseTo(_ expectedValue: CGPoint!) -> MatcherFunc <CGPoint> {
             abs(actual.y - expectedValue.y) < delta
     }
 }
-

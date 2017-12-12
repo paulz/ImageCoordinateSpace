@@ -5,33 +5,33 @@ class CGAffineTransformInvertSpec: QuickSpec {
     override func spec() {
         describe("invert transform") {
             it("should revert scale") {
-                let scaled = CGAffineTransformMakeScale(2, 3)
-                let invert = CGAffineTransformInvert(scaled)
-                let inverted = CGAffineTransformConcat(scaled, invert)
-                expect(CGAffineTransformEqualToTransform(inverted, CGAffineTransformIdentity)) == true
+                let scaled = CGAffineTransform(scaleX: 2, y: 3)
+                let invert = scaled.inverted()
+                let inverted = scaled.concatenating(invert)
+                expect(inverted) == CGAffineTransform.identity
             }
 
             it("should revert translate") {
-                let translation = CGAffineTransformMakeTranslation(100, 200)
-                let invert = CGAffineTransformInvert(translation)
-                let reverted = CGAffineTransformConcat(translation, invert)
-                expect(CGAffineTransformEqualToTransform(reverted, CGAffineTransformIdentity)) == true
+                let translation = CGAffineTransform(translationX: 100, y: 200)
+                let invert = translation.inverted()
+                let reverted = translation.concatenating(invert)
+                expect(reverted) == CGAffineTransform.identity
             }
 
             it("should revert translate and scale") {
-                let translation = CGAffineTransformMakeTranslation(100, 200)
-                let scaledTranslation = CGAffineTransformScale(translation, 2, 3)
-                let invert = CGAffineTransformInvert(scaledTranslation)
-                let reverted = CGAffineTransformConcat(scaledTranslation, invert)
-                expect(CGAffineTransformEqualToTransform(reverted, CGAffineTransformIdentity)) == true
+                let translation = CGAffineTransform(translationX: 100, y: 200)
+                let scaledTranslation = translation.scaledBy(x: 2, y: 3)
+                let invert = scaledTranslation.inverted()
+                let reverted = scaledTranslation.concatenating(invert)
+                expect(reverted) == CGAffineTransform.identity
             }
 
             it("should revert scale and translate") {
-                let scale = CGAffineTransformMakeScale(2, 3)
-                let translated = CGAffineTransformScale(scale, 200, 300)
-                let invert = CGAffineTransformInvert(translated)
-                let reverted = CGAffineTransformConcat(translated, invert)
-                expect(CGAffineTransformEqualToTransform(reverted, CGAffineTransformIdentity)) == true
+                let scale = CGAffineTransform(scaleX: 2, y: 3)
+                let translated = scale.translatedBy(x: 200, y: 300)
+                let invert = translated.inverted()
+                let reverted = translated.concatenating(invert)
+                expect(reverted) == CGAffineTransform.identity
             }
         }
     }

@@ -18,21 +18,21 @@ public extension UIView {
      To convert a point from a view’s current coordinate space to the image coordinate space:
      ```
      let imageSpace = imageView.contentSpace()
-     let imagePoint = imageSpace.convertPoint(viewPoint, fromCoordinateSpace: imageView)
+     let imagePoint = imageSpace.convert(viewPoint, from: imageView)
      ```
 
      To convert a point from a image current coordinate space to the view coordinate space:
      ```
-     let viewPoint = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
+     let viewPoint = imageSpace.convert(imagePoint, to: imageView)
      ```
 
      Similar conversions are available for CGRect:
      ```
-     let viewRect = imageSpace.convertRect(imageRect, toCoordinateSpace: imageView)
+     let viewRect = imageSpace.convertRect(imageRect, to: imageView)
      ```
      and
      ```
-     let imageRect = imageSpace.convertRect(viewRect, fromCoordinateSpace: imageView)
+     let imageRect = imageSpace.convertRect(viewRect, from: imageView)
      ```
      
      - Note: content coordinate space depends on view bounds, image size and view content mode, so you need to

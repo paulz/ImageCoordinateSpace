@@ -2,6 +2,10 @@ import Quick
 import Nimble
 import ImageCoordinateSpace
 
+func random() -> Int {
+    return Int(arc4random())
+}
+
 class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
     override func spec() {
         let testBundle = Bundle(for: type(of: self))
@@ -9,17 +13,17 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
         let imageView = UIImageView(image: image)
 
-        let randomPoint = CGPoint(x: random(), y: random())
-        let randomSize = CGSize(width: random(), height: random())
+        let randomPoint = CGPoint(x: Int(arc4random()), y: Int(arc4random()))
+        let randomSize = CGSize(width: Int(arc4random()), height: Int(arc4random()))
         let randomRect = CGRect(origin: randomPoint, size: randomSize)
 
         describe("view UICoordinateSpace") {
             context("same space") {
                 it("should not change") {
-                    expect(imageView.convertPoint(randomPoint, fromCoordinateSpace: imageView)) == randomPoint
-                    expect(imageView.convertPoint(randomPoint, toCoordinateSpace: imageView)) == randomPoint
-                    expect(imageView.convertRect(randomRect, fromCoordinateSpace: imageView)) == randomRect
-                    expect(imageView.convertRect(randomRect, toCoordinateSpace: imageView)) == randomRect
+                    expect(imageView.convert(randomPoint, from: imageView)) == randomPoint
+                    expect(imageView.convert(randomPoint, to: imageView)) == randomPoint
+                    expect(imageView.convert(randomRect, from: imageView)) == randomRect
+                    expect(imageView.convert(randomRect, to: imageView)) == randomRect
                 }
             }
         }
@@ -28,10 +32,10 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             context("zero") {
                 let imageSpace = imageView.contentSpace()
                 it("should return zero") {
-                    expect(imageSpace.convertPoint(CGPointZero, fromCoordinateSpace: imageView)) == CGPointZero
-                    expect(imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)) == CGPointZero
-                    expect(imageSpace.convertRect(CGRectZero, fromCoordinateSpace: imageView)) == CGRectZero
-                    expect(imageSpace.convertRect(CGRectZero, toCoordinateSpace: imageView)) == CGRectZero
+                    expect(imageSpace.convert(CGPoint.zero, from: imageView)) == CGPoint.zero
+                    expect(imageSpace.convert(CGPoint.zero, to: imageView)) == CGPoint.zero
+                    expect(imageSpace.convert(CGRect.zero, from: imageView)) == CGRect.zero
+                    expect(imageSpace.convert(CGRect.zero, to: imageView)) == CGRect.zero
                 }
             }
 
@@ -39,7 +43,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                 let imageSpace = imageView.contentSpace()
                 it("should be size of image") {
                     expect(imageSpace.bounds.size) == image.size
-                    expect(imageSpace.bounds.origin) == CGPointZero
+                    expect(imageSpace.bounds.origin) == CGPoint.zero
                 }
             }
 
@@ -50,25 +54,25 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
                 context("bounds") {
                     it("should equal to -1 rect") {
-                        expect(noImageSpace.bounds) == CGRectMake(0, 0, -1, -1)
+                        expect(noImageSpace.bounds) == CGRect(x: 0, y: 0, width: -1, height: -1)
                     }
                 }
 
                 context("convert") {
                     context("within own space") {
                         it("should return original") {
-                            expect(noImageSpace.convertRect(randomRect, fromCoordinateSpace: noImageSpace)).to(beVeryCloseTo(randomRect))
-                            expect(noImageSpace.convertRect(randomRect, toCoordinateSpace: noImageSpace)).to(beVeryCloseTo(randomRect))
-                            expect(noImageSpace.convertPoint(randomPoint, fromCoordinateSpace:noImageSpace)).to(beVeryCloseTo(randomPoint))
-                            expect(noImageSpace.convertPoint(randomPoint, toCoordinateSpace: noImageSpace)).to(beVeryCloseTo(randomPoint))
+                            expect(noImageSpace.convert(randomRect, from: noImageSpace)).to(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convert(randomRect, to: noImageSpace)).to(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convert(randomPoint, from:noImageSpace)).to(beVeryCloseTo(randomPoint))
+                            expect(noImageSpace.convert(randomPoint, to: noImageSpace)).to(beVeryCloseTo(randomPoint))
                         }
                     }
                     context("within foreign space") {
                         it("should not convert") {
-                            expect(noImageSpace.convertRect(randomRect, fromCoordinateSpace: noImageView)).notTo(beVeryCloseTo(randomRect))
-                            expect(noImageSpace.convertRect(randomRect, toCoordinateSpace: noImageView)).notTo(beVeryCloseTo(randomRect))
-                            expect(noImageSpace.convertPoint(randomPoint, fromCoordinateSpace: noImageView)).notTo(beVeryCloseTo(randomPoint))
-                            expect(noImageSpace.convertPoint(randomPoint, toCoordinateSpace: noImageView)).notTo(beVeryCloseTo(randomPoint))
+                            expect(noImageSpace.convert(randomRect, from: noImageView)).notTo(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convert(randomRect, to: noImageView)).notTo(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convert(randomPoint, from: noImageView)).notTo(beVeryCloseTo(randomPoint))
+                            expect(noImageSpace.convert(randomPoint, to: noImageView)).notTo(beVeryCloseTo(randomPoint))
                         }
                     }
                 }
@@ -78,12 +82,12 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             var viewSize  : CGSize!
             var widthRatio : CGFloat!
             var heightRatio : CGFloat!
-            let imagePoint = CGPointZero
+            let imagePoint = CGPoint.zero
             var viewPoint : CGPoint!
 
             beforeEach {
                 let square = CGSize(width: 100, height: 100)
-                imageView.bounds = CGRect(origin: CGPointZero, size: square)
+                imageView.bounds = CGRect(origin: CGPoint.zero, size: square)
                 imageSize = image.size
                 viewSize  = imageView.bounds.size
                 widthRatio = viewSize.width / imageSize.width
@@ -94,13 +98,13 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             func expectViewPointMatchImagePoint(_ file: String = #file, line: UInt = #line) {
                 let imageSpace = imageView.contentSpace()
-                let result = imageSpace.convertPoint(imagePoint, toCoordinateSpace: imageView)
+                let result = imageSpace.convert(imagePoint, to: imageView)
                 expect(result, file:file, line: line) == viewPoint
             }
 
             context("top left") {
                 beforeEach {
-                    imageView.contentMode = .TopLeft
+                    imageView.contentMode = .topLeft
                 }
 
                 it("should be same as view") {
@@ -110,7 +114,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("left") {
                 beforeEach {
-                    imageView.contentMode = .Left
+                    imageView.contentMode = .left
                 }
 
                 it("should change y to the center") {
@@ -121,7 +125,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("right") {
                 beforeEach {
-                    imageView.contentMode = .Right
+                    imageView.contentMode = .right
                 }
 
                 it("should change x as top right, y as as left") {
@@ -133,7 +137,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("top right") {
                 beforeEach {
-                    imageView.contentMode = .TopRight
+                    imageView.contentMode = .topRight
                 }
 
                 it("should change x by widths difference") {
@@ -144,7 +148,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("bottom left") {
                 beforeEach {
-                    imageView.contentMode = .BottomLeft
+                    imageView.contentMode = .bottomLeft
                 }
 
                 it("should change only y by height difference") {
@@ -155,7 +159,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("bottom right") {
                 beforeEach {
-                    imageView.contentMode = .BottomRight
+                    imageView.contentMode = .bottomRight
                 }
 
                 it("should change both x and y by size difference") {
@@ -167,7 +171,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("bottom") {
                 beforeEach {
-                    imageView.contentMode = .Bottom
+                    imageView.contentMode = .bottom
                 }
 
                 it("should change both x and y by size difference") {
@@ -179,7 +183,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("top") {
                 beforeEach {
-                    imageView.contentMode = .Top
+                    imageView.contentMode = .top
                 }
 
                 it("should change only x to the center") {
@@ -191,7 +195,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             context("center") {
                 beforeEach {
-                    imageView.contentMode = .Center
+                    imageView.contentMode = .center
                 }
 
                 it("should not stretch the image") {
@@ -204,7 +208,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             context("scale") {
                 context("scale to fill") {
                     beforeEach {
-                        imageView.contentMode = .ScaleToFill
+                        imageView.contentMode = .scaleToFill
                     }
 
                     it("should scale image to the view size") {
@@ -217,7 +221,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
                 context("aspect fill") {
                     beforeEach {
-                        imageView.contentMode = .ScaleAspectFill
+                        imageView.contentMode = .scaleAspectFill
                     }
                     it("should be scale to maximize ratio") {
                         let scale = max(widthRatio, heightRatio)
@@ -233,7 +237,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
                 context("aspect fit") {
                     beforeEach {
-                        imageView.contentMode = .ScaleAspectFit
+                        imageView.contentMode = .scaleAspectFit
                     }
                     it("should scale image to minimize") {
                         let scale = min(widthRatio, heightRatio)
