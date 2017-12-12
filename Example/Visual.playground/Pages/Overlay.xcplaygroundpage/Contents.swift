@@ -10,40 +10,40 @@
 import UIKit
 import ImageCoordinateSpace
 //: Using ImageCoordinateSpace we can position overlay relative to the image
-let backgroundImage = [#Image(imageLiteral: "inspiration.jpg")#]
+let backgroundImage = #imageLiteral(resourceName: "inspiration.jpg")
 let containerView = UIImageView(image: backgroundImage)
 let containerSize = CGSize(width: 200, height: 200)
-containerView.bounds = CGRect(origin: CGPointZero, size: containerSize)
+containerView.bounds = CGRect(origin: CGPoint.zero, size: containerSize)
 var imageSpace = containerView.contentSpace()
-let svgUrl = NSBundle.mainBundle().URLForResource("overlayed", withExtension: "svg")!
-let svgString = try! String(contentsOfURL: svgUrl)
-assert(svgString.containsString("x=\"321\" y=\"102\" width=\"63\" height=\"64\""))
+let svgUrl = Bundle.main.url(forResource:"overlayed", withExtension: "svg")!
+let svgString = try! String(contentsOf: svgUrl)
+assert(svgString.contains("x=\"321\" y=\"102\" width=\"63\" height=\"64\""))
 let placement = CGRect(x: 321, y: 102, width: 63, height: 64)
-let overlayView = UIImageView(image:[#Image(imageLiteral: "hello.png")#])
+let overlayView = UIImageView(image: #imageLiteral(resourceName: "hello.png"))
 containerView.addSubview(overlayView)
 overlayView.alpha = 0.8
-func updateContentMode(mode: UIViewContentMode) -> UIView {
+func updateContentMode(_ mode: UIViewContentMode) -> UIView {
     containerView.contentMode = mode
-    overlayView.frame = containerView.contentSpace().convertRect(placement, toCoordinateSpace: containerView)
+    overlayView.frame = containerView.contentSpace().convert(placement, to: containerView)
     return containerView
 }
 updateContentMode(containerView.contentMode)
-updateContentMode(.Redraw) // notice redraw here is using default mode - scale to fill
+updateContentMode(.redraw)// notice redraw here is using default mode - scale to fill
 overlayView.frame
-assert(imageSpace.convertPoint(overlayView.frame.origin, fromCoordinateSpace: containerView) == placement.origin, "converting overlay frame origin from view should be equal to placement origin")
-assert(imageSpace.convertRect(overlayView.frame, fromCoordinateSpace: containerView) == placement, "converting overlay frame from view coordinates should equal to placement")
-updateContentMode(.ScaleToFill)
-updateContentMode(.ScaleAspectFit)
-updateContentMode(.ScaleAspectFill)
-updateContentMode(.Top)
-updateContentMode(.Bottom)
-containerView.frame = CGRect(origin: CGPointZero, size: CGSize(width: 400, height: 200))
-updateContentMode(.Left)
-updateContentMode(.Right)
-updateContentMode(.TopLeft)
-updateContentMode(.TopRight)
-updateContentMode(.BottomLeft)
-updateContentMode(.BottomRight)
+assert(imageSpace.convert(overlayView.frame.origin, from: containerView) == placement.origin, "converting overlay frame origin from view should be equal to placement origin")
+assert(imageSpace.convert(overlayView.frame, from: containerView) == placement, "converting overlay frame from view coordinates should equal to placement")
+updateContentMode(.scaleToFill)
+updateContentMode(.scaleAspectFit)
+updateContentMode(.scaleAspectFill)
+updateContentMode(.top)
+updateContentMode(.bottom)
+containerView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 400, height: 200))
+updateContentMode(.left)
+updateContentMode(.right)
+updateContentMode(.topLeft)
+updateContentMode(.topRight)
+updateContentMode(.bottomLeft)
+updateContentMode(.bottomRight)
 // notice redraw does not update the image but rather use previous draw mode
-updateContentMode(.Redraw)
+updateContentMode(.redraw)
 //: [Next](@next)

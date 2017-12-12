@@ -3,12 +3,17 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "#CharacterRangeLen=9&amp;CharacterRangeLoc=317&amp;EndingColumnNumber=10&amp;EndingLineNumber=10&amp;StartingColumnNumber=1&amp;StartingLineNumber=10&amp;Timestamp=477206071.227033"
+         documentLocation = "file:///Users/developer/workspace/ImageCoordinateSpace/Example/Visual.playground/Pages/Center.xcplaygroundpage#CharacterRangeLen=9&amp;CharacterRangeLoc=322&amp;EndingColumnNumber=9&amp;EndingLineNumber=10&amp;StartingColumnNumber=0&amp;StartingLineNumber=10&amp;Timestamp=534789844.170133"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "#CharacterRangeLen=9&amp;CharacterRangeLoc=280&amp;EndingColumnNumber=10&amp;EndingLineNumber=8&amp;StartingColumnNumber=1&amp;StartingLineNumber=8&amp;Timestamp=477293721.601265"
+         documentLocation = "file:///Users/developer/workspace/ImageCoordinateSpace/Example/Visual.playground/Pages/Center.xcplaygroundpage#CharacterRangeLen=9&amp;CharacterRangeLoc=292&amp;EndingColumnNumber=21&amp;EndingLineNumber=9&amp;StartingColumnNumber=12&amp;StartingLineNumber=9&amp;Timestamp=534789844.170232"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/developer/workspace/ImageCoordinateSpace/Example/Visual.playground/Pages/Center.xcplaygroundpage#CharacterRangeLen=9&amp;CharacterRangeLoc=746&amp;EndingColumnNumber=0&amp;EndingLineNumber=22&amp;StartingColumnNumber=1&amp;StartingLineNumber=21&amp;Timestamp=534789844.170307"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>

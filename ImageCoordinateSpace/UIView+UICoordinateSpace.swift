@@ -28,11 +28,11 @@ public extension UIView {
 
      Similar conversions are available for CGRect:
      ```
-     let viewRect = imageSpace.convertRect(imageRect, to: imageView)
+     let viewRect = imageSpace.convert(imageRect, to: imageView)
      ```
      and
      ```
-     let imageRect = imageSpace.convertRect(viewRect, from: imageView)
+     let imageRect = imageSpace.convert(viewRect, from: imageView)
      ```
      
      - Note: content coordinate space depends on view bounds, image size and view content mode, so you need to

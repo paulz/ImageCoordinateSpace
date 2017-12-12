@@ -3,20 +3,19 @@ import UIKit
 import ImageCoordinateSpace
 
 //: Aspect Fit
-let image = UIImage(named: "rose.jpg")!
+let image = #imageLiteral(resourceName: "rose.jpg")
 let imageView = UIImageView(image: image)
 let square = CGSize(width: 100, height: 100)
-imageView.bounds = CGRect(origin: CGPointZero, size: square)
-imageView.backgroundColor = UIColor.greenColor()
-imageView.contentMode = .ScaleAspectFit
+imageView.bounds = CGRect(origin: CGPoint.zero, size: square)
+imageView.backgroundColor = UIColor.green
+imageView.contentMode = .scaleAspectFit
 let imageSpace = imageView.contentSpace()
-let topLeft = imageSpace.convertPoint(CGPointZero, toCoordinateSpace: imageView)
+let topLeft = imageSpace.convert(CGPoint.zero, to: imageView)
 image.size
 let bottomRight = CGPoint(x: image.size.width, y: image.size.height)
-let lowerRight = imageSpace.convertPoint(bottomRight, toCoordinateSpace: imageView)
+let lowerRight = imageSpace.convert(bottomRight, to: imageView)
 let bottomMargin = imageView.bounds.height - lowerRight.y
 let topMargin  = topLeft.y
-topMar//: margins should be the same
-gin == bottomMargin
-
+assert(topMargin == bottomMargin, "margins should be the same")
+imageView
 //: [Next](@next)

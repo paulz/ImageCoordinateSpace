@@ -30,13 +30,13 @@ Similar conversions are available for `CGRect`:
 
 ```swift
 let imageRect = CGRect(x: 321, y: 102, width: 63, height: 64)
-let viewRect = imageSpace.convertRect(imageRect, to: imageView)
+let viewRect = imageSpace.convert(imageRect, to: imageView)
 ```
 and from view coordinates to image coordinates:
 
 ```swift
 let viewRect = CGRect(x: 107, y: 68, width: 21, height: 42.667)
-let imageRect = imageSpace.convertRect(viewRect, from: imageView)
+let imageRect = imageSpace.convert(viewRect, from: imageView)
 ```
 
 

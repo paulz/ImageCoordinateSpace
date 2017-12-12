@@ -3,17 +3,22 @@
    version = "3.0">
    <TimelineItems>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "#CharacterRangeLen=9&amp;CharacterRangeLoc=321&amp;EndingColumnNumber=10&amp;EndingLineNumber=11&amp;StartingColumnNumber=1&amp;StartingLineNumber=10&amp;Timestamp=477468174.051055"
+         documentLocation = "file:///Users/developer/workspace/ImageCoordinateSpace/Example/Visual.playground/Pages/Aspect%20Fit.xcplaygroundpage#CharacterRangeLen=9&amp;CharacterRangeLoc=326&amp;EndingColumnNumber=9&amp;EndingLineNumber=10&amp;StartingColumnNumber=0&amp;StartingLineNumber=10&amp;Timestamp=534789808.924232"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "#CharacterRangeLen=9&amp;CharacterRangeLoc=253&amp;EndingColumnNumber=10&amp;EndingLineNumber=8&amp;StartingColumnNumber=1&amp;StartingLineNumber=8&amp;Timestamp=477468174.051176"
+         documentLocation = "file:///Users/developer/workspace/ImageCoordinateSpace/Example/Visual.playground/Pages/Aspect%20Fit.xcplaygroundpage#CharacterRangeLen=9&amp;CharacterRangeLoc=265&amp;EndingColumnNumber=52&amp;EndingLineNumber=8&amp;StartingColumnNumber=43&amp;StartingLineNumber=8&amp;Timestamp=534789808.924351"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
       <LoggerValueHistoryTimelineItem
-         documentLocation = "#CharacterRangeLen=9&amp;CharacterRangeLoc=280&amp;EndingColumnNumber=10&amp;EndingLineNumber=8&amp;StartingColumnNumber=1&amp;StartingLineNumber=8&amp;Timestamp=477468174.051266"
+         documentLocation = "file:///Users/developer/workspace/ImageCoordinateSpace/Example/Visual.playground/Pages/Aspect%20Fit.xcplaygroundpage#CharacterRangeLen=9&amp;CharacterRangeLoc=292&amp;EndingColumnNumber=17&amp;EndingLineNumber=9&amp;StartingColumnNumber=8&amp;StartingLineNumber=9&amp;Timestamp=534789808.924422"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/developer/workspace/ImageCoordinateSpace/Example/Visual.playground/Pages/Aspect%20Fit.xcplaygroundpage#CharacterRangeLen=9&amp;CharacterRangeLoc=764&amp;EndingColumnNumber=0&amp;EndingLineNumber=20&amp;StartingColumnNumber=1&amp;StartingLineNumber=19&amp;Timestamp=534789808.92449"
          selectedRepresentationIndex = "0"
          shouldTrackSuperviewWidth = "NO">
       </LoggerValueHistoryTimelineItem>
