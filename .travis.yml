@@ -23,6 +23,8 @@ deploy:
   on:
     tags: true
     all_branches: true
+script:
+  - xcodebuild test -scheme ImageCoordinateSpace -destination "platform=iOS Simulator,name=iPhone X" | xcpretty
 after_script:
   - ls -la
   - env
