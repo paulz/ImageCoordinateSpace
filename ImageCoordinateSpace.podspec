@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-    s.cocoapods_version   = '>= 0.36'
+    s.cocoapods_version   = '>= 1.3.1'
     s.name                = 'ImageCoordinateSpace'
-    s.version             = '0.4.0'
+    s.version             = '1.0.3'
     s.summary             = 'Convert image coordinates to image view depending on content mode'
     s.description         = <<-DESC
     Convert CGPoint and CGRect between UIImage and UIImageView coordinates respecting UIViewContentMode and using UICoordinateSpace
