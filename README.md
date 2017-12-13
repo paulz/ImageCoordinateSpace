@@ -96,7 +96,7 @@ carthage bootstrap
 Run tests:
 
 ```sh
-xctool test
+xcodebuild test -scheme ImageCoordinateSpace -destination 'platform=iOS Simulator,name=iPhone X'
 ```
 
 ## Author
