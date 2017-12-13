@@ -28,7 +28,9 @@ func updateContentMode(_ mode: UIViewContentMode) -> UIView {
     return containerView
 }
 updateContentMode(containerView.contentMode)
-updateContentMode(.redraw)// notice redraw here is using default mode - scale to fill
+updateContentMode(.redraw)
+
+//: notice redraw here is using default mode - scale to fill
 overlayView.frame
 assert(imageSpace.convert(overlayView.frame.origin, from: containerView) == placement.origin, "converting overlay frame origin from view should be equal to placement origin")
 assert(imageSpace.convert(overlayView.frame, from: containerView) == placement, "converting overlay frame from view coordinates should equal to placement")
@@ -44,6 +46,6 @@ updateContentMode(.topLeft)
 updateContentMode(.topRight)
 updateContentMode(.bottomLeft)
 updateContentMode(.bottomRight)
-// notice redraw does not update the image but rather use previous draw mode
+//: notice redraw does not update the image but rather use previous draw mode
 updateContentMode(.redraw)
 //: [Next](@next)

@@ -1,5 +1,5 @@
 # Image Coordinate Space
-`UICoordinateSpace` for `UIImageView` image written in [Swift 3](https://developer.apple.com/swift/)
+`UICoordinateSpace` for `UIImageView` image written in [Swift 4](https://developer.apple.com/swift/)
 
 [![Build Status](https://travis-ci.org/paulz/ImageCoordinateSpace.svg?branch=master)](https://travis-ci.org/paulz/ImageCoordinateSpace)
 [![Version](https://img.shields.io/cocoapods/v/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
@@ -97,6 +97,12 @@ Run tests:
 
 ```sh
 xcodebuild test -scheme ImageCoordinateSpace -destination 'platform=iOS Simulator,name=iPhone X'
+```
+See them pass at lightning speed:
+```
+Test Suite 'All tests' passed at 2017-12-13 08:07:14.826.
+Executed 36 tests, with 0 failures (0 unexpected) in 0.013 (0.023) seconds
+** TEST SUCCEEDED **
 ```
 
 ## Author
