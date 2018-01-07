@@ -18,6 +18,7 @@
 		4B017DA41C6F6BDB003ECCE7 /* UIView+UICoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIView+UICoordinateSpace.swift */; };
 		4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */; };
 		4B320CC41C71767800FA8663 /* ImageCoordinateSpace.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */; };
+		4B6866D92002C4CF00DFDFCF /* RandomTestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */; };
 		4B7AFC721C758E2D00BBC46D /* TransformedCoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */; };
 		4B7AFC741C759C5D00BBC46D /* ViewContentModeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AFC731C759C5D00BBC46D /* ViewContentModeTransformer.swift */; };
 		4B7AFC761C75B02200BBC46D /* ApproximateMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AFC751C75B02200BBC46D /* ApproximateMatchers.swift */; };
@@ -94,6 +95,7 @@
 		4B1985591C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertFromCoordinateSpaceSpec.swift; sourceTree = "<group>"; };
 		4B320CC01C71718200FA8663 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ImageCoordinateSpace.podspec; sourceTree = "<group>"; };
+		4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTestable.swift; sourceTree = "<group>"; };
 		4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformedCoordinateSpace.swift; sourceTree = "<group>"; };
 		4B7AFC731C759C5D00BBC46D /* ViewContentModeTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContentModeTransformer.swift; sourceTree = "<group>"; };
 		4B7AFC751C75B02200BBC46D /* ApproximateMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApproximateMatchers.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */,
 				4B1985591C70B6A000BD1208 /* ConvertFromCoordinateSpaceSpec.swift */,
 				4B7AFC751C75B02200BBC46D /* ApproximateMatchers.swift */,
+				4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */,
 				4B017D921C6F6A02003ECCE7 /* Info.plist */,
 			);
 			path = "Unit Tests";
@@ -388,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B6866D92002C4CF00DFDFCF /* RandomTestable.swift in Sources */,
 				4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */,
 				4B7AFC761C75B02200BBC46D /* ApproximateMatchers.swift in Sources */,
 				8B338F221FE037D9008D59CD /* UIImageView+UICoordinateSpaceSpec.swift in Sources */,
