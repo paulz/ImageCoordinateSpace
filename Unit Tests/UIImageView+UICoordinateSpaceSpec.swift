@@ -1,6 +1,7 @@
 import Quick
 import Nimble
 import ImageCoordinateSpace
+import CoreGraphics
 
 func random() -> Int {
     return Int(arc4random())
@@ -11,7 +12,11 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
         let testBundle = Bundle(for: type(of: self))
         let image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
 
-        let imageView = UIImageView(image: image)
+        var imageView: UIImageView!
+
+        beforeEach {
+            imageView = UIImageView(image: image)
+        }
 
         let randomPoint = CGPoint(x: Int(arc4random()), y: Int(arc4random()))
         let randomSize = CGSize(width: Int(arc4random()), height: Int(arc4random()))
@@ -28,9 +33,43 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             }
         }
 
+        describe(String(describing:UIView.contentToBoundsTransform)) {
+            context("same sizes") {
+                it("should be identity") {
+                    imageView.contentMode = .topLeft
+                    expect(imageView.contentToBoundsTransform()) == CGAffineTransform.identity
+                }
+            }
+
+            context("bounds scaled down") {
+                it("should be scale transform") {
+                    let scaleDown = CGAffineTransform(scaleX: 0.1, y: 0.1)
+                    imageView.contentMode = .scaleToFill
+                    imageView.bounds = imageView.bounds.applying(scaleDown)
+                    expect(imageView.contentToBoundsTransform()) == scaleDown
+                }
+            }
+
+            context("random transform") {
+                it("should be equal") {
+                    let transform = CGAffineTransform(scaleX: randomPoint.x/(randomPoint.x+randomPoint.y),
+                                                      y: randomPoint.y/(randomPoint.x+randomPoint.y))
+                    imageView.contentMode = .scaleToFill
+                    imageView.bounds = imageView.bounds.applying(transform)
+                    expect(imageView.contentToBoundsTransform()) == transform
+                }
+            }
+
+        }
+
         describe("contentSpace()") {
+            var imageSpace: UICoordinateSpace!
+
+            beforeEach {
+                imageSpace = imageView.contentSpace()
+            }
+
             context("zero") {
-                let imageSpace = imageView.contentSpace()
                 it("should return zero") {
                     expect(imageSpace.convert(CGPoint.zero, from: imageView)) == CGPoint.zero
                     expect(imageSpace.convert(CGPoint.zero, to: imageView)) == CGPoint.zero
@@ -40,7 +79,6 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             }
 
             context("bounds") {
-                let imageSpace = imageView.contentSpace()
                 it("should be size of image") {
                     expect(imageSpace.bounds.size) == image.size
                     expect(imageSpace.bounds.origin) == CGPoint.zero
@@ -48,9 +86,16 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             }
 
             context("no image") {
-                let frame = CGRect(x: random(), y: random(), width: random(), height: random())
-                let noImageView = UIImageView(frame: frame)
-                let noImageSpace = noImageView.contentSpace()
+                var noImageSpace: UICoordinateSpace!
+                var foreignSpace: UICoordinateSpace!
+
+
+                beforeEach {
+                    let frame = CGRect(x: random(), y: random(), width: random(), height: random())
+                    let noImageView = UIImageView(frame: frame)
+                    noImageSpace = noImageView.contentSpace()
+                    foreignSpace = noImageView
+                }
 
                 context("bounds") {
                     it("should equal to -1 rect") {
@@ -69,10 +114,10 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                     context("within foreign space") {
                         it("should not convert") {
-                            expect(noImageSpace.convert(randomRect, from: noImageView)).notTo(beVeryCloseTo(randomRect))
-                            expect(noImageSpace.convert(randomRect, to: noImageView)).notTo(beVeryCloseTo(randomRect))
-                            expect(noImageSpace.convert(randomPoint, from: noImageView)).notTo(beVeryCloseTo(randomPoint))
-                            expect(noImageSpace.convert(randomPoint, to: noImageView)).notTo(beVeryCloseTo(randomPoint))
+                            expect(noImageSpace.convert(randomRect, from: foreignSpace)).notTo(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convert(randomRect, to: foreignSpace)).notTo(beVeryCloseTo(randomRect))
+                            expect(noImageSpace.convert(randomPoint, from: foreignSpace)).notTo(beVeryCloseTo(randomPoint))
+                            expect(noImageSpace.convert(randomPoint, to: foreignSpace)).notTo(beVeryCloseTo(randomPoint))
                         }
                     }
                 }
