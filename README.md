@@ -53,7 +53,7 @@ Open included Xcode Example project to see Xcode Playground: [Example/Visual.pla
 [http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates](http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates)
 [http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates](http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates)
 
-###Other uses from popular Stackoverflow questions:
+### Other uses from popular Stackoverflow questions:
  - Show image popover:
 [http://stackoverflow.com/questions/15968251/get-the-zoomed-coordinates-of-an-image](http://stackoverflow.com/questions/15968251/get-the-zoomed-coordinates-of-an-image)
  - Reposition image:
