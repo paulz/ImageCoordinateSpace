@@ -104,18 +104,18 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     context("convert") {
                         context("within own space") {
                             it("should return original") {
-                                expect(noImageSpace.convert(randomRect, from: noImageSpace)).to(beVeryCloseTo(randomRect))
-                                expect(noImageSpace.convert(randomRect, to: noImageSpace)).to(beVeryCloseTo(randomRect))
-                                expect(noImageSpace.convert(randomPoint, from:noImageSpace)).to(beVeryCloseTo(randomPoint))
-                                expect(noImageSpace.convert(randomPoint, to: noImageSpace)).to(beVeryCloseTo(randomPoint))
+                                expect(noImageSpace.convert(randomRect, from: noImageSpace)) ≈ randomRect
+                                expect(noImageSpace.convert(randomRect, to: noImageSpace)) ≈ randomRect
+                                expect(noImageSpace.convert(randomPoint, from:noImageSpace)) ≈ randomPoint
+                                expect(noImageSpace.convert(randomPoint, to: noImageSpace)) ≈ randomPoint
                             }
                         }
                         context("within foreign space") {
                             it("should not convert") {
-                                expect(noImageSpace.convert(randomRect, from: foreignSpace)).notTo(beVeryCloseTo(randomRect))
-                                expect(noImageSpace.convert(randomRect, to: foreignSpace)).notTo(beVeryCloseTo(randomRect))
-                                expect(noImageSpace.convert(randomPoint, from: foreignSpace)).notTo(beVeryCloseTo(randomPoint))
-                                expect(noImageSpace.convert(randomPoint, to: foreignSpace)).notTo(beVeryCloseTo(randomPoint))
+                                expect(noImageSpace.convert(randomRect, from: foreignSpace)).notTo(beCloseTo(randomRect))
+                                expect(noImageSpace.convert(randomRect, to: foreignSpace)).notTo(beCloseTo(randomRect))
+                                expect(noImageSpace.convert(randomPoint, from: foreignSpace)).notTo(beCloseTo(randomPoint))
+                                expect(noImageSpace.convert(randomPoint, to: foreignSpace)).notTo(beCloseTo(randomPoint))
                             }
                         }
                     }

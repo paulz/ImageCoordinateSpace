@@ -75,7 +75,7 @@ class ReverseConversionSpec: QuickSpec {
                         let imageSpace = imageView.contentSpace()
                         let viewRect = imageSpace.convert(randomRect, to: imageView)
                         let imageRect = imageSpace.convert(viewRect, from: imageView)
-                        expect(imageRect).to(beVeryCloseTo(randomRect))
+                        expect(imageRect) ≈ randomRect ± 0.01
                     }
                 }
             }
