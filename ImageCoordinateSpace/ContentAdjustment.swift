@@ -10,7 +10,7 @@ import UIKit
 
 extension UIView {
     func contentAdjustment() -> ContentAdjustment {
-        return ContentAdjustment(contentSize: self.intrinsicContentSize, contentMode: self.contentMode)
+        return ContentAdjustment(contentSize: intrinsicContentSize, contentMode: contentMode)
     }
 }
 

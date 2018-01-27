@@ -48,6 +48,6 @@ class TransformedCoordinateSpace : NSObject, UICoordinateSpace {
     }
 
     fileprivate lazy var transformFromReference : CGAffineTransform = {
-        return self.transformToReference.inverted()
+        return transformToReference.inverted()
     }()
 }

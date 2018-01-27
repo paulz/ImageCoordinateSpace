@@ -19,9 +19,9 @@ class ViewController: UIViewController {
     }
 
     func updateOvelayPositionAnimated() {
-        UIView.animate(withDuration: 0.5, animations: { () -> Void in
+        UIView.animate(withDuration: 0.5) {
             self.updateOvelayPosition()
-        }) 
+        }
     }
 
     func nextContentMode() {
