@@ -65,7 +65,7 @@ Open included Xcode Example project to see Xcode Playground: [Example/Visual.pla
 
 ## Documentation
 
-HeaderDoc is included, see [UIImageView+UICoordinateSpace.swift](ImageCoordinateSpace/UIImageView%2BUICoordinateSpace.swift)
+HeaderDoc is included, see [UIImageView+UICoordinateSpace.swift](https://github.com/paulz/ImageCoordinateSpace/blob/master/ImageCoordinateSpace/UIView%2BUICoordinateSpace.swift#L45)
 
 ## Installation
 
