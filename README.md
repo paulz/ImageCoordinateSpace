@@ -50,8 +50,10 @@ Open included Xcode Example project to see Xcode Playground: [Example/Visual.pla
 
 
 ### Converting image face detection regions to view touch points
-[http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates](http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates)
-[http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates](http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates)
+ - Translating CIDetector (face detection) results into UIImageView coordinates
+ [http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates](http://stackoverflow.com/questions/12201603/translating-cidetector-face-detection-results-into-uiimageview-coordinates)
+- Convert from CIRectangleFeature coordinates to view coordinates
+ [http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates](http://stackoverflow.com/questions/33198266/convert-from-cirectanglefeature-coordinates-to-view-coordinates)
 
 ### Other uses from popular Stackoverflow questions:
  - Show image popover:
