@@ -12,6 +12,8 @@ before_script:
   - carthage outdated || carthage bootstrap --platform iOS
 script:
   - set -o pipefail && xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "platform=iOS Simulator,name=iPhone X" | xcpretty -f `xcpretty-travis-formatter`
+after_success:
+  - bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
 before_deploy:
   - brew update > /dev/null
   - brew outdated carthage || brew upgrade carthage

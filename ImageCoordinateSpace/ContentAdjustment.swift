@@ -23,21 +23,17 @@ class ContentAdjustment {
         contentMode = mode
     }
 
-    func transform(_ contentSize:CGSize, viewSize:CGSize) -> CGAffineTransform {
-        if contentSize != viewSize {
-            let transformer = ViewContentModeTransformer(
-                viewSize: viewSize,
-                contentSize: contentSize,
-                contentMode: contentMode
-            )
-            return transformer.contentToViewTransform()
-        } else {
-            return CGAffineTransform.identity
-        }
+    func transformContent(toViewSize viewSize:CGSize) -> CGAffineTransform {
+        let transformer = ViewContentModeTransformer(
+            viewSize: viewSize,
+            contentSize: contentSize,
+            contentMode: contentMode
+        )
+        return transformer.contentToViewTransform()
     }
 
     func contentTransformToSize(_ size: CGSize) -> CGAffineTransform {
-        return transform(contentSize, viewSize: size)
+        return size == contentSize ? CGAffineTransform.identity : transformContent(toViewSize: size)
     }
 
     func transformingToSpace(_ space: UICoordinateSpace) -> UICoordinateSpace {
