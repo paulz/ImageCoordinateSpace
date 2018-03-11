@@ -44,13 +44,6 @@
 			remoteGlobalIDString = 4B017D7F1C6F6A02003ECCE7;
 			remoteInfo = CoordinatedSpace;
 		};
-		4B017D8D1C6F6A02003ECCE7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4B8711271C6F3D4D0027F0C9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4B87112E1C6F3D4D0027F0C9;
-			remoteInfo = ImageCoordinateSpace;
-		};
 		4B017D931C6F6A02003ECCE7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4B8711271C6F3D4D0027F0C9 /* Project object */;
@@ -274,7 +267,6 @@
 			);
 			dependencies = (
 				4B017D8C1C6F6A02003ECCE7 /* PBXTargetDependency */,
-				4B017D8E1C6F6A02003ECCE7 /* PBXTargetDependency */,
 			);
 			name = "Unit Tests";
 			productName = CoordinatedSpaceTests;
@@ -415,11 +407,6 @@
 			isa = PBXTargetDependency;
 			target = 4B017D7F1C6F6A02003ECCE7 /* ImageCoordinateSpace */;
 			targetProxy = 4B017D8B1C6F6A02003ECCE7 /* PBXContainerItemProxy */;
-		};
-		4B017D8E1C6F6A02003ECCE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4B87112E1C6F3D4D0027F0C9 /* Example */;
-			targetProxy = 4B017D8D1C6F6A02003ECCE7 /* PBXContainerItemProxy */;
 		};
 		4B017D941C6F6A02003ECCE7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
