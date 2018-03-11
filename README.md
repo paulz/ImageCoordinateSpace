@@ -2,6 +2,7 @@
 `UICoordinateSpace` for `UIImageView` image written in [Swift 4](https://developer.apple.com/swift/)
 
 [![Build Status](https://travis-ci.org/paulz/ImageCoordinateSpace.svg?branch=master)](https://travis-ci.org/paulz/ImageCoordinateSpace)
+[![codecov](https://codecov.io/gh/paulz/ImageCoordinateSpace/branch/master/graph/badge.svg)](https://codecov.io/gh/paulz/ImageCoordinateSpace)
 [![Version](https://img.shields.io/cocoapods/v/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
 [![License](https://img.shields.io/cocoapods/l/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
 [![Platform](https://img.shields.io/cocoapods/p/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
