@@ -25,3 +25,5 @@ deploy:
   file: "$TRAVIS_XCODE_SCHEME.framework.zip"
   on:
     tags: true
+git:
+  depth: false
