@@ -5,15 +5,18 @@ xcode_scheme: ImageCoordinateSpace
 xcode_sdk: iphonesimulator11.2
 before_install:
   - carthage version
+cache:
+  directories:
+    - Carthage
 before_script:
   - carthage bootstrap --platform iOS
+script:
+  - xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "platform=iOS Simulator,name=iPhone X" | xcpretty
 before_deploy:
-  - brew update
+  - brew update > /dev/null
   - brew outdated carthage || brew upgrade carthage
-  - carthage build fake-depency-name-to-build-current-only --no-skip-current --platform iOS
-  - carthage archive $TRAVIS_XCODE_SCHEME
-notifications:
-  email: true
+  - carthage build --no-skip-current --platform iOS
+  - carthage archive "$TRAVIS_XCODE_SCHEME"
 deploy:
   provider: releases
   skip_cleanup: true
@@ -22,10 +25,3 @@ deploy:
   file: "$TRAVIS_XCODE_SCHEME.framework.zip"
   on:
     tags: true
-    all_branches: true
-script:
-  - xcodebuild test -scheme ImageCoordinateSpace -destination "platform=iOS Simulator,name=iPhone X" | xcpretty
-after_script:
-  - ls -la
-  - env
-  - sleep 2 && echo Build is complete and this should be the last line in the build log from after_script phase
