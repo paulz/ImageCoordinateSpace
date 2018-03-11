@@ -9,9 +9,9 @@ cache:
   directories:
     - Carthage
 before_script:
-  - carthage bootstrap --platform iOS
+  - carthage outdated || carthage bootstrap --platform iOS
 script:
-  - xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "platform=iOS Simulator,name=iPhone X" | xcpretty
+  - set -o pipefail && xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "platform=iOS Simulator,name=iPhone X" | xcpretty -f `xcpretty-travis-formatter`
 before_deploy:
   - brew update > /dev/null
   - brew outdated carthage || brew upgrade carthage
