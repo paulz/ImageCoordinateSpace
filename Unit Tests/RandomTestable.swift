@@ -13,7 +13,7 @@ var randomSource: GKARC4RandomSource!
 
 class RandomTestable: QuickConfiguration {
     class func previousSource(url seedUrl: URL) -> GKARC4RandomSource? {
-        return try? Data(contentsOf: seedUrl)).flatMap{GKARC4RandomSource(seed: $0)}
+        return (try? Data(contentsOf: seedUrl)).flatMap{GKARC4RandomSource(seed: $0)}
     }
 
     class func createSource(url seedUrl: URL) -> GKARC4RandomSource {
