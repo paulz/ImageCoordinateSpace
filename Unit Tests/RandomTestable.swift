@@ -12,13 +12,18 @@ func randomRect() -> CGRect {
 var randomSource: GKARC4RandomSource!
 
 class RandomTestable: QuickConfiguration {
+    class func previousSource(url seedUrl: URL) -> GKARC4RandomSource? {
+        return try? Data(contentsOf: seedUrl)).flatMap{GKARC4RandomSource(seed: $0)}
+    }
+
+    class func createSource(url seedUrl: URL) -> GKARC4RandomSource {
+        let source = GKARC4RandomSource()
+        try? source.seed.write(to: seedUrl)
+        return source
+    }
+
     override class func configure(_ configuration: Configuration) {
         let seedUrl = URL(fileURLWithPath: "/tmp/\(type(of: self)).seed.txt")
-        if let previous = try? Data(contentsOf: seedUrl) {
-            randomSource = GKARC4RandomSource(seed: previous)
-        } else {
-            randomSource = GKARC4RandomSource()
-            try? randomSource.seed.write(to: seedUrl)
-        }
+        randomSource = previousSource(url: seedUrl) ?? createSource(url: seedUrl)
     }
 }
