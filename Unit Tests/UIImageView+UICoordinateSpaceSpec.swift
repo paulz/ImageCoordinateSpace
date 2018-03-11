@@ -1,11 +1,9 @@
 import Quick
 import Nimble
-import ImageCoordinateSpace
-import CoreGraphics
 
 class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
     override func spec() {
-        describe("UICoordinateSpace") {
+        describe(String(describing: UICoordinateSpace.self)) {
             let testBundle = Bundle(for: type(of: self))
             let image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
 
@@ -21,9 +19,9 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                 randomRect = CGRect(origin: randomPoint, size: randomSize)
             }
 
-            describe("view UICoordinateSpace") {
-                context("same space") {
-                    it("should not change") {
+            describe(String(describing: UIImageView.self as UICoordinateSpace.Type)) {
+                context("convert within the same space") {
+                    it("should not change the value") {
                         expect(imageView.convert(randomPoint, from: imageView)) == randomPoint
                         expect(imageView.convert(randomPoint, to: imageView)) == randomPoint
                         expect(imageView.convert(randomRect, from: imageView)) == randomRect
@@ -61,7 +59,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             }
 
-            describe("contentSpace()") {
+            describe(String(describing: UIView.contentSpace)) {
                 var imageSpace: UICoordinateSpace!
 
                 beforeEach {
@@ -77,7 +75,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("bounds") {
+                context(String(describing: type(of: UIView().bounds))) {
                     it("should be size of image") {
                         expect(imageSpace.bounds.size) == image.size
                         expect(imageSpace.bounds.origin) == CGPoint.zero
@@ -145,7 +143,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     expect(result, file:file, line: line) == viewPoint
                 }
 
-                context("top left") {
+                context(String(describing:UIViewContentMode.topLeft)) {
                     beforeEach {
                         imageView.contentMode = .topLeft
                     }
@@ -155,7 +153,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("left") {
+                context(String(describing:UIViewContentMode.left)) {
                     beforeEach {
                         imageView.contentMode = .left
                     }
@@ -166,7 +164,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("right") {
+                context(String(describing:UIViewContentMode.right)) {
                     beforeEach {
                         imageView.contentMode = .right
                     }
@@ -178,7 +176,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("top right") {
+                context(String(describing:UIViewContentMode.topRight)) {
                     beforeEach {
                         imageView.contentMode = .topRight
                     }
@@ -189,7 +187,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("bottom left") {
+                context(String(describing:UIViewContentMode.bottomLeft)) {
                     beforeEach {
                         imageView.contentMode = .bottomLeft
                     }
@@ -200,7 +198,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("bottom right") {
+                context(String(describing:UIViewContentMode.bottomRight)) {
                     beforeEach {
                         imageView.contentMode = .bottomRight
                     }
@@ -212,7 +210,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("bottom") {
+                context(String(describing:UIViewContentMode.bottom)) {
                     beforeEach {
                         imageView.contentMode = .bottom
                     }
@@ -224,7 +222,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("top") {
+                context(String(describing:UIViewContentMode.top)) {
                     beforeEach {
                         imageView.contentMode = .top
                     }
@@ -236,7 +234,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                 }
 
 
-                context("center") {
+                context(String(describing:UIViewContentMode.center)) {
                     beforeEach {
                         imageView.contentMode = .center
                     }
@@ -248,7 +246,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context("scale") {
+                context(String(describing:UIViewContentMode.scaleToFill)) {
                     context("scale to fill") {
                         beforeEach {
                             imageView.contentMode = .scaleToFill
@@ -262,7 +260,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
 
 
-                    context("aspect fill") {
+                    context(String(describing:UIViewContentMode.scaleAspectFill)) {
                         beforeEach {
                             imageView.contentMode = .scaleAspectFill
                         }
@@ -278,7 +276,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                         }
                     }
 
-                    context("aspect fit") {
+                    context(String(describing:UIViewContentMode.scaleAspectFit)) {
                         beforeEach {
                             imageView.contentMode = .scaleAspectFit
                         }

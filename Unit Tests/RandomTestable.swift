@@ -1,5 +1,4 @@
 import Quick
-import Nimble
 import GameKit
 
 func testRandom() -> Int {
