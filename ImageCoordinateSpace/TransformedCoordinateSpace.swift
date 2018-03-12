@@ -8,46 +8,45 @@
 
 import UIKit
 
-class TransformedCoordinateSpace : NSObject, UICoordinateSpace {
-    let spaceSize : CGSize
+extension UICoordinateSpace {
+    public func applying(_ t: CGAffineTransform) -> UICoordinateSpace {
+        return CoordinateSpaceTransformed(original: self, transform: t)
+    }
+}
+
+class CoordinateSpaceTransformed : NSObject {
     let reference : UICoordinateSpace
-    let transformToReference : CGAffineTransform
+    let transform: CGAffineTransform
+    lazy var invertedTransform = transform.inverted()
+    var bounds: CGRect
 
-    init(size:CGSize, transform:CGAffineTransform, destination:UICoordinateSpace) {
-        spaceSize = size
-        transformToReference = transform
-        reference = destination
+    init(original: UICoordinateSpace, transform applying: CGAffineTransform, bounds limitedTo: CGRect? = nil) {
+        reference = original
+        transform = applying
+        bounds = limitedTo ?? original.bounds.applying(applying.inverted())
     }
+}
 
-    var bounds: CGRect {
-        return CGRect(origin: CGPoint.zero, size: spaceSize)
-    }
-
+extension CoordinateSpaceTransformed: UICoordinateSpace {
     func convert(_ point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return reference.convert(
-            point.applying(transformToReference),
-            to: coordinateSpace
-        )
-    }
-
-    func convert(_ rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect {
-        return reference.convert(
-            rect.applying(transformToReference),
-            to: coordinateSpace
-        )
+        return reference.convert(point.applying(transform), to: coordinateSpace)
     }
 
     func convert(_ point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return reference.convert(point, from: coordinateSpace).applying(transformFromReference
-        )
+        return reference.convert(point, from: coordinateSpace).applying(invertedTransform)
+    }
+
+    func convert(_ rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect {
+        return reference.convert(rect.applying(transform), to: coordinateSpace)
     }
 
     func convert(_ rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect {
-        return reference.convert(rect, from: coordinateSpace).applying(transformFromReference
-        )
+        return reference.convert(rect, from: coordinateSpace).applying(invertedTransform)
     }
+}
 
-    fileprivate lazy var transformFromReference : CGAffineTransform = {
-        return transformToReference.inverted()
-    }()
+class TransformedCoordinateSpace: CoordinateSpaceTransformed {
+    init(size:CGSize, transform:CGAffineTransform, destination:UICoordinateSpace) {
+        super.init(original: destination, transform: transform, bounds: CGRect(origin: CGPoint.zero, size: size))
+    }
 }
