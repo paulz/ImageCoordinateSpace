@@ -13,12 +13,6 @@ struct ViewContentModeTransformer {
     let contentSize : CGSize
     let contentMode : UIViewContentMode
     
-    init(viewSize containerSize:CGSize, contentSize size:CGSize, contentMode mode:UIViewContentMode) {
-        boundsSize = containerSize
-        contentSize = size
-        contentMode = mode
-    }
-    
     private func scaleToFill() -> CGAffineTransform {
         return CGAffineTransform(scaleTo: boundsSize, from: contentSize)
     }
