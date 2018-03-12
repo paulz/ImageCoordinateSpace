@@ -14,6 +14,15 @@ extension UIView {
     }
 }
 
+extension ViewContentModeTransformer {
+    convenience init(_ adjustment: ContentAdjustment, to viewSize: CGSize) {
+        self.init(
+            viewSize: viewSize,
+            contentSize: adjustment.contentSize,
+            contentMode: adjustment.contentMode)
+    }
+}
+
 class ContentAdjustment {
     var contentSize : CGSize
     var contentMode : UIViewContentMode
@@ -23,13 +32,8 @@ class ContentAdjustment {
         contentMode = mode
     }
 
-    func transformContent(toViewSize viewSize:CGSize) -> CGAffineTransform {
-        let transformer = ViewContentModeTransformer(
-            viewSize: viewSize,
-            contentSize: contentSize,
-            contentMode: contentMode
-        )
-        return transformer.contentToViewTransform()
+    private func transformContent(toViewSize viewSize:CGSize) -> CGAffineTransform {
+        return ViewContentModeTransformer(self, to:viewSize).contentToViewTransform()
     }
 
     func contentTransformToSize(_ size: CGSize) -> CGAffineTransform {
