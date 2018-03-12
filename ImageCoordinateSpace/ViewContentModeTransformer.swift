@@ -9,23 +9,23 @@
 import UIKit
 
 struct ViewContentModeTransformer {
-    let viewSize : CGSize
+    let boundsSize : CGSize
     let contentSize : CGSize
     let contentMode : UIViewContentMode
     
     init(viewSize containerSize:CGSize, contentSize size:CGSize, contentMode mode:UIViewContentMode) {
-        viewSize = containerSize
+        boundsSize = containerSize
         contentSize = size
         contentMode = mode
     }
     
     private func scaleToFill() -> CGAffineTransform {
-        return CGAffineTransform(scaleTo: viewSize, from: contentSize)
+        return CGAffineTransform(scaleTo: boundsSize, from: contentSize)
     }
 
     private func translate(_ byX:ScaleFactor, _ byY:ScaleFactor, sizeScale scale:CGFloat = 1.0) -> CGAffineTransform {
-        let x = byX.scale(value: viewSize.width - contentSize.width * scale)
-        let y = byY.scale(value: viewSize.height - contentSize.height * scale)
+        let x = byX.scale(value: boundsSize.width - contentSize.width * scale)
+        let y = byY.scale(value: boundsSize.height - contentSize.height * scale)
         return CGAffineTransform(translationX: x, y: y)
     }
     
