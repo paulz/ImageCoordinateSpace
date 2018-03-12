@@ -46,12 +46,14 @@ public extension UIView {
         return contentAdjustment().transformingToSpace(self)
     }
 
-    /// Affine transform that to be applied to view content coordinates to convert them to view coordinates
-    ///
-    /// - Note: content to bounds transform depends on view bounds, image size and view content mode, so you need to
-    /// obtain current contentToBoundsTransform() if any of those properties change
-    ///
-    /// - Returns: CGAffineTransform to convert from content coordinates into view coordinates
+    /**
+     Affine transform that to be applied to view content coordinates to convert them to view coordinates
+
+     - Note: content to bounds transform depends on view bounds, image size and view content mode, so you need to
+     obtain current contentToBoundsTransform() if any of those properties change
+
+     - Returns: CGAffineTransform to convert from content coordinates into view coordinates
+     */
     func contentToBoundsTransform() -> CGAffineTransform {
         return contentAdjustment().contentTransformToSize(bounds.size)
     }
