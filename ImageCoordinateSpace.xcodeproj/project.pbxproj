@@ -19,6 +19,8 @@
 		4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */; };
 		4B320CC41C71767800FA8663 /* ImageCoordinateSpace.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */; };
 		4B6866D92002C4CF00DFDFCF /* RandomTestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */; };
+		4B76EDD420565C25009492EC /* ScaleFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76EDD320565C25009492EC /* ScaleFactor.swift */; };
+		4B76EDD620565C57009492EC /* CGAffineTransform+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76EDD520565C57009492EC /* CGAffineTransform+Scale.swift */; };
 		4B7AFC721C758E2D00BBC46D /* TransformedCoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */; };
 		4B7AFC741C759C5D00BBC46D /* ViewContentModeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AFC731C759C5D00BBC46D /* ViewContentModeTransformer.swift */; };
 		4B7AFC761C75B02200BBC46D /* ApproximateMatchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AFC751C75B02200BBC46D /* ApproximateMatchers.swift */; };
@@ -89,6 +91,8 @@
 		4B320CC01C71718200FA8663 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ImageCoordinateSpace.podspec; sourceTree = "<group>"; };
 		4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTestable.swift; sourceTree = "<group>"; };
+		4B76EDD320565C25009492EC /* ScaleFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleFactor.swift; sourceTree = "<group>"; };
+		4B76EDD520565C57009492EC /* CGAffineTransform+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+Scale.swift"; sourceTree = "<group>"; };
 		4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformedCoordinateSpace.swift; sourceTree = "<group>"; };
 		4B7AFC731C759C5D00BBC46D /* ViewContentModeTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewContentModeTransformer.swift; sourceTree = "<group>"; };
 		4B7AFC751C75B02200BBC46D /* ApproximateMatchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApproximateMatchers.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				4B87116C1C6F404F0027F0C9 /* UIView+UICoordinateSpace.swift */,
 				4BE2CB2D1C7191B9008BB9E0 /* ContentAdjustment.swift */,
 				4B7AFC731C759C5D00BBC46D /* ViewContentModeTransformer.swift */,
+				4B76EDD320565C25009492EC /* ScaleFactor.swift */,
+				4B76EDD520565C57009492EC /* CGAffineTransform+Scale.swift */,
 				4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */,
 				4B017D821C6F6A02003ECCE7 /* ImageCoordinateSpace.h */,
 				4B017D841C6F6A02003ECCE7 /* Info.plist */,
@@ -373,6 +379,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B017DA41C6F6BDB003ECCE7 /* UIView+UICoordinateSpace.swift in Sources */,
+				4B76EDD420565C25009492EC /* ScaleFactor.swift in Sources */,
+				4B76EDD620565C57009492EC /* CGAffineTransform+Scale.swift in Sources */,
 				4BE2CB2E1C7191B9008BB9E0 /* ContentAdjustment.swift in Sources */,
 				4B7AFC741C759C5D00BBC46D /* ViewContentModeTransformer.swift in Sources */,
 				4B7AFC721C758E2D00BBC46D /* TransformedCoordinateSpace.swift in Sources */,

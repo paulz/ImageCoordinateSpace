@@ -8,44 +8,6 @@
 
 import UIKit
 
-enum Factor : CGFloat {
-    case none = 0
-    case half = 0.5
-    case full = 1
-
-    static var center = Factor.half
-
-    static var top = Factor.none
-    static var bottom = Factor.full
-
-    static var left = Factor.none
-    static var right = Factor.full
-
-    func scale( value:@autoclosure ()->CGFloat) -> CGFloat {
-        switch self {
-        case .none:
-            return 0
-        case .half:
-            return value() * rawValue
-        case .full:
-            return value()
-        }
-    }
-}
-
-extension CGAffineTransform {
-    var scaleX: CGFloat {
-        get {
-            return a
-        }
-    }
-    var scaleY: CGFloat {
-        get {
-            return d
-        }
-    }
-}
-
 class ViewContentModeTransformer {
     let viewSize : CGSize
     let contentSize : CGSize
@@ -60,7 +22,7 @@ class ViewContentModeTransformer {
     private lazy var scaleToFill = CGAffineTransform(scaleX: viewSize.width / contentSize.width,
                                                      y: viewSize.height / contentSize.height)
 
-    private func translate(_ byX:Factor, _ byY:Factor, sizeScale scale:CGFloat = 1.0) -> CGAffineTransform {
+    private func translate(_ byX:ScaleFactor, _ byY:ScaleFactor, sizeScale scale:CGFloat = 1.0) -> CGAffineTransform {
         let x = byX.scale(value: viewSize.width - contentSize.width * scale)
         let y = byY.scale(value: viewSize.height - contentSize.height * scale)
         return CGAffineTransform(translationX: x, y: y)

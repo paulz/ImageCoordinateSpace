@@ -4,7 +4,7 @@ import Nimble
 
 extension UICoordinateSpace {
     public func applying(_ t: CGAffineTransform) -> UICoordinateSpace {
-        return CoordinateSpaceTransformed(original: self, transform: t, bounds: bounds)
+        return TransformedCoordinateSpace(original: self, transform: t, bounds: bounds)
     }
 }
 

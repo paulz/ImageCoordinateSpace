@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CoordinateSpaceTransformed : NSObject {
+class TransformedCoordinateSpace: NSObject {
     let reference : UICoordinateSpace
     let transform: CGAffineTransform
     lazy var invertedTransform = transform.inverted()
@@ -21,7 +21,7 @@ class CoordinateSpaceTransformed : NSObject {
     }
 }
 
-extension CoordinateSpaceTransformed: UICoordinateSpace {
+extension TransformedCoordinateSpace: UICoordinateSpace {
     func convert(_ point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint {
         return reference.convert(point.applying(transform), to: coordinateSpace)
     }
@@ -39,8 +39,8 @@ extension CoordinateSpaceTransformed: UICoordinateSpace {
     }
 }
 
-class TransformedCoordinateSpace: CoordinateSpaceTransformed {
-    init(size:CGSize, transform:CGAffineTransform, destination:UICoordinateSpace) {
-        super.init(original: destination, transform: transform, bounds: CGRect(origin: CGPoint.zero, size: size))
+extension TransformedCoordinateSpace {
+    convenience init(size:CGSize, transform:CGAffineTransform, destination:UICoordinateSpace) {
+        self.init(original: destination, transform: transform, bounds: CGRect(origin: CGPoint.zero, size: size))
     }
 }
