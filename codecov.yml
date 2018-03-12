@@ -1,0 +1,6 @@
+codecov:
+  ci:
+    - !circleci
+coverage:
+  precision: 0
+  
