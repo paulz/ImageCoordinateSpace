@@ -12,27 +12,26 @@ class ViewContentModeTransformer {
     let viewSize : CGSize
     let contentSize : CGSize
     let contentMode : UIViewContentMode
-
+    
     init(viewSize containerSize:CGSize, contentSize size:CGSize, contentMode mode:UIViewContentMode) {
         viewSize = containerSize
         contentSize = size
         contentMode = mode
     }
-
-    private lazy var scaleToFill = CGAffineTransform(scaleX: viewSize.width / contentSize.width,
-                                                     y: viewSize.height / contentSize.height)
+    
+    private lazy var scaleToFill = CGAffineTransform(scaleTo: viewSize, from: contentSize)
 
     private func translate(_ byX:ScaleFactor, _ byY:ScaleFactor, sizeScale scale:CGFloat = 1.0) -> CGAffineTransform {
         let x = byX.scale(value: viewSize.width - contentSize.width * scale)
         let y = byY.scale(value: viewSize.height - contentSize.height * scale)
         return CGAffineTransform(translationX: x, y: y)
     }
-
+    
     private func translateAndScale(using reduceFunction:(CGFloat,CGFloat)->CGFloat) -> CGAffineTransform {
         let scale = reduceFunction(scaleToFill.scaleX, scaleToFill.scaleY)
         return translate(.half, .half, sizeScale: scale).scaledBy(x: scale, y: scale)
     }
-
+    
     func contentToViewTransform() -> CGAffineTransform {
         switch contentMode {
         case .scaleAspectFill:

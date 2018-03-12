@@ -18,4 +18,9 @@ extension CGAffineTransform {
             return d
         }
     }
+
+    init(scaleTo size:CGSize, from:CGSize) {
+        self.init(scaleX: size.width / from.width, 
+                  y: size.height / from.height)
+    }
 }
