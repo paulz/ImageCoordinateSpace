@@ -8,22 +8,16 @@
 
 import UIKit
 
-extension UICoordinateSpace {
-    public func applying(_ t: CGAffineTransform) -> UICoordinateSpace {
-        return CoordinateSpaceTransformed(original: self, transform: t)
-    }
-}
-
 class CoordinateSpaceTransformed : NSObject {
     let reference : UICoordinateSpace
     let transform: CGAffineTransform
     lazy var invertedTransform = transform.inverted()
-    var bounds: CGRect
+    let bounds: CGRect
 
-    init(original: UICoordinateSpace, transform applying: CGAffineTransform, bounds limitedTo: CGRect? = nil) {
+    init(original: UICoordinateSpace, transform applying: CGAffineTransform, bounds limitedTo: CGRect) {
         reference = original
         transform = applying
-        bounds = limitedTo ?? original.bounds.applying(applying.inverted())
+        bounds = limitedTo
     }
 }
 
