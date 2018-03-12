@@ -12,6 +12,14 @@ enum Factor : CGFloat {
     case none = 0
     case half = 0.5
     case full = 1
+
+    static var center = Factor.half
+
+    static var top = Factor.none
+    static var bottom = Factor.full
+
+    static var left = Factor.none
+    static var right = Factor.full
 }
 
 func translateWithFactors(tx:CGFloat, ty:CGFloat, xFactor:Factor, yFactor:Factor) -> CGAffineTransform {
@@ -34,9 +42,17 @@ class ViewContentModeTransformer {
         let width = contentSize.width
 
         func translate(_ xFactor:Factor, _ yFactor:Factor) -> CGAffineTransform {
+            return translateWithScale(xFactor, yFactor, 1.0)
+        }
+
+        func translateToCenterAndScale(_ scale:CGFloat) -> CGAffineTransform {
+            return translateWithScale(.half, .half, scale).scaledBy(x: scale, y: scale)
+        }
+
+        func translateWithScale(_ xFactor:Factor, _ yFactor:Factor, _ scale:CGFloat) -> CGAffineTransform {
             return translateWithFactors(
-                tx: viewSize.width - width,
-                ty: viewSize.height - height,
+                tx: viewSize.width - width * scale,
+                ty: viewSize.height - height * scale,
                 xFactor: xFactor,
                 yFactor: yFactor
             )
@@ -46,36 +62,30 @@ class ViewContentModeTransformer {
         let heightRatio = viewSize.height / height
 
         switch contentMode {
-        case .scaleAspectFit, .scaleAspectFill:
-            let expand = contentMode == .scaleAspectFill
-            let scale = expand ? max(widthRatio, heightRatio) : min(widthRatio, heightRatio)
-            return translateWithFactors(
-                    tx: viewSize.width - width * scale,
-                    ty: viewSize.height - height * scale,
-                    xFactor: .half,
-                    yFactor: .half
-                ).scaledBy(x: scale,
-                y: scale)
+        case .scaleAspectFill:
+            return translateToCenterAndScale(max(widthRatio, heightRatio))
+        case .scaleAspectFit:
+            return translateToCenterAndScale(min(widthRatio, heightRatio))
         case .scaleToFill, .redraw:
             return CGAffineTransform(scaleX: widthRatio, y: heightRatio)
-        case .center:
-            return translate(.half, .half)
-        case .left:
-            return translate(.none, .half)
-        case .right:
-            return translate(.full, .half)
-        case .topRight:
-            return translate(.full, .none)
-        case .bottom:
-            return translate(.half, .full)
-        case .bottomLeft:
-            return translate(.none, .full)
-        case .bottomRight:
-            return translate(.full, .full)
-        case .top:
-            return translate(.half, .none)
         case .topLeft:
             return CGAffineTransform.identity
+        case .center:
+            return translate(.center, .center)
+        case .left:
+            return translate(.left, .center)
+        case .right:
+            return translate(.right, .center)
+        case .topRight:
+            return translate(.right, .top)
+        case .bottomLeft:
+            return translate(.left, .bottom)
+        case .bottomRight:
+            return translate(.right, .bottom)
+        case .top:
+            return translate(.center, .top)
+        case .bottom:
+            return translate(.center, .bottom)
         }
     }
 }
