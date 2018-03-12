@@ -55,6 +55,6 @@ public extension UIView {
      - Returns: CGAffineTransform to convert from content coordinates into view coordinates
      */
     func contentToBoundsTransform() -> CGAffineTransform {
-        return contentAdjustment().contentTransformToSize(bounds.size)
+        return contentAdjustment().contentTransformToSize()
     }
 }
