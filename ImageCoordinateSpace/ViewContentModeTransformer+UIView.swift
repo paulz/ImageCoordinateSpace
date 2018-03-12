@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    func viewTransformer() -> ViewContentModeTransformer {
+    func viewContentModeTransformer() -> ViewContentModeTransformer {
         return ViewContentModeTransformer(viewSize: bounds.size,
                                           contentSize: intrinsicContentSize,
                                           contentMode: contentMode)
@@ -17,14 +17,14 @@ extension UIView {
 }
 
 extension ViewContentModeTransformer {
-    func contentSizeToBoundsSizeTransform() -> CGAffineTransform {
+    func transform() -> CGAffineTransform {
         return viewSize == contentSize ? CGAffineTransform.identity : contentToViewTransform()
     }
 
     func transformingToSpace(_ space: UICoordinateSpace) -> UICoordinateSpace {
         return TransformedCoordinateSpace(
             size: contentSize,
-            transform: contentSizeToBoundsSizeTransform(),
+            transform: transform(),
             destination: space
         )
     }
