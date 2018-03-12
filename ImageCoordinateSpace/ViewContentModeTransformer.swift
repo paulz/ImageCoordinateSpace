@@ -33,6 +33,19 @@ enum Factor : CGFloat {
     }
 }
 
+extension CGAffineTransform {
+    var scaleX: CGFloat {
+        get {
+            return a
+        }
+    }
+    var scaleY: CGFloat {
+        get {
+            return d
+        }
+    }
+}
+
 class ViewContentModeTransformer {
     let viewSize : CGSize
     let contentSize : CGSize
@@ -44,22 +57,18 @@ class ViewContentModeTransformer {
         contentMode = mode
     }
 
-    private lazy var sizeRatioBy = CGSize(width: viewSize.width / contentSize.width,
-                                  height: viewSize.height / contentSize.height)
+    private lazy var scaleToFill = CGAffineTransform(scaleX: viewSize.width / contentSize.width,
+                                                     y: viewSize.height / contentSize.height)
 
-    private func translateWithScale(_ byX:Factor, _ byY:Factor, sizeScale scale:CGFloat) -> CGAffineTransform {
+    private func translate(_ byX:Factor, _ byY:Factor, sizeScale scale:CGFloat = 1.0) -> CGAffineTransform {
         let x = byX.scale(value: viewSize.width - contentSize.width * scale)
         let y = byY.scale(value: viewSize.height - contentSize.height * scale)
         return CGAffineTransform(translationX: x, y: y)
     }
 
-    private func translate(_ byX:Factor, _ byY:Factor) -> CGAffineTransform {
-        return translateWithScale(byX, byY, sizeScale: 1.0)
-    }
-
-    private func translateAndScale(using selectorFunction:(CGFloat,CGFloat)->CGFloat) -> CGAffineTransform {
-        let scale = selectorFunction(sizeRatioBy.width, sizeRatioBy.height)
-        return translateWithScale(.half, .half, sizeScale: scale).scaledBy(x: scale, y: scale)
+    private func translateAndScale(using reduceFunction:(CGFloat,CGFloat)->CGFloat) -> CGAffineTransform {
+        let scale = reduceFunction(scaleToFill.scaleX, scaleToFill.scaleY)
+        return translate(.half, .half, sizeScale: scale).scaledBy(x: scale, y: scale)
     }
 
     func contentToViewTransform() -> CGAffineTransform {
@@ -69,7 +78,7 @@ class ViewContentModeTransformer {
         case .scaleAspectFit:
             return translateAndScale(using: min)
         case .scaleToFill, .redraw:
-            return CGAffineTransform(scaleX: sizeRatioBy.width, y: sizeRatioBy.height)
+            return scaleToFill
         case .topLeft:
             return CGAffineTransform.identity
         case .center:
