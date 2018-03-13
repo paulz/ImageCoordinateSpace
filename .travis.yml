@@ -15,7 +15,7 @@ script:
 after_success:
   - bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
 after_failure:
-  - echo "Random seed: $(</tmp/RandomTestable.Type.seed.txt)"
+  - echo "Random seed $( < /tmp/RandomTestable.Type.seed.txt)"
 before_deploy:
   - pod lib lint
   - brew update > /dev/null

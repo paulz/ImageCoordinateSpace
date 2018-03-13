@@ -15,22 +15,11 @@ class ReverseConversionSpec: QuickSpec {
             let image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
             let imageView = UIImageView(image: image)
 
-            var imageSize : CGSize!
-            var viewSize  : CGSize!
-            var widthRatio : CGFloat!
-            var heightRatio : CGFloat!
             let imagePoint = CGPoint.zero
-            var viewPoint : CGPoint!
 
             beforeEach {
                 let square = CGSize(width: 100, height: 100)
                 imageView.bounds = CGRect(origin: CGPoint.zero, size: square)
-                imageSize = image.size
-                viewSize  = imageView.bounds.size
-                widthRatio = viewSize.width / imageSize.width
-                heightRatio = viewSize.height / imageSize.height
-
-                viewPoint = imagePoint
             }
 
             let allModes = stride(from:UIViewContentMode.scaleToFill.rawValue,
@@ -64,15 +53,8 @@ class ReverseConversionSpec: QuickSpec {
             context("any rect") {
                 var randomRect : CGRect!
 
-                func smallRandom() -> Int {
-                    return Int(arc4random()) % 1000
-                }
-
                 beforeEach {
-                    randomRect = CGRect(
-                        origin: CGPoint(x: smallRandom(), y: smallRandom()),
-                        size: CGSize(width: smallRandom(), height: smallRandom())
-                    )
+                    randomRect = nextRandomRect()
                 }
 
                 for mode in allModes {
@@ -81,7 +63,7 @@ class ReverseConversionSpec: QuickSpec {
                         let imageSpace = imageView.contentSpace()
                         let viewRect = imageSpace.convert(randomRect, to: imageView)
                         let imageRect = imageSpace.convert(viewRect, from: imageView)
-                        expect(imageRect) ≈ randomRect ± 0.01
+                        expect(imageRect) ≈ randomRect ± 0.000001
                     }
                 }
             }
