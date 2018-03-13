@@ -9,16 +9,20 @@ func randomRect() -> CGRect {
     return CGRect(x: testRandom(), y: testRandom(), width: testRandom(), height: testRandom())
 }
 
-var randomSource: GKARC4RandomSource!
+var randomSource: GKRandomSource!
 
 class RandomTestable: QuickConfiguration {
-    class func previousSource(url seedUrl: URL) -> GKARC4RandomSource? {
-        return (try? Data(contentsOf: seedUrl)).flatMap{GKARC4RandomSource(seed: $0)}
+    class func previousSource(url seedUrl: URL) -> GKRandomSource? {
+        return (try? String(contentsOf: seedUrl)).flatMap{UInt64($0)}.flatMap{
+            print("Loaded random seed \($0) from \(seedUrl)")
+            return GKLinearCongruentialRandomSource(seed: $0)
+        }
     }
 
-    class func createSource(url seedUrl: URL) -> GKARC4RandomSource {
-        let source = GKARC4RandomSource()
-        try? source.seed.write(to: seedUrl)
+    class func createSource(url seedUrl: URL) -> GKRandomSource {
+        let source = GKLinearCongruentialRandomSource()
+        try? String(describing:source.seed).write(to: seedUrl, atomically: true, encoding: .ascii)
+        print("Created random seed \(source.seed), save to \(seedUrl)")
         return source
     }
 
