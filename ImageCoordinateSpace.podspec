@@ -1,5 +1,6 @@
 Pod::Spec.new do |s|
-    s.cocoapods_version   = '>= 1.3.1'
+    s.swift_version       = '4.0'
+    s.cocoapods_version   = '>= 1.4.0'
     s.name                = 'ImageCoordinateSpace'
     s.version             = '1.0.5'
     s.summary             = 'Convert image coordinates to image view depending on content mode'
@@ -18,4 +19,12 @@ Pod::Spec.new do |s|
     s.requires_arc        = true
     s.source_files        = 'ImageCoordinateSpace/**/*.{h,swift}'
     s.frameworks          = 'UIKit'
+    s.test_spec 'UnitSpecs' do |ts|
+        ts.resource       = 'Example/Assets.xcassets'
+        ts.source_files   = 'Unit Tests/**/*.{h,swift}'
+        ts.dependencies   = {
+            'Quick' => '~> 1.2',
+            'Nimble' => '~> 7.0'
+        }
+    end
 end
