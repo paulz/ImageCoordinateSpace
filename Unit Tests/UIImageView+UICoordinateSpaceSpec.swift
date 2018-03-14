@@ -1,11 +1,11 @@
 import Quick
 import Nimble
+import ImageCoordinateSpace
 
 class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
     override func spec() {
         describe(String(describing: UICoordinateSpace.self)) {
-            let testBundle = Bundle(for: type(of: self))
-            let image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
+            var image: UIImage!
 
             var imageView: UIImageView!
             var randomPoint: CGPoint!
@@ -13,6 +13,8 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             var randomRect: CGRect!
 
             beforeEach {
+                let testBundle = Bundle(for: type(of: self))
+                image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
                 imageView = UIImageView(image: image)
                 randomPoint = CGPoint(x: nextRandom(), y: nextRandom())
                 randomSize = CGSize(width: nextRandom(), height: nextRandom())

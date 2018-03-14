@@ -5,7 +5,7 @@
 //  Created by Paul Zabelin on 3/11/18.
 //
 
-import Foundation
+import CoreGraphics
 
 enum ScaleFactor : CGFloat {
     case none = 0
