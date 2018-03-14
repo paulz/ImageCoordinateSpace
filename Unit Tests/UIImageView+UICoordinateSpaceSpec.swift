@@ -9,16 +9,14 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             var imageView: UIImageView!
             var randomPoint: CGPoint!
-            var randomSize: CGSize!
             var randomRect: CGRect!
 
             beforeEach {
                 let testBundle = Bundle(for: type(of: self))
                 image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
                 imageView = UIImageView(image: image)
-                randomPoint = CGPoint(x: nextRandom(), y: nextRandom())
-                randomSize = CGSize(width: nextRandom(), height: nextRandom())
-                randomRect = CGRect(origin: randomPoint, size: randomSize)
+                randomPoint = nextRandomPoint()
+                randomRect = nextRandomRect()
             }
 
             describe(String(describing: UIImageView.self as UICoordinateSpace.Type)) {
@@ -45,7 +43,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                         let scaleDown = CGAffineTransform(scaleX: 0.1, y: 0.1)
                         imageView.contentMode = .scaleToFill
                         imageView.bounds = imageView.bounds.applying(scaleDown)
-                        expect(imageView.contentToBoundsTransform()) == scaleDown
+                        expect(imageView.contentToBoundsTransform()) ≈ scaleDown
                     }
                 }
 
@@ -55,7 +53,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                                                           y: randomPoint.y/(randomPoint.x+randomPoint.y))
                         imageView.contentMode = .scaleToFill
                         imageView.bounds = imageView.bounds.applying(transform)
-                        expect(imageView.contentToBoundsTransform()) == transform
+                        expect(imageView.contentToBoundsTransform()) ≈ transform
                     }
                 }
 

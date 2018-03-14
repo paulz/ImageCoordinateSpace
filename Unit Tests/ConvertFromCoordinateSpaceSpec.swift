@@ -34,7 +34,7 @@ class ReverseConversionSpec: QuickSpec {
                     let viewPoint = imageSpace.convert(imagePoint, to: imageView)
                     expect(viewPoint) != imagePoint
                     let point = imageSpace.convert(viewPoint, from: imageView)
-                    expect(point) == imagePoint
+                    expect(point) ≈ imagePoint
                 }
 
                 context("all modes") {
@@ -44,7 +44,7 @@ class ReverseConversionSpec: QuickSpec {
                             let imageSpace = imageView.contentSpace()
                             let viewPoint = imageSpace.convert(imagePoint, to: imageView)
                             let point = imageSpace.convert(viewPoint, from: imageView)
-                            expect(point) == imagePoint
+                            expect(point) ≈ imagePoint
                         }
                     }
                 }
@@ -63,7 +63,7 @@ class ReverseConversionSpec: QuickSpec {
                         let imageSpace = imageView.contentSpace()
                         let viewRect = imageSpace.convert(randomRect, to: imageView)
                         let imageRect = imageSpace.convert(viewRect, from: imageView)
-                        expect(imageRect) ≈ randomRect ± 0.000001
+                        expect(imageRect) ≈ randomRect ± 0.0001
                     }
                 }
             }

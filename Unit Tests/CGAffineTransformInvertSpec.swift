@@ -9,7 +9,7 @@ class CGAffineTransformInvertSpec: QuickSpec {
             afterEach {
                 let invert = modified.inverted()
                 let reverted = modified.concatenating(invert)
-                expect(reverted) == CGAffineTransform.identity
+                expect(reverted) ≈ CGAffineTransform.identity
             }
 
             context("concatenating inverted") {

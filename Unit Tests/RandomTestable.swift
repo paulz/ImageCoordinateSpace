@@ -2,7 +2,7 @@ import Quick
 import GameKit
 
 func nextRandom() -> Int {
-    return Int(randomSource.nextInt().magnitude)
+    return Int(randomSource.nextInt(upperBound: 1000))
 }
 
 func nextRandomPoint() -> CGPoint {
