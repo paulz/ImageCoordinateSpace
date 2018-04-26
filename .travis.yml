@@ -1,6 +1,6 @@
 language: objective-c
-osx_image: xcode9.2
-xcode_sdk: iphonesimulator11.2
+osx_image: xcode9.3
+xcode_sdk: iphonesimulator11.3
 xcode_project: ImageCoordinateSpace.xcodeproj
 xcode_scheme: ImageCoordinateSpace
 before_install:
