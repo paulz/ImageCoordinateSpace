@@ -1,5 +1,5 @@
 # Image Coordinate Space
-`UICoordinateSpace` for `UIImageView` image written in [Swift 4](https://developer.apple.com/swift/)
+`UICoordinateSpace` for `UIImageView` image
 
 [![Build Status](https://travis-ci.org/paulz/ImageCoordinateSpace.svg?branch=master)](https://travis-ci.org/paulz/ImageCoordinateSpace)
 [![codecov](https://codecov.io/gh/paulz/ImageCoordinateSpace/branch/master/graph/badge.svg)](https://codecov.io/gh/paulz/ImageCoordinateSpace)
@@ -7,6 +7,7 @@
 [![License](https://img.shields.io/cocoapods/l/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
 [![Platform](https://img.shields.io/cocoapods/p/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift][swift-badge]][swift-url]
 
 ## Usage
 
@@ -115,3 +116,6 @@ Paul Zabelin, [https://github.com/paulz](https://github.com/paulz)
 ## License
 
 ImageCoordinateSpace is available under the MIT license. See the LICENSE file for more info.
+
+[swift-badge]: https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat
+[swift-url]: https://swift.org
