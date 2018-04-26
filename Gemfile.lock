@@ -1,7 +1,14 @@
-GIT
-  remote: https://github.com/CocoaPods/CocoaPods.git
-  revision: 42688f7842f59fd85a48a95ece51bea971c4699a
+GEM
+  remote: https://rubygems.org/
   specs:
+    CFPropertyList (3.0.0)
+    activesupport (4.2.10)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    atomos (0.1.2)
+    claide (1.0.2)
     cocoapods (1.5.0)
       activesupport (>= 4.0.2, < 5)
       claide (>= 1.0.2, < 2.0)
@@ -21,38 +28,10 @@ GIT
       nap (~> 1.0)
       ruby-macho (~> 1.1)
       xcodeproj (>= 1.5.7, < 2.0)
-
-GIT
-  remote: https://github.com/CocoaPods/Core.git
-  revision: 9d2d155e46883d7b33be048c2a64c6260dc1d6d4
-  specs:
     cocoapods-core (1.5.0)
       activesupport (>= 4.0.2, < 6)
       fuzzy_match (~> 2.0.4)
       nap (~> 1.0)
-
-GIT
-  remote: https://github.com/CocoaPods/Xcodeproj.git
-  revision: ed615798f87ace605eb83e67a105d3edd9065787
-  specs:
-    xcodeproj (1.5.7)
-      CFPropertyList (>= 2.3.3, < 4.0)
-      atomos (~> 0.1.2)
-      claide (>= 1.0.2, < 2.0)
-      colored2 (~> 3.1)
-      nanaimo (~> 0.2.5)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
-    CFPropertyList (3.0.0)
-    activesupport (4.2.10)
-      i18n (~> 0.7)
-      minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
-      tzinfo (~> 1.1)
-    atomos (0.1.2)
-    claide (1.0.2)
     cocoapods-deintegrate (1.0.2)
     cocoapods-downloader (1.2.0)
     cocoapods-plugins (1.0.0)
@@ -80,14 +59,18 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    xcodeproj (1.5.7)
+      CFPropertyList (>= 2.3.3, < 4.0)
+      atomos (~> 0.1.2)
+      claide (>= 1.0.2, < 2.0)
+      colored2 (~> 3.1)
+      nanaimo (~> 0.2.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  cocoapods!
-  cocoapods-core!
-  xcodeproj!
+  cocoapods
 
 BUNDLED WITH
    1.16.1
