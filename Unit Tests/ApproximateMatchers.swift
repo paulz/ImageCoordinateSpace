@@ -17,18 +17,29 @@ extension CGAffineTransform {
     }
 }
 
+extension CGRect {
+    func flattened() -> [CGFloat] {
+        return [
+            origin.x, origin.y, size.width, size.height
+        ]
+    }
+}
+
 
 func beCloseTo(_ expectedValue: CGRect!, within delta: CGFloat = CGFloat(DefaultDelta)) -> Predicate <CGRect> {
     return Predicate.simple("equal <\(expectedValue.debugDescription)>") { actualExpression in
         let actual = try actualExpression.evaluate()!
         if String(describing: actual) == String(describing: expectedValue) {
             return .matches
+        } else {
+            let expected = expectedValue.flattened()
+            for (index, m) in actual.flattened().enumerated() {
+                if fabs(m - expected[index]) > delta {
+                    return .doesNotMatch
+                }
+            }
+            return .matches
         }
-        let matches = abs(actual.origin.x - expectedValue.origin.x) < delta &&
-            abs(actual.origin.y - expectedValue.origin.y) < delta &&
-            abs(actual.size.width - expectedValue.size.width) < delta &&
-            abs(actual.size.height - expectedValue.size.height) < delta
-        return PredicateStatus(bool: matches)
     }
 }
 
