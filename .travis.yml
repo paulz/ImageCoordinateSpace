@@ -12,14 +12,14 @@ cache:
   directories:
     - Carthage
 before_script:
-  - carthage outdated || carthage update --platform iOS
+  - carthage outdated | grep "dependencies are outdated" -q && carthage update --platform iOS
   - git diff --exit-code # Outdated Carthage dependencies found, please run 'carthage update' and checkin changes
   - bundle update
   - git diff --exit-code # Outdated Bundle dependencies found, please run 'bundle update' and checkin changes
 script:
   - set -o pipefail && pod lib lint --verbose | xcpretty || pod lib lint --verbose --no-clean
+  - set -o pipefail && xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "platform=iOS Simulator,name=iPhone X" | xcpretty -f `xcpretty-travis-formatter` # generate coverage
 after_success:
-  - xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "platform=iOS Simulator,name=iPhone X" > /dev/null # generate coverage
   - bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
 after_failure:
   - echo "Random seed $( < /tmp/RandomTestable.Type.seed.txt)"
