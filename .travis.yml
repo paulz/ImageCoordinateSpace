@@ -6,7 +6,7 @@ xcode_scheme: ImageCoordinateSpace
 before_install:
   - carthage version
   - bundle -v || gem install bundler
-bundler_args: --no-deployment --without development
+bundler_args: --no-deployment
 cache:
   bundler: true
   directories:
