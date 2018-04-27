@@ -6,7 +6,7 @@ xcode_scheme: ImageCoordinateSpace
 before_install:
   - carthage version
   - bundle -v || gem install bundler
-bundler_args: --no-deployment
+bundler_args: --no-deployment --without development
 cache:
   bundler: true
   directories:
@@ -19,6 +19,7 @@ before_script:
 script:
   - set -o pipefail && pod lib lint --verbose | xcpretty || pod lib lint --verbose --no-clean
 after_success:
+  - xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "platform=iOS Simulator,name=iPhone X" > /dev/null # generate coverage
   - bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
 after_failure:
   - echo "Random seed $( < /tmp/RandomTestable.Type.seed.txt)"

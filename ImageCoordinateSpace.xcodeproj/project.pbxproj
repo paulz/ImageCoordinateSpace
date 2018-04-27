@@ -94,7 +94,7 @@
 		4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ImageCoordinateSpace.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTestable.swift; sourceTree = "<group>"; };
 		4B714001205E1231004441A8 /* Gemfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
-		4B714002205E1231004441A8 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		4B714002205E1231004441A8 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Gemfile; sourceTree = "<group>"; };
 		4B76EDD320565C25009492EC /* ScaleFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleFactor.swift; sourceTree = "<group>"; };
 		4B76EDD520565C57009492EC /* CGAffineTransform+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+Scale.swift"; sourceTree = "<group>"; };
 		4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformedCoordinateSpace.swift; sourceTree = "<group>"; };
@@ -112,10 +112,11 @@
 		4B87116A1C6F402C0027F0C9 /* UIImageView+UICoordinateSpaceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+UICoordinateSpaceSpec.swift"; sourceTree = "<group>"; };
 		4B87116C1C6F404F0027F0C9 /* UIView+UICoordinateSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+UICoordinateSpace.swift"; sourceTree = "<group>"; };
 		4B8711731C6F5B260027F0C9 /* Visual.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Visual.playground; path = Example/Visual.playground; sourceTree = "<group>"; };
-		4BE2CB281C718CE3008BB9E0 /* Cartfile.private */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
-		4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
+		4BE2CB281C718CE3008BB9E0 /* Cartfile.private */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Cartfile.private; sourceTree = "<group>"; };
+		4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Cartfile.resolved; sourceTree = "<group>"; };
 		4BE2CB2D1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewContentModeTransformer+UIView.swift"; sourceTree = "<group>"; };
 		4BE2CB2F1C71953C008BB9E0 /* .travis.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; tabWidth = 2; };
+		D2FC74932093CA8A00F6EDEF /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				4B320CC01C71718200FA8663 /* README.md */,
+				D2FC74932093CA8A00F6EDEF /* CHANGELOG.md */,
 				4B8711731C6F5B260027F0C9 /* Visual.playground */,
 				4B8711311C6F3D4D0027F0C9 /* Example */,
 				4B017D811C6F6A02003ECCE7 /* ImageCoordinateSpace */,
