@@ -12,7 +12,7 @@ cache:
   directories:
     - Carthage
 before_script:
-  - carthage outdated | grep "dependencies are outdated" -q && carthage update --platform iOS
+  - carthage outdated | grep "dependencies are outdated" -vq || carthage update --platform iOS
   - git diff --exit-code # Outdated Carthage dependencies found, please run 'carthage update' and checkin changes
   - bundle update
   - git diff --exit-code # Outdated Bundle dependencies found, please run 'bundle update' and checkin changes
