@@ -1,15 +1,9 @@
 import Quick
 import Nimble
-@testable import ImageCoordinateSpace
+import ImageCoordinateSpace
 
-extension UICoordinateSpace {
-    public func applying(_ t: CGAffineTransform) -> UICoordinateSpace {
-        return TransformedCoordinateSpace(original: self, transform: t, bounds: bounds)
-    }
-}
-
-class ReverseConversionSpec: QuickSpec {
-    override func spec() {
+public class ReverseConversionSpec: QuickSpec {
+    override public func spec() {
         describe("convert fromCoordinateSpace") {
             let testBundle = Bundle(for: type(of: self))
             let image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!

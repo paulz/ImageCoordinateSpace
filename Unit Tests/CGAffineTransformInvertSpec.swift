@@ -1,7 +1,7 @@
 import Quick
 import Nimble
 
-class CGAffineTransformInvertSpec: QuickSpec {
+internal class CGAffineTransformInvertSpec: QuickSpec {
     override func spec() {
         describe("invert transform") {
             var modified = CGAffineTransform.identity
