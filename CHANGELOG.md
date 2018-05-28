@@ -1,15 +1,17 @@
 # Change Log
 
-## [1.0.6](https://github.com/paulz/ImageCoordinateSpace/tree/1.0.6) (2018-04-26)
-[Full Changelog](https://github.com/paulz/ImageCoordinateSpace/compare/1.0.5...1.0.6) Upgrade to Swift 4.1
+## [1.0.6](https://github.com/paulz/ImageCoordinateSpace/tree/1.0.6) (2018-05-28)
+[Full Changelog](https://github.com/paulz/ImageCoordinateSpace/compare/1.0.5...1.0.6)
 
 * Upgrade to Swift 4.1
-* Support cocoapods 1.5.0
+* Support cocoapods 1.5.3
 * Run pod lib lint on travis with unit tests
+* Run xbuild test on travis to update coverage
 
 **Closed issues:**
 
 - Swift 4 release not available via cocoapods [\#3](https://github.com/paulz/ImageCoordinateSpace/issues/3)
+- Mismatch between Cocoapods and Repo code? [\#4](https://github.com/paulz/ImageCoordinateSpace/issues/4)
 
 ## [1.0.5](https://github.com/paulz/ImageCoordinateSpace/tree/1.0.5) (2018-03-13) Update documentation and refactor
 [Full Changelog](https://github.com/paulz/ImageCoordinateSpace/compare/1.0.4...1.0.5)

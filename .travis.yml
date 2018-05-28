@@ -16,6 +16,7 @@ before_script:
   - git diff --exit-code # Outdated Carthage dependencies found, please run 'carthage update' and checkin changes
   - bundle update
   - git diff --exit-code # Outdated Bundle dependencies found, please run 'bundle update' and checkin changes
+  - carthage bootstrap --cache-builds --platform ios
 script:
   - set -o pipefail && pod lib lint --verbose | xcpretty || pod lib lint --verbose --no-clean
   - set -o pipefail && xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "platform=iOS Simulator,name=iPhone X" | xcpretty -f `xcpretty-travis-formatter` # generate coverage
