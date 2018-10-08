@@ -22,7 +22,7 @@ let placement = CGRect(x: 321, y: 102, width: 63, height: 64)
 let overlayView = UIImageView(image: #imageLiteral(resourceName: "hello.png"))
 containerView.addSubview(overlayView)
 overlayView.alpha = 0.8
-func updateContentMode(_ mode: UIViewContentMode) -> UIView {
+func updateContentMode(_ mode: UIView.ContentMode) -> UIView {
     containerView.contentMode = mode
     overlayView.frame = containerView.contentSpace().convert(placement, to: containerView)
     return containerView

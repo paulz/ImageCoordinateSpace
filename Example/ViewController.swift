@@ -12,7 +12,10 @@ import ImageCoordinateSpace
 class ViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var overlayImageView: UIImageView!
-    let placement = CGRect(x: 321/2, y: 102/2, width: 63/2, height: 64/2)
+    // Placement is determined by SVG
+    // See:    https://github.com/paulz/ImageCoordinateSpace/blob/master/Example/Visual.playground/Resources/overlayed.svg?short_path=993f69a#L10
+    //    <image id="hello" sketch:type="MSBitmapLayer" x="321" y="102" width="63" height="64" xlink:href="hello.png"></image>
+    let placement = CGRect(x: 321, y: 102, width: 63, height: 64)
 
     func updateOvelayPosition() {
         overlayImageView.frame = backgroundImageView.contentSpace().convert(placement, to: view)
