@@ -12,8 +12,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             var randomRect: CGRect!
 
             beforeEach {
-                let testBundle = Bundle(for: type(of: self))
-                image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
+                image = UIImage.testImage(CGSize(width: 145, height: 109))
                 imageView = UIImageView(image: image)
                 randomPoint = nextRandomPoint()
                 randomRect = nextRandomRect()

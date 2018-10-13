@@ -5,8 +5,7 @@ import ImageCoordinateSpace
 public class ReverseConversionSpec: QuickSpec {
     override public func spec() {
         describe("convert fromCoordinateSpace") {
-            let testBundle = Bundle(for: type(of: self))
-            let image = UIImage(named: "rose", in: testBundle, compatibleWith: nil)!
+            let image = UIImage.testImage(CGSize(width: 145, height: 109))
             let imageView = UIImageView(image: image)
 
             let imagePoint = CGPoint.zero
@@ -16,7 +15,7 @@ public class ReverseConversionSpec: QuickSpec {
                 imageView.bounds = CGRect(origin: CGPoint.zero, size: square)
             }
 
-            let allModes = stride(from:UIViewContentMode.scaleToFill.rawValue,
+            let allContentModes = stride(from:UIViewContentMode.scaleToFill.rawValue,
                                   to: UIViewContentMode.bottomRight.rawValue,
                                   by: 1
             )
@@ -31,10 +30,10 @@ public class ReverseConversionSpec: QuickSpec {
                     expect(point) ≈ imagePoint
                 }
 
-                context("all modes") {
-                    it("should also revert") {
-                        for mode in allModes {
-                            imageView.contentMode = UIViewContentMode(rawValue: mode)!
+                context("in all content modes") {
+                    it("should also revert to original point") {
+                        for contentMode in allContentModes {
+                            imageView.contentMode = UIViewContentMode(rawValue: contentMode)!
                             let imageSpace = imageView.contentSpace()
                             let viewPoint = imageSpace.convert(imagePoint, to: imageView)
                             let point = imageSpace.convert(viewPoint, from: imageView)
@@ -51,9 +50,9 @@ public class ReverseConversionSpec: QuickSpec {
                     randomRect = nextRandomRect()
                 }
 
-                for mode in allModes {
-                    it("in mode \(mode) should reverse to original") {
-                        imageView.contentMode = UIViewContentMode(rawValue: mode)!
+                for contentMode in allContentModes {
+                    it("in content mode \(contentMode) should reverse to original") {
+                        imageView.contentMode = UIViewContentMode(rawValue: contentMode)!
                         let imageSpace = imageView.contentSpace()
                         let viewRect = imageSpace.convert(randomRect, to: imageView)
                         let imageRect = imageSpace.convert(viewRect, from: imageView)
