@@ -34,7 +34,7 @@ func beCloseTo(_ expectedValue: CGRect!, within delta: CGFloat = CGFloat(Default
         } else {
             let expected = expectedValue.flattened()
             for (index, m) in actual.flattened().enumerated() {
-                if fabs(m - expected[index]) > delta {
+                if abs(m - expected[index]) > delta {
                     return .doesNotMatch
                 }
             }
@@ -63,7 +63,7 @@ public func beCloseTo(_ expectedValue: CGAffineTransform, within delta: CGFloat 
             } else {
                 let expected = expectedValue.flattened()
                 for (index, m) in actual.flattened().enumerated() {
-                    if fabs(m - expected[index]) > delta {
+                    if abs(m - expected[index]) > delta {
                         return .doesNotMatch
                     }
                 }

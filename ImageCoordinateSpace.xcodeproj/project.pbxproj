@@ -330,11 +330,11 @@
 				TargetAttributes = {
 					4B017D7F1C6F6A02003ECCE7 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 					};
 					4B017D881C6F6A02003ECCE7 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					4B87112E1C6F3D4D0027F0C9 = {
@@ -488,6 +488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.paulz.ImageCoordinateSpace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -514,6 +515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.paulz.ImageCoordinateSpace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -539,6 +541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.ImageCoordinateSpaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -561,6 +564,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.ImageCoordinateSpaceTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

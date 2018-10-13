@@ -15,8 +15,8 @@ public class ReverseConversionSpec: QuickSpec {
                 imageView.bounds = CGRect(origin: CGPoint.zero, size: square)
             }
 
-            let allContentModes = stride(from:UIViewContentMode.scaleToFill.rawValue,
-                                  to: UIViewContentMode.bottomRight.rawValue,
+            let allContentModes = stride(from:UIView.ContentMode.scaleToFill.rawValue,
+                                  to: UIView.ContentMode.bottomRight.rawValue,
                                   by: 1
             )
 
@@ -33,7 +33,7 @@ public class ReverseConversionSpec: QuickSpec {
                 context("in all content modes") {
                     it("should also revert to original point") {
                         for contentMode in allContentModes {
-                            imageView.contentMode = UIViewContentMode(rawValue: contentMode)!
+                            imageView.contentMode = UIView.ContentMode(rawValue: contentMode)!
                             let imageSpace = imageView.contentSpace()
                             let viewPoint = imageSpace.convert(imagePoint, to: imageView)
                             let point = imageSpace.convert(viewPoint, from: imageView)
@@ -52,7 +52,7 @@ public class ReverseConversionSpec: QuickSpec {
 
                 for contentMode in allContentModes {
                     it("in content mode \(contentMode) should reverse to original") {
-                        imageView.contentMode = UIViewContentMode(rawValue: contentMode)!
+                        imageView.contentMode = UIView.ContentMode(rawValue: contentMode)!
                         let imageSpace = imageView.contentSpace()
                         let viewRect = imageSpace.convert(randomRect, to: imageView)
                         let imageRect = imageSpace.convert(viewRect, from: imageView)

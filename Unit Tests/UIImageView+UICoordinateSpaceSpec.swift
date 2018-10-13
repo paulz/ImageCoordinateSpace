@@ -142,7 +142,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     expect(result, file:file, line: line) == viewPoint
                 }
 
-                context(String(describing:UIViewContentMode.topLeft)) {
+                context(String(describing:UIView.ContentMode.topLeft)) {
                     beforeEach {
                         imageView.contentMode = .topLeft
                     }
@@ -152,7 +152,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context(String(describing:UIViewContentMode.left)) {
+                context(String(describing:UIView.ContentMode.left)) {
                     beforeEach {
                         imageView.contentMode = .left
                     }
@@ -163,7 +163,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context(String(describing:UIViewContentMode.right)) {
+                context(String(describing:UIView.ContentMode.right)) {
                     beforeEach {
                         imageView.contentMode = .right
                     }
@@ -175,7 +175,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context(String(describing:UIViewContentMode.topRight)) {
+                context(String(describing:UIView.ContentMode.topRight)) {
                     beforeEach {
                         imageView.contentMode = .topRight
                     }
@@ -186,7 +186,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context(String(describing:UIViewContentMode.bottomLeft)) {
+                context(String(describing:UIView.ContentMode.bottomLeft)) {
                     beforeEach {
                         imageView.contentMode = .bottomLeft
                     }
@@ -197,7 +197,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context(String(describing:UIViewContentMode.bottomRight)) {
+                context(String(describing:UIView.ContentMode.bottomRight)) {
                     beforeEach {
                         imageView.contentMode = .bottomRight
                     }
@@ -209,7 +209,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context(String(describing:UIViewContentMode.bottom)) {
+                context(String(describing:UIView.ContentMode.bottom)) {
                     beforeEach {
                         imageView.contentMode = .bottom
                     }
@@ -221,7 +221,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context(String(describing:UIViewContentMode.top)) {
+                context(String(describing:UIView.ContentMode.top)) {
                     beforeEach {
                         imageView.contentMode = .top
                     }
@@ -233,7 +233,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                 }
 
 
-                context(String(describing:UIViewContentMode.center)) {
+                context(String(describing:UIView.ContentMode.center)) {
                     beforeEach {
                         imageView.contentMode = .center
                     }
@@ -245,7 +245,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
                 }
 
-                context(String(describing:UIViewContentMode.scaleToFill)) {
+                context(String(describing:UIView.ContentMode.scaleToFill)) {
                     context("scale to fill") {
                         beforeEach {
                             imageView.contentMode = .scaleToFill
@@ -259,7 +259,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                     }
 
 
-                    context(String(describing:UIViewContentMode.scaleAspectFill)) {
+                    context(String(describing:UIView.ContentMode.scaleAspectFill)) {
                         beforeEach {
                             imageView.contentMode = .scaleAspectFill
                         }
@@ -275,7 +275,7 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                         }
                     }
 
-                    context(String(describing:UIViewContentMode.scaleAspectFit)) {
+                    context(String(describing:UIView.ContentMode.scaleAspectFit)) {
                         beforeEach {
                             imageView.contentMode = .scaleAspectFit
                         }

@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-    s.swift_version       = '4.1'
-    s.cocoapods_version   = '>= 1.4.0'
+    s.swift_version       = '4.2'
+    s.cocoapods_version   = '>= 1.5.0'
     s.name                = 'ImageCoordinateSpace'
-    s.version             = '1.0.6'
+    s.version             = '1.0.7'
     s.summary             = 'Convert image coordinates to image view depending on content mode'
     s.description         = <<-DESC
     Convert CGPoint and CGRect between UIImage and UIImageView coordinates respecting UIViewContentMode and using UICoordinateSpace
@@ -23,8 +23,9 @@ Pod::Spec.new do |s|
         ts.resource       = 'Example/Assets.xcassets'
         ts.source_files   = 'Unit Tests/**/*.{h,swift}'
         ts.dependencies   = {
-            'Quick' => '~> 1.2',
-            'Nimble' => '~> 7.0'
+            'Quick' => '~> 1.3',
+            'Nimble' => '~> 7.3'
         }
+        ts.requires_app_host = false
     end
 end

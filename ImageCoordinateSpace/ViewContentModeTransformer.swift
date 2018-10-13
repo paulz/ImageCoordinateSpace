@@ -11,7 +11,7 @@ import UIKit
 struct ViewContentModeTransformer {
     let boundsSize : CGSize
     let contentSize : CGSize
-    let contentMode : UIViewContentMode
+    let contentMode : UIView.ContentMode
     
     private func scaleToFill() -> CGAffineTransform {
         return CGAffineTransform(scaleTo: boundsSize, from: contentSize)
