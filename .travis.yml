@@ -16,14 +16,13 @@ before_script:
   - carthage bootstrap --cache-builds --platform ios
   - pod repo update # to allow installing test spec dependencies in pod lib lint
 script:
-  - set -o pipefail && pod lib lint --allow-warnings || pod lib lint --allow-warnings --verbose --no-clean
   - set -o pipefail && xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "$XCODE_DESNITATION" | xcpretty -f `xcpretty-travis-formatter` # generate coverage
 after_success:
   - bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
 after_failure:
   - echo "Random seed $( < /tmp/RandomTestable.Type.seed.txt)"
 before_deploy:
-  - pod lib lint
+  - set -o pipefail && pod lib lint --allow-warnings || pod lib lint --allow-warnings --verbose --no-clean
   - brew update > /dev/null
   - brew outdated carthage || brew upgrade carthage
   - carthage build --no-skip-current --platform iOS
