@@ -23,8 +23,8 @@ Pod::Spec.new do |s|
         ts.resource       = 'Example/Assets.xcassets'
         ts.source_files   = 'Unit Tests/**/*.{h,swift}'
         ts.dependencies   = {
-            'Quick' => '~> 1.3',
-            'Nimble' => '~> 7.3'
+            'Quick' => '~> 1.3.2',
+            'Nimble' => '~> 7.3.1'
         }
         ts.requires_app_host = false
     end
