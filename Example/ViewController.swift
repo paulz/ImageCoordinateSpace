@@ -9,6 +9,18 @@
 import UIKit
 import ImageCoordinateSpace
 
+extension UIViewContentMode {
+    func next() -> UIViewContentMode {
+        return UIViewContentMode(rawValue: rawValue + 1)!
+    }
+}
+
+extension UIView {
+    func nextContentMode() {
+        contentMode = contentMode.next()
+    }
+}
+
 class ViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var overlayImageView: UIImageView!
@@ -22,13 +34,11 @@ class ViewController: UIViewController {
     }
 
     func updateOvelayPositionAnimated() {
-        UIView.animate(withDuration: 0.5) {
-            self.updateOvelayPosition()
-        }
+        UIView.animate(withDuration: 0.5, animations: updateOvelayPosition)
     }
 
     func nextContentMode() {
-        backgroundImageView.contentMode = UIViewContentMode(rawValue: backgroundImageView.contentMode.rawValue + 1)!
+        backgroundImageView.nextContentMode()
     }
 
     override func viewDidLayoutSubviews() {

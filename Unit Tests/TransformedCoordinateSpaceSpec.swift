@@ -8,7 +8,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
             it("should create inverted transform to be inverted transform") {
                 let transform = CGAffineTransform.identity
                 let space = TransformedCoordinateSpace(original: UIView(),
-                                                       transform: transform,
+                                                       transform: {transform},
                                                        bounds: CGRect.zero)
                 expect(space.invertedTransform) == transform.inverted()
             }

@@ -10,13 +10,16 @@ import UIKit
 
 class TransformedCoordinateSpace: NSObject {
     let reference : UICoordinateSpace
-    let transform: CGAffineTransform
+    lazy var transform: CGAffineTransform = {
+        return getTransform()
+    }()
+    let getTransform: () -> CGAffineTransform
     let bounds: CGRect
     lazy var invertedTransform = transform.inverted()
 
-    init(original: UICoordinateSpace, transform applying: CGAffineTransform, bounds limitedTo: CGRect) {
+    init(original: UICoordinateSpace, transform applying: @escaping () -> CGAffineTransform, bounds limitedTo: CGRect) {
         reference = original
-        transform = applying
+        getTransform = applying
         bounds = limitedTo
     }
 }
@@ -39,7 +42,7 @@ extension TransformedCoordinateSpace: UICoordinateSpace {
 }
 
 extension TransformedCoordinateSpace {
-    convenience init(size:CGSize, transform:CGAffineTransform, destination:UICoordinateSpace) {
+    convenience init(size:CGSize, transform: @escaping () -> CGAffineTransform, destination:UICoordinateSpace) {
         self.init(original: destination, transform: transform, bounds: CGRect(origin: CGPoint.zero, size: size))
     }
 }
