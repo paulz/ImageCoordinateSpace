@@ -21,13 +21,6 @@ enum ScaleFactor : CGFloat {
     static var right = ScaleFactor.full
 
     func scale(value: @autoclosure () -> CGFloat) -> CGFloat {
-        switch self {
-        case .none:
-            return 0
-        case .half:
-            return value() * rawValue
-        case .full:
-            return value()
-        }
+        return self.rawValue * value()
     }
 }

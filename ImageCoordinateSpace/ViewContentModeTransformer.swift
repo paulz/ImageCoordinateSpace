@@ -17,16 +17,40 @@ struct ViewContentModeTransformer {
         return CGAffineTransform(scaleTo: boundsSize, from: contentSize)
     }
 
-    private func translate(_ byX:ScaleFactor, _ byY:ScaleFactor, sizeScale scale:CGFloat = 1.0) -> CGAffineTransform {
-        let x = byX.scale(value: boundsSize.width - contentSize.width * scale)
-        let y = byY.scale(value: boundsSize.height - contentSize.height * scale)
+    private func translateAxies(by:ScaleFactor, sizeScale scale:CGFloat, path: KeyPath<CGSize, CGFloat>) -> CGFloat {
+        return by.scale(value: boundsSize[keyPath: path] - contentSize[keyPath: path] * scale)
+    }
+
+    private func translate(xFactor:ScaleFactor, yFactor:ScaleFactor, sizeScale scale:CGFloat = 1.0) -> CGAffineTransform {
+        let scaled = [(xFactor, \CGSize.width),
+                      (yFactor, \CGSize.height)].map {translateAxies(by: $0.0, sizeScale: scale, path: $0.1)}
+        let (x,y) = (scaled[0], scaled[1])
         return CGAffineTransform(translationX: x, y: y)
     }
     
     private func translateAndScale(using reduceFunction:(CGFloat,CGFloat)->CGFloat) -> CGAffineTransform {
-        let fill = scaleToFill()
-        let scale = reduceFunction(fill.scaleX, fill.scaleY)
-        return translate(.half, .half, sizeScale: scale).scaledBy(x: scale, y: scale)
+        let scale: CGFloat = {
+            let fill = scaleToFill()
+            return reduceFunction(fill.scaleX, fill.scaleY)
+        }()
+        return translate(xFactor: .half, yFactor: .half, sizeScale: scale).scaledBy(x: scale, y: scale)
+    }
+
+    static let placements: [UIView.ContentMode: (y:ScaleFactor?, x:ScaleFactor?)] = [
+        .center: (nil, nil),
+        .left: (nil, .left),
+        .right: (nil, .right),
+        .top: (.top, nil),
+        .bottom: (.bottom, nil),
+        .topLeft: (.top, .left),
+        .topRight: (.top, .right),
+        .bottomLeft: (.bottom, .left),
+        .bottomRight: (.bottom, .right),
+        ]
+
+    func translatePlacement() -> CGAffineTransform {
+        let placement = type(of: self).placements[contentMode]!
+        return translate(xFactor: placement.x ?? .center, yFactor: placement.y ?? .center)
     }
     
     func contentToViewTransform() -> CGAffineTransform {
@@ -39,22 +63,8 @@ struct ViewContentModeTransformer {
             return scaleToFill()
         case .topLeft:
             return CGAffineTransform.identity
-        case .center:
-            return translate(.center, .center)
-        case .left:
-            return translate(.left, .center)
-        case .right:
-            return translate(.right, .center)
-        case .topRight:
-            return translate(.right, .top)
-        case .bottomLeft:
-            return translate(.left, .bottom)
-        case .bottomRight:
-            return translate(.right, .bottom)
-        case .top:
-            return translate(.center, .top)
-        case .bottom:
-            return translate(.center, .bottom)
+        default:
+            return translatePlacement()
         }
     }
 }
