@@ -2,9 +2,9 @@ import Quick
 import Nimble
 import ImageCoordinateSpace
 
-class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
+class UIView_contentSpaceSpec: QuickSpec {
     override func spec() {
-        describe(String(describing: UICoordinateSpace.self)) {
+        describe("UIView extension for ImageCoordinateSpace") {
             var image: UIImage!
 
             var imageView: UIImageView!
@@ -16,23 +16,6 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                 imageView = UIImageView(image: image)
                 randomPoint = CGPoint.nextRandom()
                 randomRect = CGRect.nextRandom()
-            }
-
-            describe(String(describing: UIImageView.self as UICoordinateSpace.Type)) {
-                context("convert within the same space") {
-                    var space: UICoordinateSpace!
-
-                    beforeEach {
-                        space = imageView
-                    }
-
-                    it("should not change the value") {
-                        expect(space.convert(randomPoint, from: space)) == randomPoint
-                        expect(space.convert(randomPoint, to: space)) == randomPoint
-                        expect(space.convert(randomRect, from: space)) == randomRect
-                        expect(space.convert(randomRect, to: space)) == randomRect
-                    }
-                }
             }
 
             describe(String(describing:UIView.contentToBoundsTransform)) {

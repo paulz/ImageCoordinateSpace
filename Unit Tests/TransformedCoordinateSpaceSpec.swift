@@ -2,6 +2,26 @@ import Quick
 import Nimble
 @testable import ImageCoordinateSpace
 
+class SpaceStub: NSObject, UICoordinateSpace {
+    func convert(_ point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint {
+        fatalError()
+    }
+
+    func convert(_ point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint {
+        fatalError()
+    }
+
+    func convert(_ rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect {
+        fatalError()
+    }
+
+    func convert(_ rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect {
+        fatalError()
+    }
+
+    var bounds: CGRect = CGRect.init(x: Double.nan, y: Double.nan, width: Double.nan, height: Double.nan)
+}
+
 private class TransformedCoordinateSpaceSpec: QuickSpec {
     override func spec() {
         describe(String(describing: TransformedCoordinateSpace.init(original:transform:bounds:))) {
@@ -19,22 +39,116 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                 }
             }
         }
+        describe(String(describing: TransformedCoordinateSpace.init(size:transform:destination:))) {
+            context(String(describing: \UICoordinateSpace.bounds)) {
+                it("should be zero to size") {
+                    let size = CGSize.nextRandom()
+                    let space = TransformedCoordinateSpace(size: size,
+                                                           transform: {CGAffineTransform.nextRandom()},
+                                                           destination: SpaceStub())
+                    expect(space.bounds) == CGRect(origin: CGPoint.zero, size: size)
+                }
+            }
+        }
+
         describe(String(describing: UICoordinateSpace.self)) {
-            context(String(describing: CGAffineTransform.identity)) {
-                it("should convert with no changes") {
-                    let view = UIView(frame: CGRect.nextRandom())
-                    let space = TransformedCoordinateSpace(size: CGSize.nextRandom(),
-                                                           transform: {CGAffineTransform.identity},
-                                                           destination: view)
-                    let point = CGPoint.nextRandom()
-                    let destination = UIView(frame: CGRect.nextRandom())
+            context("mock space") {
+                let anyTransform = CGAffineTransform.nextRandom()
+                let anySpace = SpaceStub()
+                let anySize = CGSize.nextRandom()
 
-                    expect(space.convert(point, to: destination)) == view.convert(point, to: destination)
-                    expect(space.convert(point, from: destination)) == view.convert(point, from: destination)
+                context(String(describing: CGRect.self)) {
+                    class ConvertRectToMockSpace: SpaceStub {
+                        var result: CGRect = CGRect.nextRandom()
+                        var argument: CGRect?
 
+                        override func convert(_ rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect {
+                            argument = rect
+                            return result
+                        }
+                    }
                     let rect = CGRect.nextRandom()
-                    expect(space.convert(rect, to: destination)) == view.convert(rect, to: destination)
-                    expect(space.convert(rect, from: destination)) == view.convert(rect, from: destination)
+                    let mock = ConvertRectToMockSpace()
+
+                    context("convert to space") {
+                        let space = TransformedCoordinateSpace(size: anySize,
+                                                               transform: {anyTransform},
+                                                               destination: mock)
+
+                        it("should convert using destination space") {
+                            let result = space.convert(rect, to: anySpace)
+                            expect(result) == mock.result
+                        }
+
+                        it("should convert rect after applying transform") {
+                            let transformedPoint = rect.applying(anyTransform)
+                            _ = space.convert(rect, to: anySpace)
+                            expect(mock.argument) == transformedPoint
+                        }
+                    }
+
+                    context("convert from space") {
+                        let space = TransformedCoordinateSpace(size: anySize,
+                                                               transform: {anyTransform},
+                                                               destination: anySpace)
+
+                        it("should convert rect after applying inverted transform") {
+                            let result = space.convert(rect, from: mock)
+                            expect(result) == mock.result.applying(anyTransform.inverted())
+                        }
+
+                        it("should convert using rect as argument") {
+                            _ = space.convert(rect, from: mock)
+                            expect(mock.argument) == rect
+                        }
+                    }
+
+                }
+
+                context(String(describing: CGPoint.self)) {
+                    class ConvertPointToMockSpace: SpaceStub {
+                        var result: CGPoint = CGPoint.nextRandom()
+                        var argument: CGPoint?
+
+                        override func convert(_ point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint {
+                            argument = point
+                            return result
+                        }
+                    }
+                    let point = CGPoint.nextRandom()
+                    let mock = ConvertPointToMockSpace()
+
+                    context("convert to space") {
+                        let space = TransformedCoordinateSpace(size: anySize,
+                                                               transform: {anyTransform},
+                                                               destination: mock)
+                        it("should use destination space to convert") {
+                            let result = space.convert(point, to: anySpace)
+                            expect(result) == mock.result
+                        }
+
+                        it("should use as argument the point after applying transform") {
+                            let transformedPoint = point.applying(anyTransform)
+                            _ = space.convert(point, to: anySpace)
+                            expect(mock.argument) == transformedPoint
+                        }
+                    }
+
+                    context("convert from space") {
+                        let space = TransformedCoordinateSpace(size: anySize,
+                                                               transform: {anyTransform},
+                                                               destination: anySpace)
+
+                        it("should convert to applying inverted transform") {
+                            let result = space.convert(point, from: mock)
+                            expect(result) == mock.result.applying(anyTransform.inverted())
+                        }
+
+                        it("should convert to using point as argument") {
+                            _ = space.convert(point, from: mock)
+                            expect(mock.argument) == point
+                        }
+                    }
                 }
             }
         }

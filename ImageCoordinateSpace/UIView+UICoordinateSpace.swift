@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: Adds UIView contentCoordinateSpace property
+// MARK: Adds UIView contentSpace property to view
 public extension UIView {
     /**
      View coordinate space that accounts for view content mode
