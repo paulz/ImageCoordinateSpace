@@ -9,10 +9,12 @@
 import UIKit
 
 extension UIView {
-    func viewContentModeTransformer() -> ViewContentModeTransformer {
-        return ViewContentModeTransformer(boundsSize: bounds.size,
-                                          contentSize: intrinsicContentSize,
-                                          contentMode: contentMode)
+    var viewContentModeTransformer: ViewContentModeTransformer  {
+        get {
+            return ViewContentModeTransformer(boundsSize: bounds.size,
+                                              contentSize: intrinsicContentSize,
+                                              contentMode: contentMode)
+        }
     }
 }
 
