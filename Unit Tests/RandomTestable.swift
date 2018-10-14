@@ -1,21 +1,40 @@
 import Quick
 import GameKit
 
-func nextRandom() -> Int {
-    return Int(randomSource.nextInt(upperBound: 1000))
+protocol TestableRandom {
+    static func nextRandom() -> Self
 }
 
-func nextRandomPoint() -> CGPoint {
-    return CGPoint(x: nextRandom(), y: nextRandom())
+extension Int: TestableRandom {
+    static func nextRandom() -> Int {
+        return Int(randomSource.nextInt(upperBound: 1000))
+    }
 }
 
-func nextRandomSize() -> CGSize {
-    return CGSize(width: nextRandom(), height: nextRandom())
+extension CGFloat: TestableRandom {
+    static func nextRandom() -> CGFloat {
+        return CGFloat(1000 * randomSource.nextUniform())
+    }
 }
 
-func nextRandomRect() -> CGRect {
-    return CGRect(x: nextRandom(), y: nextRandom(), width: nextRandom(), height: nextRandom())
+extension CGPoint: TestableRandom {
+    static func nextRandom() -> CGPoint {
+        return CGPoint(x: Int.nextRandom(), y: Int.nextRandom())
+    }
 }
+
+extension CGSize: TestableRandom {
+    static func nextRandom() -> CGSize {
+        return CGSize(width: Int.nextRandom(), height: Int.nextRandom())
+    }
+}
+
+extension CGRect: TestableRandom {
+    static func nextRandom() -> CGRect {
+        return CGRect(x: Int.nextRandom(), y: Int.nextRandom(), width: Int.nextRandom(), height: Int.nextRandom())
+    }
+}
+
 
 var randomSource: GKRandomSource!
 

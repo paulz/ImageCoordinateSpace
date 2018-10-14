@@ -14,8 +14,8 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
             beforeEach {
                 image = UIImage.testImage(CGSize(width: 145, height: 109))
                 imageView = UIImageView(image: image)
-                randomPoint = nextRandomPoint()
-                randomRect = nextRandomRect()
+                randomPoint = CGPoint.nextRandom()
+                randomRect = CGRect.nextRandom()
             }
 
             describe(String(describing: UIImageView.self as UICoordinateSpace.Type)) {

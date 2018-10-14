@@ -47,7 +47,7 @@ public class ReverseConversionSpec: QuickSpec {
                 var randomRect : CGRect!
 
                 beforeEach {
-                    randomRect = nextRandomRect()
+                    randomRect = CGRect.nextRandom()
                 }
 
                 for contentMode in allContentModes {
