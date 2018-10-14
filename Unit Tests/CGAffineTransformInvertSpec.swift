@@ -13,7 +13,6 @@ internal class CGAffineTransformInvertSpec: QuickSpec {
             }
 
             context("concatenating inverted") {
-
                 it("should revert scale") {
                     modified = CGAffineTransform(scaleX: 2, y: 3)
                 }
@@ -32,8 +31,10 @@ internal class CGAffineTransformInvertSpec: QuickSpec {
                     modified = scale.translatedBy(x: 200, y: 300)
                 }
 
+                it("should revert random transform") {
+                    modified = CGAffineTransform.nextRandom()
+                }
             }
-
         }
     }
 }

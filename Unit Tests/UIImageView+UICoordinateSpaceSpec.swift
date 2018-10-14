@@ -53,15 +53,21 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
                 }
 
                 context("random transform") {
-                    it("should be equal") {
-                        let transform = CGAffineTransform(scaleX: randomPoint.x/(randomPoint.x+randomPoint.y),
-                                                          y: randomPoint.y/(randomPoint.x+randomPoint.y))
-                        imageView.contentMode = .scaleToFill
-                        imageView.bounds = imageView.bounds.applying(transform)
-                        expect(imageView.contentToBoundsTransform()) ≈ transform
+                    context("scale to fill at any random scale") {
+                        var randomScale: CGAffineTransform!
+
+                        beforeEach {
+                            randomScale = CGAffineTransform(scaleX: CGFloat.nextRandom(),
+                                                            y: CGFloat.nextRandom())
+                        }
+
+                        it("should be equal to transform") {
+                            imageView.contentMode = .scaleToFill
+                            imageView.bounds = imageView.bounds.applying(randomScale)
+                            expect(imageView.contentToBoundsTransform()) ≈ randomScale
+                        }
                     }
                 }
-
             }
 
             describe(String(describing: UIView.contentSpace)) {

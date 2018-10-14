@@ -35,6 +35,17 @@ extension CGRect: TestableRandom {
     }
 }
 
+extension CGAffineTransform: TestableRandom {
+    static func nextRandom() -> CGAffineTransform {
+        return CGAffineTransform(a: CGFloat.nextRandom(),
+                                 b: CGFloat.nextRandom(),
+                                 c: CGFloat.nextRandom(),
+                                 d: CGFloat.nextRandom(),
+                                 tx: CGFloat.nextRandom(),
+                                 ty: CGFloat.nextRandom())
+    }
+}
+
 
 var randomSource: GKRandomSource!
 
