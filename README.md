@@ -48,7 +48,7 @@ let imageRect = imageSpace.convert(viewRect, from: imageView)
 ### Add positioned image overlay
 Open included Xcode Example project to see Xcode Playground: [Example/Visual.playground](https://github.com/paulz/ImageCoordinateSpace/blob/master/Example/Visual.playground)
 
-![Demonstrate image ovelay placement](https://github.com/paulz/ImageCoordinateSpace/blob/master/Example/demo.gif)
+![Demonstrate image ovelay placement](https://raw.githubusercontent.com/paulz/ImageCoordinateSpace/master/Example/demo.gif)
 
 
 ### Converting image face detection regions to view touch points
