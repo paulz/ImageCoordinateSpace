@@ -7,6 +7,16 @@
 
 import CoreGraphics
 
+struct SizeFactor {
+    var width: ScaleFactor
+    var height: ScaleFactor
+
+    init(height: ScaleFactor = .center, width: ScaleFactor = .center) {
+        self.width = width
+        self.height = height
+    }
+}
+
 enum ScaleFactor : CGFloat {
     case none = 0
     case half = 0.5
