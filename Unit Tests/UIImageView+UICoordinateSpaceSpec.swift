@@ -20,11 +20,17 @@ class UIImageView_imageCoordinateSpaceSpec: QuickSpec {
 
             describe(String(describing: UIImageView.self as UICoordinateSpace.Type)) {
                 context("convert within the same space") {
+                    var space: UICoordinateSpace!
+
+                    beforeEach {
+                        space = imageView
+                    }
+
                     it("should not change the value") {
-                        expect(imageView.convert(randomPoint, from: imageView)) == randomPoint
-                        expect(imageView.convert(randomPoint, to: imageView)) == randomPoint
-                        expect(imageView.convert(randomRect, from: imageView)) == randomRect
-                        expect(imageView.convert(randomRect, to: imageView)) == randomRect
+                        expect(space.convert(randomPoint, from: space)) == randomPoint
+                        expect(space.convert(randomPoint, to: space)) == randomPoint
+                        expect(space.convert(randomRect, from: space)) == randomRect
+                        expect(space.convert(randomRect, to: space)) == randomRect
                     }
                 }
             }

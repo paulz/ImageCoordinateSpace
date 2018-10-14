@@ -11,8 +11,8 @@ import UIKit
 class TransformedCoordinateSpace: NSObject {
     let reference : UICoordinateSpace
     let transform: CGAffineTransform
-    lazy var invertedTransform = transform.inverted()
     let bounds: CGRect
+    lazy var invertedTransform = transform.inverted()
 
     init(original: UICoordinateSpace, transform applying: CGAffineTransform, bounds limitedTo: CGRect) {
         reference = original
@@ -22,20 +22,19 @@ class TransformedCoordinateSpace: NSObject {
 }
 
 extension TransformedCoordinateSpace: UICoordinateSpace {
-    func convert(_ point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return reference.convert(point.applying(transform), to: coordinateSpace)
+    func convert(_ object: CGPoint, to space: UICoordinateSpace) -> CGPoint {
+        return Converter(object).convert(to: space, using: self)
+    }
+    func convert(_ object: CGRect, to space: UICoordinateSpace) -> CGRect {
+        return Converter(object).convert(to: space, using: self)
     }
 
-    func convert(_ point: CGPoint, from coordinateSpace: UICoordinateSpace) -> CGPoint {
-        return reference.convert(point, from: coordinateSpace).applying(invertedTransform)
-    }
 
-    func convert(_ rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect {
-        return reference.convert(rect.applying(transform), to: coordinateSpace)
+    func convert(_ object: CGPoint, from space: UICoordinateSpace) -> CGPoint {
+        return Converter(object).convert(from: space, using: self)
     }
-
-    func convert(_ rect: CGRect, from coordinateSpace: UICoordinateSpace) -> CGRect {
-        return reference.convert(rect, from: coordinateSpace).applying(invertedTransform)
+    func convert(_ object: CGRect, from space: UICoordinateSpace) -> CGRect {
+        return Converter(object).convert(from: space, using: self)
     }
 }
 
