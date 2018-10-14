@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.0.7](https://github.com/paulz/ImageCoordinateSpace/tree/1.0.7) (2018-10-13)
+[Full Changelog](https://github.com/paulz/ImageCoordinateSpace/compare/1.0.6...1.0.7)
+
+* Upgrade to Swift 4.2
+* Upgrade to Xcode 10
+
+**Closed issues:**
+
+- Mismatch between Cocoapods and Repo code? [\#4](https://github.com/paulz/ImageCoordinateSpace/issues/4)
+
 ## [1.0.6](https://github.com/paulz/ImageCoordinateSpace/tree/1.0.6) (2018-05-28)
 [Full Changelog](https://github.com/paulz/ImageCoordinateSpace/compare/1.0.5...1.0.6)
 
