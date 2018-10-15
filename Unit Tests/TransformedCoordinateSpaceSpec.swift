@@ -31,7 +31,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                     transform = CGAffineTransform.nextRandom()
                 }
 
-                it("should create inverted transform to be inverted transform") {
+                it("should create inverted transform to be transform inverted") {
                     let space = TransformedCoordinateSpace(original: UIView(),
                                                            transform: {transform},
                                                            bounds: CGRect.zero)
@@ -57,6 +57,12 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                 let anySpace = SpaceStub()
                 let anySize = CGSize.nextRandom()
 
+                func createSubject(space: UICoordinateSpace) -> TransformedCoordinateSpace  {
+                    return TransformedCoordinateSpace(size: anySize,
+                                                      transform: {anyTransform},
+                                                      destination: space)
+                }
+
                 context(String(describing: CGRect.self)) {
                     class ConvertRectToMockSpace: SpaceStub {
                         var result: CGRect = CGRect.nextRandom()
@@ -71,34 +77,30 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                     let mock = ConvertRectToMockSpace()
 
                     context("convert to space") {
-                        let space = TransformedCoordinateSpace(size: anySize,
-                                                               transform: {anyTransform},
-                                                               destination: mock)
+                        let subject = createSubject(space: mock)
 
                         it("should convert using destination space") {
-                            let result = space.convert(rect, to: anySpace)
+                            let result = subject.convert(rect, to: anySpace)
                             expect(result) == mock.result
                         }
 
                         it("should convert rect after applying transform") {
                             let transformedPoint = rect.applying(anyTransform)
-                            _ = space.convert(rect, to: anySpace)
+                            _ = subject.convert(rect, to: anySpace)
                             expect(mock.argument) == transformedPoint
                         }
                     }
 
                     context("convert from space") {
-                        let space = TransformedCoordinateSpace(size: anySize,
-                                                               transform: {anyTransform},
-                                                               destination: anySpace)
+                        let subject = createSubject(space: anySpace)
 
                         it("should convert rect after applying inverted transform") {
-                            let result = space.convert(rect, from: mock)
+                            let result = subject.convert(rect, from: mock)
                             expect(result) == mock.result.applying(anyTransform.inverted())
                         }
 
                         it("should convert using rect as argument") {
-                            _ = space.convert(rect, from: mock)
+                            _ = subject.convert(rect, from: mock)
                             expect(mock.argument) == rect
                         }
                     }
@@ -119,33 +121,30 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                     let mock = ConvertPointToMockSpace()
 
                     context("convert to space") {
-                        let space = TransformedCoordinateSpace(size: anySize,
-                                                               transform: {anyTransform},
-                                                               destination: mock)
+                        let subject = createSubject(space: mock)
+
                         it("should use destination space to convert") {
-                            let result = space.convert(point, to: anySpace)
+                            let result = subject.convert(point, to: anySpace)
                             expect(result) == mock.result
                         }
 
                         it("should use as argument the point after applying transform") {
                             let transformedPoint = point.applying(anyTransform)
-                            _ = space.convert(point, to: anySpace)
+                            _ = subject.convert(point, to: anySpace)
                             expect(mock.argument) == transformedPoint
                         }
                     }
 
                     context("convert from space") {
-                        let space = TransformedCoordinateSpace(size: anySize,
-                                                               transform: {anyTransform},
-                                                               destination: anySpace)
+                        let subject = createSubject(space: anySpace)
 
                         it("should convert to applying inverted transform") {
-                            let result = space.convert(point, from: mock)
+                            let result = subject.convert(point, from: mock)
                             expect(result) == mock.result.applying(anyTransform.inverted())
                         }
 
                         it("should convert to using point as argument") {
-                            _ = space.convert(point, from: mock)
+                            _ = subject.convert(point, from: mock)
                             expect(mock.argument) == point
                         }
                     }
