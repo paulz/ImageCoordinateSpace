@@ -24,8 +24,8 @@ class SpaceStub: NSObject, UICoordinateSpace {
 
 private class TransformedCoordinateSpaceSpec: QuickSpec {
     override func spec() {
-        describe(String(describing: TransformedCoordinateSpace.init(original:transform:bounds:))) {
-            context(String(describing: \TransformedCoordinateSpace.invertedTransform)) {
+        context(TransformedCoordinateSpace.init(original:transform:bounds:)) {
+            context(\TransformedCoordinateSpace.invertedTransform) {
                 var transform: CGAffineTransform!
                 beforeEach {
                     transform = CGAffineTransform.nextRandom()
@@ -39,8 +39,8 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                 }
             }
         }
-        describe(String(describing: TransformedCoordinateSpace.init(size:transform:destination:))) {
-            context(String(describing: \UICoordinateSpace.bounds)) {
+        context(TransformedCoordinateSpace.init(size:transform:destination:)) {
+            context(\UICoordinateSpace.bounds) {
                 it("should be zero to size") {
                     let size = CGSize.nextRandom()
                     let space = TransformedCoordinateSpace(size: size,
@@ -51,8 +51,8 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
             }
         }
 
-        describe(String(describing: UICoordinateSpace.self)) {
-            context("mock space") {
+        describe(UICoordinateSpace.self) {
+            context("with mock space") {
                 let anyTransform = CGAffineTransform.nextRandom()
                 let anySpace = SpaceStub()
                 let anySize = CGSize.nextRandom()
@@ -63,7 +63,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                                                       destination: space)
                 }
 
-                context(String(describing: CGRect.self)) {
+                context(CGRect.self) {
                     class ConvertRectToMockSpace: SpaceStub {
                         var result: CGRect = CGRect.nextRandom()
                         var argument: CGRect?
@@ -107,7 +107,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
 
                 }
 
-                context(String(describing: CGPoint.self)) {
+                context(CGPoint.self) {
                     class ConvertPointToMockSpace: SpaceStub {
                         var result: CGPoint = CGPoint.nextRandom()
                         var argument: CGPoint?
