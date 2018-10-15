@@ -16,14 +16,14 @@ public protocol FlatArrayConvertible {
 extension CGAffineTransform: FlatArrayConvertible {
     public var flattened: [CGFloat] { get { return [a, b, c, d, tx, ty]}}
 }
-extension CGRect: FlatArrayConvertible {
-    public var flattened: [CGFloat] { get { return [origin.x, origin.y, size.width, size.height]}}
-}
 extension CGPoint: FlatArrayConvertible {
     public var flattened: [CGFloat] { get { return [x, y]}}
 }
 extension CGSize: FlatArrayConvertible {
     public var flattened: [CGFloat] { get { return [width, height]}}
+}
+extension CGRect: FlatArrayConvertible {
+    public var flattened: [CGFloat] { get { return origin.flattened + size.flattened}}
 }
 
 

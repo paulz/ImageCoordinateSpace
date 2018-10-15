@@ -7,7 +7,7 @@ protocol TestableRandom {
 
 extension Int: TestableRandom {
     static func nextRandom() -> Int {
-        return Int(randomSource.nextInt(upperBound: 1000))
+        return Int(CGFloat.nextRandom())
     }
 }
 
@@ -31,7 +31,7 @@ extension CGSize: TestableRandom {
 
 extension CGRect: TestableRandom {
     static func nextRandom() -> CGRect {
-        return CGRect(x: Int.nextRandom(), y: Int.nextRandom(), width: Int.nextRandom(), height: Int.nextRandom())
+        return CGRect(origin: CGPoint.nextRandom(), size: CGSize.nextRandom())
     }
 }
 
