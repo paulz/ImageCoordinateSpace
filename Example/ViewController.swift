@@ -9,9 +9,9 @@
 import UIKit
 import ImageCoordinateSpace
 
-extension UIViewContentMode {
-    func next() -> UIViewContentMode {
-        return UIViewContentMode(rawValue: rawValue + 1)!
+extension UIView.ContentMode {
+    func next() -> UIView.ContentMode {
+        return UIView.ContentMode(rawValue: rawValue + 1)!
     }
 }
 
