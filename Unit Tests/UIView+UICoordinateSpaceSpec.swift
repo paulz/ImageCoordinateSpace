@@ -91,7 +91,7 @@ class UIView_contentSpaceSpec: QuickSpec {
                         foreignSpace = noImageView
                     }
 
-                    context("bounds") {
+                    context(\UICoordinateSpace.bounds) {
                         it("should equal to -1 rect") {
                             expect(noImageSpace.bounds) == CGRect(x: 0, y: 0, width: -1, height: -1)
                         }
@@ -107,7 +107,7 @@ class UIView_contentSpaceSpec: QuickSpec {
                             }
                         }
                         context("within foreign space") {
-                            it("should not convert") {
+                            it("should convert changing point or rect") {
                                 expect(noImageSpace.convert(randomRect, from: foreignSpace)).notTo(beCloseTo(randomRect))
                                 expect(noImageSpace.convert(randomRect, to: foreignSpace)).notTo(beCloseTo(randomRect))
                                 expect(noImageSpace.convert(randomPoint, from: foreignSpace)).notTo(beCloseTo(randomPoint))
