@@ -1,6 +1,6 @@
 import Quick
 
-public func describe(_ type: AnyObject.Type, flags: FilterFlags = [:], closure: () -> ()) {
+public func describe(_ type: Any, flags: FilterFlags = [:], closure: () -> ()) {
     describe(String(describing: type), flags: flags, closure: closure)
 }
 
