@@ -25,6 +25,7 @@
 		4B5D97DC2178F5C5005D6D93 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B5D97DF2178F6D9005D6D93 /* SizeFactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D97DE2178F6D9005D6D93 /* SizeFactorSpec.swift */; };
 		4B5D97E12178F8BE005D6D93 /* ScaleFactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D97E02178F8BE005D6D93 /* ScaleFactorSpec.swift */; };
+		4B5D97E32178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D97E22178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift */; };
 		4B6866D92002C4CF00DFDFCF /* RandomTestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */; };
 		4B714003205E1231004441A8 /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 4B714001205E1231004441A8 /* Gemfile.lock */; };
 		4B714004205E1231004441A8 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 4B714002205E1231004441A8 /* Gemfile */; };
@@ -126,6 +127,7 @@
 		4B4ABDAD20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformedCoordinateSpaceSpec.swift; sourceTree = "<group>"; };
 		4B5D97DE2178F6D9005D6D93 /* SizeFactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactorSpec.swift; sourceTree = "<group>"; };
 		4B5D97E02178F8BE005D6D93 /* ScaleFactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleFactorSpec.swift; sourceTree = "<group>"; };
+		4B5D97E22178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+Scale_Spec.swift"; sourceTree = "<group>"; };
 		4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTestable.swift; sourceTree = "<group>"; };
 		4B714001205E1231004441A8 /* Gemfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		4B714002205E1231004441A8 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Gemfile; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			children = (
 				4B4ABDAD20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift */,
 				4B5D97DE2178F6D9005D6D93 /* SizeFactorSpec.swift */,
+				4B5D97E22178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift */,
 				4B5D97E02178F8BE005D6D93 /* ScaleFactorSpec.swift */,
 				4B5D97DD2178F652005D6D93 /* Exploratory Specs */,
 				4B4ABDB020BCCAFA006D052B /* Supporting Files */,
@@ -526,6 +529,7 @@
 				4B6866D92002C4CF00DFDFCF /* RandomTestable.swift in Sources */,
 				4B5D97E12178F8BE005D6D93 /* ScaleFactorSpec.swift in Sources */,
 				4B4ABDAE20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift in Sources */,
+				4B5D97E32178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift in Sources */,
 				4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */,
 				4B7AFC761C75B02200BBC46D /* ApproximateMatchers.swift in Sources */,
 			);
