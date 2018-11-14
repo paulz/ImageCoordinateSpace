@@ -1,10 +1,10 @@
 # Change Log
 
-## [1.0.7](https://github.com/paulz/ImageCoordinateSpace/tree/1.0.7) (2018-10-13)
+## [1.0.7](https://github.com/paulz/ImageCoordinateSpace/tree/1.0.7) (2018-11-13)
 [Full Changelog](https://github.com/paulz/ImageCoordinateSpace/compare/1.0.6...1.0.7)
 
 * Upgrade to Swift 4.2
-* Upgrade to Xcode 10
+* Upgrade to Xcode 10.1
 
 **Closed issues:**
 
