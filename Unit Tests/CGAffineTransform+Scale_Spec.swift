@@ -24,7 +24,7 @@ class CGAffineTransform_Scale_Spec: QuickSpec {
                     let from = CGSize.nextRandom()
                     let to = CGSize.nextRandom()
                     let transform = CGAffineTransform(scaleTo: to, from: from)
-                    expect(from.applying(transform)) ≈ to ± 0.000000000001
+                    expect(from.applying(transform)) ≈ to ± 0.0001
                 }
             }
         }
