@@ -15,7 +15,7 @@ before_script:
   - git diff --exit-code # Outdated Bundle dependencies found, please run 'bundle update' and checkin changes
   - carthage bootstrap --cache-builds --platform ios
 script:
-  - set -o pipefail && xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "$XCODE_DESNITATION" | bundle exec xcpretty -f `xcpretty-travis-formatter` # generate coverage
+  - set -o pipefail && xcodebuild test -scheme "$TRAVIS_XCODE_SCHEME" -destination "$XCODE_DESNITATION" | bundle exec xcpretty -f `bundle exec xcpretty-travis-formatter` # generate coverage
 after_success:
   - bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
 after_failure:
