@@ -3,11 +3,13 @@
 
 [![Build Status](https://travis-ci.org/paulz/ImageCoordinateSpace.svg?branch=master)](https://travis-ci.org/paulz/ImageCoordinateSpace)
 [![codecov](https://codecov.io/gh/paulz/ImageCoordinateSpace/branch/master/graph/badge.svg)](https://codecov.io/gh/paulz/ImageCoordinateSpace)
+[![Depfu][dependencies-badge]][dependencies-url]
+
+[![Swift][swift-badge]][swift-url]
 [![Version](https://img.shields.io/cocoapods/v/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
 [![License](https://img.shields.io/cocoapods/l/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
 [![Platform](https://img.shields.io/cocoapods/p/ImageCoordinateSpace.svg?style=flat)](http://cocoapods.org/pods/ImageCoordinateSpace)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift][swift-badge]][swift-url]
 
 ## Usage
 
@@ -119,3 +121,5 @@ ImageCoordinateSpace is available under the MIT license. See the LICENSE file fo
 
 [swift-badge]: https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat
 [swift-url]: https://swift.org
+[dependencies-badge]: https://badges.depfu.com/badges/a44d9ce434edd4b20b1d85b09ac1433a/overview.svg
+[dependencies-url]: https://depfu.com/github/paulz/ImageCoordinateSpace

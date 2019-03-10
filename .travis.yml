@@ -14,8 +14,9 @@ before_script:
   - bundle update
   - git diff --exit-code # Outdated Bundle dependencies found, please run 'bundle update' and checkin changes
   - carthage bootstrap --cache-builds --platform ios
+  - pod --version
 script:
-  - set -o pipefail && xcodebuild test -scheme Example -destination "$XCODE_DESNITATION" | bundle exec xcpretty -f `bundle exec xcpretty-travis-formatter` # generate coverage
+  - set -o pipefail && xcodebuild test -scheme Example -destination "$XCODE_DESNITATION" | xcpretty -f `xcpretty-travis-formatter` # generate coverage with all tests
 after_success:
   - bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
 after_failure:
@@ -39,6 +40,6 @@ deploy:
   on:
     tags: true
 git:
-  depth: false
+  depth: 1
 language: swift
 osx_image: xcode10.1
