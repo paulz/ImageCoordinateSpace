@@ -19,5 +19,4 @@ let topMargin  = topLeft.x
 assert(topMargin == bottomMargin, "negative margins should be the same")
 imageView
 
-
 //: [Next](@next)

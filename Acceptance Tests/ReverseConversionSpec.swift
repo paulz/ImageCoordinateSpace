@@ -15,7 +15,7 @@ public class ReverseConversionSpec: QuickSpec {
                 imageView.bounds = CGRect(origin: CGPoint.zero, size: square)
             }
 
-            let allContentModes = stride(from:UIView.ContentMode.scaleToFill.rawValue,
+            let allContentModes = stride(from: UIView.ContentMode.scaleToFill.rawValue,
                                   to: UIView.ContentMode.bottomRight.rawValue,
                                   by: 1
             )
@@ -44,7 +44,7 @@ public class ReverseConversionSpec: QuickSpec {
             }
 
             context("any rect") {
-                var randomRect : CGRect!
+                var randomRect: CGRect!
 
                 beforeEach {
                     randomRect = CGRect.nextRandom()

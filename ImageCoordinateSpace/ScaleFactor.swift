@@ -17,7 +17,7 @@ struct SizeFactor {
     }
 }
 
-enum ScaleFactor : CGFloat {
+enum ScaleFactor: CGFloat {
     case none = 0
     case half = 0.5
     case full = 1

@@ -57,7 +57,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                 let anySpace = SpaceStub()
                 let anySize = CGSize.nextRandom()
 
-                func createSubject(space: UICoordinateSpace) -> TransformedCoordinateSpace  {
+                func createSubject(space: UICoordinateSpace) -> TransformedCoordinateSpace {
                     return TransformedCoordinateSpace(size: anySize,
                                                       transform: {anyTransform},
                                                       destination: space)

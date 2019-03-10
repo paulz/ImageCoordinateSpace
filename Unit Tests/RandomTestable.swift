@@ -46,12 +46,11 @@ extension CGAffineTransform: TestableRandom {
     }
 }
 
-
 var randomSource: GKRandomSource!
 
 class RandomTestable: QuickConfiguration {
     class func previousSource(url seedUrl: URL) -> GKRandomSource? {
-        return (try? String(contentsOf: seedUrl)).flatMap{UInt64($0.trimmingCharacters(in: .whitespacesAndNewlines))}.flatMap{
+        return (try? String(contentsOf: seedUrl)).flatMap {UInt64($0.trimmingCharacters(in: .whitespacesAndNewlines))}.flatMap {
             print("Loaded random seed \($0) from \(seedUrl)")
             return GKLinearCongruentialRandomSource(seed: $0)
         }
@@ -59,7 +58,7 @@ class RandomTestable: QuickConfiguration {
 
     class func createSource(url seedUrl: URL) -> GKRandomSource {
         let source = GKLinearCongruentialRandomSource()
-        try? String(describing:source.seed).write(to: seedUrl, atomically: true, encoding: .ascii)
+        try? String(describing: source.seed).write(to: seedUrl, atomically: true, encoding: .ascii)
         print("Created random seed \(source.seed), save to \(seedUrl)")
         return source
     }

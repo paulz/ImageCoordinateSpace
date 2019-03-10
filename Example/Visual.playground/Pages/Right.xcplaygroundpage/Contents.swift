@@ -21,7 +21,6 @@ let lowerRight = imageSpace.convert(bottomRight, to: imageView)
 //: top margin should equal bottom margin
 assert(square.height - lowerRight.y == topLeft.y)
 
-
 //: image should not be stretched
 assert(lowerRight.x - topLeft.x == image.size.width)
 assert(lowerRight.y - topLeft.y == image.size.height)

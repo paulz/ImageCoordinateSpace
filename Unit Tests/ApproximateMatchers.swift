@@ -26,7 +26,6 @@ extension CGRect: FlatArrayConvertible {
     public var flattened: [CGFloat] { get { return origin.flattened + size.flattened}}
 }
 
-
 func beCloseTo(_ expectedValue: FlatArrayConvertible!, within delta: CGFloat = CGFloat(DefaultDelta)) -> Predicate <FlatArrayConvertible> {
     return Predicate.simple("equal <\(expectedValue.debugDescription)>") { actualExpression in
         let actual = try actualExpression.evaluate()!

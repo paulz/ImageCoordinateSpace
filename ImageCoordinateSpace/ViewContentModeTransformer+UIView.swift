@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    var viewContentModeTransformer: ViewContentModeTransformer  {
+    var viewContentModeTransformer: ViewContentModeTransformer {
         get {
             return ViewContentModeTransformer(boundsSize: bounds.size,
                                               contentSize: intrinsicContentSize,

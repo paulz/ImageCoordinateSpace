@@ -15,7 +15,7 @@ let containerView = UIImageView(image: backgroundImage)
 let containerSize = CGSize(width: 200, height: 200)
 containerView.bounds = CGRect(origin: CGPoint.zero, size: containerSize)
 var imageSpace = containerView.contentSpace()
-let svgUrl = Bundle.main.url(forResource:"overlayed", withExtension: "svg")!
+let svgUrl = Bundle.main.url(forResource: "overlayed", withExtension: "svg")!
 let svgString = try! String(contentsOf: svgUrl)
 assert(svgString.contains("x=\"321\" y=\"102\" width=\"63\" height=\"64\""))
 let placement = CGRect(x: 321, y: 102, width: 63, height: 64)

@@ -2,7 +2,7 @@ import Quick
 import Nimble
 import ImageCoordinateSpace
 
-private func context(_ mode: UIView.ContentMode, flags: FilterFlags = [:], closure: () -> ()) {
+private func context(_ mode: UIView.ContentMode, flags: FilterFlags = [:], closure: () -> Void) {
     context(String(describing: mode), flags: flags, closure: closure)
 }
 
@@ -84,7 +84,6 @@ class UIView_contentSpaceSpec: QuickSpec {
                     var noImageSpace: UICoordinateSpace!
                     var foreignSpace: UICoordinateSpace!
 
-
                     beforeEach {
                         let noImageView = UIImageView(frame: randomRect)
                         noImageSpace = noImageView.contentSpace()
@@ -102,7 +101,7 @@ class UIView_contentSpaceSpec: QuickSpec {
                             it("should return original") {
                                 expect(noImageSpace.convert(randomRect, from: noImageSpace)) ≈ randomRect
                                 expect(noImageSpace.convert(randomRect, to: noImageSpace)) ≈ randomRect
-                                expect(noImageSpace.convert(randomPoint, from:noImageSpace)) ≈ randomPoint
+                                expect(noImageSpace.convert(randomPoint, from: noImageSpace)) ≈ randomPoint
                                 expect(noImageSpace.convert(randomPoint, to: noImageSpace)) ≈ randomPoint
                             }
                         }
@@ -117,12 +116,12 @@ class UIView_contentSpaceSpec: QuickSpec {
                     }
                 }
 
-                var imageSize : CGSize!
-                var viewSize  : CGSize!
-                var widthRatio : CGFloat!
-                var heightRatio : CGFloat!
+                var imageSize: CGSize!
+                var viewSize: CGSize!
+                var widthRatio: CGFloat!
+                var heightRatio: CGFloat!
                 let imagePoint = CGPoint.zero
-                var viewPoint : CGPoint!
+                var viewPoint: CGPoint!
 
                 beforeEach {
                     let square = CGSize(width: 100, height: 100)
@@ -138,7 +137,7 @@ class UIView_contentSpaceSpec: QuickSpec {
                 func expectViewPointMatchImagePoint(_ file: String = #file, line: UInt = #line) {
                     let imageSpace = imageView.contentSpace()
                     let result = imageSpace.convert(imagePoint, to: imageView)
-                    expect(result, file:file, line: line) == viewPoint
+                    expect(result, file: file, line: line) == viewPoint
                 }
 
                 context(.topLeft) {
@@ -231,7 +230,6 @@ class UIView_contentSpaceSpec: QuickSpec {
                     }
                 }
 
-
                 context(.center) {
                     beforeEach {
                         imageView.contentMode = .center
@@ -256,7 +254,6 @@ class UIView_contentSpaceSpec: QuickSpec {
                             expectViewPointMatchImagePoint()
                         }
                     }
-
 
                     context(.scaleAspectFill) {
                         beforeEach {

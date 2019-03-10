@@ -15,7 +15,6 @@ image.size
 let bottomRight = CGPoint(x: image.size.width, y: image.size.height)
 let lowerRight = imageSpace.convert(bottomRight, to: imageView)
 
-
 //: image should not be stretched
 assert(lowerRight.x - topLeft.x == image.size.width)
 assert(lowerRight.y - topLeft.y == image.size.height)

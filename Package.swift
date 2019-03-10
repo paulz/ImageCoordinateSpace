@@ -8,11 +8,11 @@ let package = Package(
     products: [
         .library(
             name: "ImageCoordinateSpace",
-            targets: ["ImageCoordinateSpace"]),
+            targets: ["ImageCoordinateSpace"])
     ],
     dependencies: [
         .package(url: "https://github.com/Quick/Quick.git", .upToNextMajor(from:"1.2.0")),
-        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "7.0.3")),
+        .package(url: "https://github.com/Quick/Nimble.git", .upToNextMajor(from: "7.0.3"))
     ],
     targets: [
         .target(
@@ -21,7 +21,7 @@ let package = Package(
         .testTarget(
             name: "Unit Tests",
             dependencies: ["ImageCoordinateSpace", "Nimble", "Quick"],
-            path: "Unit Tests"),
+            path: "Unit Tests")
     ],
     swiftLanguageVersions: [4]
 )
