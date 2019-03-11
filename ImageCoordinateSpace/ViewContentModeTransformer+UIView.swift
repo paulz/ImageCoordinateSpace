@@ -23,11 +23,11 @@ extension ViewContentModeTransformer {
         return sizeTransformer.isIdentity() ? .identity : contentToViewTransform()
     }
 
-    func transformingToSpace(_ space: UICoordinateSpace) -> UICoordinateSpace {
+    func coordinateSpace(basedOn space: UICoordinateSpace) -> UICoordinateSpace {
         return TransformedCoordinateSpace(
             size: sizeTransformer.contentSize,
             transform: transform,
-            destination: space
+            basedOn: space
         )
     }
 }

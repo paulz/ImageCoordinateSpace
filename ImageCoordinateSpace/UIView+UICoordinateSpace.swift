@@ -43,7 +43,7 @@ public extension UIView {
      and behaves as for content mode .ScaleToFill
      */
     func contentSpace() -> UICoordinateSpace {
-        return viewContentModeTransformer.transformingToSpace(self)
+        return viewContentModeTransformer.coordinateSpace(basedOn: self)
     }
 
     /**

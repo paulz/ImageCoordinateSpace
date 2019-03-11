@@ -24,28 +24,13 @@ class SpaceStub: NSObject, UICoordinateSpace {
 
 private class TransformedCoordinateSpaceSpec: QuickSpec {
     override func spec() {
-        context(TransformedCoordinateSpace.init(original:transform:bounds:)) {
-            context(\TransformedCoordinateSpace.invertedTransform) {
-                var transform: CGAffineTransform!
-                beforeEach {
-                    transform = CGAffineTransform.nextRandom()
-                }
-
-                it("should create inverted transform to be transform inverted") {
-                    let space = TransformedCoordinateSpace(original: UIView(),
-                                                           transform: {transform},
-                                                           bounds: CGRect.zero)
-                    expect(space.invertedTransform) == transform.inverted()
-                }
-            }
-        }
-        context(TransformedCoordinateSpace.init(size:transform:destination:)) {
+        context(TransformedCoordinateSpace.init(size:transform:basedOn:)) {
             context(\UICoordinateSpace.bounds) {
                 it("should be zero to size") {
                     let size = CGSize.nextRandom()
                     let space = TransformedCoordinateSpace(size: size,
                                                            transform: {CGAffineTransform.nextRandom()},
-                                                           destination: SpaceStub())
+                                                           basedOn: SpaceStub())
                     expect(space.bounds) == CGRect(origin: CGPoint.zero, size: size)
                 }
             }
@@ -60,7 +45,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                 func createSubject(space: UICoordinateSpace) -> TransformedCoordinateSpace {
                     return TransformedCoordinateSpace(size: anySize,
                                                       transform: {anyTransform},
-                                                      destination: space)
+                                                      basedOn: space)
                 }
 
                 context(CGRect.self) {
