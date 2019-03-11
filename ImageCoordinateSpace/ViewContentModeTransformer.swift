@@ -10,11 +10,6 @@ struct ViewContentModeTransformer {
     let contentMode: UIView.ContentMode
     let sizeTransformer: SizeTransformer
 
-    init(bounds: CGSize, content: CGSize, mode: UIView.ContentMode) {
-        sizeTransformer = SizeTransformer(boundsSize: bounds, contentSize: content)
-        contentMode = mode
-    }
-
     func contentToViewTransform() -> CGAffineTransform {
         switch contentMode {
         case .scaleAspectFill:
