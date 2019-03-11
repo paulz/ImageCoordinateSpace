@@ -10,28 +10,28 @@ import UIKit
 
 class TransformedCoordinateSpace: NSObject {
     let size: CGSize
-    let transformer: Converter
+    let converter: Converter
 
     lazy var bounds = CGRect(origin: .zero, size: size)
 
-    init(size contentSize: CGSize, transformer spaceTransformer: Converter) {
+    init(size contentSize: CGSize, converter spaceConverter: Converter) {
         size = contentSize
-        transformer = spaceTransformer
+        converter = spaceConverter
     }
 }
 
 extension TransformedCoordinateSpace: UICoordinateSpace {
     func convert(_ object: CGPoint, to space: UICoordinateSpace) -> CGPoint {
-        return transformer.convert(object: object, to: space)
+        return converter.convert(object, to: space)
     }
     func convert(_ object: CGRect, to space: UICoordinateSpace) -> CGRect {
-        return transformer.convert(object: object, to: space)
+        return converter.convert(object, to: space)
     }
 
     func convert(_ object: CGPoint, from space: UICoordinateSpace) -> CGPoint {
-        return transformer.convert(object: object, from: space)
+        return converter.convert(object, from: space)
     }
     func convert(_ object: CGRect, from space: UICoordinateSpace) -> CGRect {
-        return transformer.convert(object: object, from: space)
+        return converter.convert(object, from: space)
     }
 }
