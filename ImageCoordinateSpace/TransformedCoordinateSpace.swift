@@ -42,6 +42,6 @@ extension TransformedCoordinateSpace: UICoordinateSpace {
 
 extension TransformedCoordinateSpace {
     convenience init(size: CGSize, transform: @escaping () -> CGAffineTransform, destination: UICoordinateSpace) {
-        self.init(original: destination, transform: transform, bounds: CGRect(origin: CGPoint.zero, size: size))
+        self.init(original: destination, transform: transform, bounds: CGRect(origin: .zero, size: size))
     }
 }

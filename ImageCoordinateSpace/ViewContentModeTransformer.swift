@@ -37,7 +37,7 @@ struct ViewContentModeTransformer {
             let fill = scaleToFill()
             return reduceFunction(fill.scaleX, fill.scaleY)
         }()
-        return translate(factor: SizeFactor(height: .half, width: .half), sizeScale: scale).scaledBy(x: scale, y: scale)
+        return translate(factor: SizeFactor(), sizeScale: scale).scaledBy(x: scale, y: scale)
     }
 
     private static let placements: [UIView.ContentMode: SizeFactor] = [
@@ -66,7 +66,7 @@ struct ViewContentModeTransformer {
         case .scaleToFill, .redraw:
             return scaleToFill()
         case .topLeft:
-            return CGAffineTransform.identity
+            return .identity
         default:
             return translatePlacement()
         }

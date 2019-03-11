@@ -20,7 +20,7 @@ extension UIView {
 
 extension ViewContentModeTransformer {
     func transform() -> CGAffineTransform {
-        return boundsSize == contentSize ? CGAffineTransform.identity : contentToViewTransform()
+        return boundsSize == contentSize ? .identity : contentToViewTransform()
     }
 
     func transformingToSpace(_ space: UICoordinateSpace) -> UICoordinateSpace {
