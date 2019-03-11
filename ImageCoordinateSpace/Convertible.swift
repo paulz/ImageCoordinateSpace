@@ -1,5 +1,5 @@
 //
-//  Converter.swift
+//  Convertible.swift
 //  ImageCoordinateSpace
 //
 //  Created by Paul Zabelin on 10/13/18.

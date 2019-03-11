@@ -1,5 +1,5 @@
 //
-//  ContentAdjustment.swift
+//  ViewContentModeTransformer+UIView.swift
 //  ImageCoordinateSpace
 //
 //  Created by Paul Zabelin on 2/14/16.
