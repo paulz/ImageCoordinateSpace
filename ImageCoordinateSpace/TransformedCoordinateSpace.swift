@@ -10,11 +10,11 @@ import UIKit
 
 class TransformedCoordinateSpace: NSObject {
     let size: CGSize
-    let transformer: SpaceTransformer
+    let transformer: Converter
 
     lazy var bounds = CGRect(origin: .zero, size: size)
 
-    init(size contentSize: CGSize, transformer spaceTransformer: SpaceTransformer) {
+    init(size contentSize: CGSize, transformer spaceTransformer: Converter) {
         size = contentSize
         transformer = spaceTransformer
     }

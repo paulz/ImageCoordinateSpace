@@ -28,7 +28,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
             context(\UICoordinateSpace.bounds) {
                 it("should be zero to size") {
                     let size = CGSize.nextRandom()
-                    let transformer = SpaceTransformer(transform: CGAffineTransform.nextRandom(), reference: SpaceStub())
+                    let transformer = Converter(transform: CGAffineTransform.nextRandom(), reference: SpaceStub())
                     let space = TransformedCoordinateSpace(size: size, transformer: transformer)
                     expect(space.bounds) == CGRect(origin: CGPoint.zero, size: size)
                 }
@@ -42,7 +42,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
                 let anySize = CGSize.nextRandom()
 
                 func createSubject(space: UICoordinateSpace) -> TransformedCoordinateSpace {
-                    let transformer = SpaceTransformer(transform: anyTransform, reference: space)
+                    let transformer = Converter(transform: anyTransform, reference: space)
                     return TransformedCoordinateSpace(size: anySize, transformer: transformer)
                 }
 
