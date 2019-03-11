@@ -5,8 +5,6 @@
 //  Created by Paul Zabelin on 10/13/18.
 //
 
-import UIKit
-
 protocol Convertible {
     func applying(_ t: CGAffineTransform) -> Self
     func convert(from: UICoordinateSpace, to: UICoordinateSpace) -> Self

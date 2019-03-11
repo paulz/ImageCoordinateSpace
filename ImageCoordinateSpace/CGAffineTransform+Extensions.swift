@@ -5,8 +5,6 @@
 //  Created by Paul Zabelin on 3/11/18.
 //
 
-import CoreGraphics
-
 extension CGAffineTransform {
     func scale(using reduce: (CGFloat, CGFloat) -> CGFloat) -> CGFloat {
         return reduce(a, d)

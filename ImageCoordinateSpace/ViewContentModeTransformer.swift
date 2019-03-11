@@ -6,8 +6,6 @@
 //
 //
 
-import UIKit
-
 struct ViewContentModeTransformer {
     let contentMode: UIView.ContentMode
     let sizeTransformer: SizeTransformer

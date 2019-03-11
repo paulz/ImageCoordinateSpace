@@ -5,8 +5,6 @@
 //  Created by Paul Zabelin on 3/11/19.
 //
 
-import Foundation
-
 struct Converter {
     let transform: CGAffineTransform
     let reference: UICoordinateSpace

@@ -5,8 +5,6 @@
 //  Created by Paul Zabelin on 3/10/19.
 //
 
-import Foundation
-
 struct SizeTransformer {
     let boundsSize: CGSize
     let contentSize: CGSize

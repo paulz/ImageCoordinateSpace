@@ -6,8 +6,6 @@
 //
 //
 
-import UIKit
-
 extension UIView {
     var viewContentModeTransformer: ViewContentModeTransformer {
         get {

@@ -6,8 +6,6 @@
 //
 //
 
-import UIKit
-
 class TransformedCoordinateSpace: NSObject {
     let size: CGSize
     let converter: Converter
