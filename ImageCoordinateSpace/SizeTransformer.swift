@@ -23,8 +23,8 @@ struct SizeTransformer {
         return factor * (boundsSize[keyPath: path] - contentSize[keyPath: path] * scale)
     }
 
-    func translate(by factor: SizeFactor = SizeFactor(height: .center, width: .center),
-                   sizeScale scale: CGFloat = 1.0) -> CGAffineTransform {
+    func translateAndScale(by factor: SizeFactor = SizeFactor(height: .center, width: .center),
+                           sizeScale scale: CGFloat = 1.0) -> CGAffineTransform {
         var translation = CGSize()
         [\CGSize.width: factor.width,
          \CGSize.height: factor.height
@@ -37,6 +37,6 @@ struct SizeTransformer {
 
     func centerAndScale(using reduce: ((CGFloat, CGFloat)) -> CGFloat) -> CGAffineTransform {
         let scale = reduce(scaleToFill().scale)
-        return translate(sizeScale: scale).scaledBy(scale)
+        return translateAndScale(sizeScale: scale).scaledBy(scale)
     }
 }

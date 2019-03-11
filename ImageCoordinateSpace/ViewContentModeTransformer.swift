@@ -28,7 +28,7 @@ struct ViewContentModeTransformer {
         case .topLeft:
             return .identity
         default:
-            return sizeTransformer.translate(by: SizeFactor(contentMode))
+            return sizeTransformer.translateAndScale(by: SizeFactor(contentMode))
         }
     }
 }
