@@ -11,21 +11,21 @@ import UIKit
 extension UIView {
     var viewContentModeTransformer: ViewContentModeTransformer {
         get {
-            return ViewContentModeTransformer(boundsSize: bounds.size,
-                                              contentSize: intrinsicContentSize,
-                                              contentMode: contentMode)
+            return ViewContentModeTransformer(bounds: bounds.size,
+                                              content: intrinsicContentSize,
+                                              mode: contentMode)
         }
     }
 }
 
 extension ViewContentModeTransformer {
     func transform() -> CGAffineTransform {
-        return boundsSize == contentSize ? .identity : contentToViewTransform()
+        return sizeTransformer.isIdentity() ? .identity : contentToViewTransform()
     }
 
     func transformingToSpace(_ space: UICoordinateSpace) -> UICoordinateSpace {
         return TransformedCoordinateSpace(
-            size: contentSize,
+            size: sizeTransformer.contentSize,
             transform: transform,
             destination: space
         )

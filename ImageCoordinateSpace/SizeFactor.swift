@@ -26,8 +26,6 @@ struct SizeFactor {
             self.init(height: .top)
         case .bottom:
             self.init(height: .bottom)
-        case .topLeft:
-            self.init(height: .top, width: .left)
         case .topRight:
             self.init(height: .top, width: .right)
         case .bottomLeft:

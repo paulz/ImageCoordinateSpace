@@ -9,49 +9,26 @@
 import UIKit
 
 struct ViewContentModeTransformer {
-    let boundsSize: CGSize
-    let contentSize: CGSize
     let contentMode: UIView.ContentMode
+    let sizeTransformer: SizeTransformer
 
-    private func scaleToFill() -> CGAffineTransform {
-        return CGAffineTransform(scaleTo: boundsSize, from: contentSize)
-    }
-
-    private func translateAxies(by: ScaleFactor, sizeScale scale: CGFloat, path: KeyPath<CGSize, CGFloat>) -> CGFloat {
-        return by.scale(value: boundsSize[keyPath: path] - contentSize[keyPath: path] * scale)
-    }
-
-    private func translate(factor: SizeFactor, sizeScale scale: CGFloat = 1.0) -> CGAffineTransform {
-        var result = CGSize()
-        [\CGSize.width: factor.width,
-         \CGSize.height: factor.height
-            ].forEach {
-                let (path, factor) = $0
-                result[keyPath:path] = translateAxies(by: factor, sizeScale: scale, path: path)
-        }
-        return CGAffineTransform(translationX: result.width, y: result.height)
-    }
-
-    private func translateAndScale(using reduceFunction: (CGFloat, CGFloat) -> CGFloat) -> CGAffineTransform {
-        let scale: CGFloat = {
-            let fill = scaleToFill()
-            return reduceFunction(fill.scaleX, fill.scaleY)
-        }()
-        return translate(factor: SizeFactor(), sizeScale: scale).scaledBy(x: scale, y: scale)
+    init(bounds: CGSize, content: CGSize, mode: UIView.ContentMode) {
+        sizeTransformer = SizeTransformer(boundsSize: bounds, contentSize: content)
+        contentMode = mode
     }
 
     func contentToViewTransform() -> CGAffineTransform {
         switch contentMode {
         case .scaleAspectFill:
-            return translateAndScale(using: max)
+            return sizeTransformer.translateAndScale(using: max)
         case .scaleAspectFit:
-            return translateAndScale(using: min)
+            return sizeTransformer.translateAndScale(using: min)
         case .scaleToFill, .redraw:
-            return scaleToFill()
+            return sizeTransformer.scaleToFill()
         case .topLeft:
             return .identity
         default:
-            return translate(factor: SizeFactor(contentMode))
+            return sizeTransformer.translate(factor: SizeFactor(contentMode))
         }
     }
 }
