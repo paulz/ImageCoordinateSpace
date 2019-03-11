@@ -40,23 +40,6 @@ struct ViewContentModeTransformer {
         return translate(factor: SizeFactor(), sizeScale: scale).scaledBy(x: scale, y: scale)
     }
 
-    private static let placements: [UIView.ContentMode: SizeFactor] = [
-        .center:      SizeFactor(),
-        .left:        SizeFactor(width: .left),
-        .right:       SizeFactor(width: .right),
-        .top:         SizeFactor(height: .top),
-        .bottom:      SizeFactor(height: .bottom),
-        .topLeft:     SizeFactor(height: .top, width: .left),
-        .topRight:    SizeFactor(height: .top, width: .right),
-        .bottomLeft:  SizeFactor(height: .bottom, width: .left),
-        .bottomRight: SizeFactor(height: .bottom, width: .right)
-    ]
-
-    private func translatePlacement() -> CGAffineTransform {
-        let placement = type(of: self).placements[contentMode]!
-        return translate(factor: placement)
-    }
-
     func contentToViewTransform() -> CGAffineTransform {
         switch contentMode {
         case .scaleAspectFill:
@@ -68,7 +51,7 @@ struct ViewContentModeTransformer {
         case .topLeft:
             return .identity
         default:
-            return translatePlacement()
+            return translate(factor: SizeFactor(contentMode))
         }
     }
 }
