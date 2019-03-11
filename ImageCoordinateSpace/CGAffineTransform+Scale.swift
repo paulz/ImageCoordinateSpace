@@ -8,7 +8,9 @@
 import CoreGraphics
 
 extension CGAffineTransform {
-    var scale: (CGFloat, CGFloat) {return (a, d)}
+    func scale(using reduce: (CGFloat, CGFloat) -> CGFloat) -> CGFloat {
+        return reduce(a, d)
+    }
 
     init(scaleTo size: CGSize, from: CGSize) {
         self.init(scaleX: size.width / from.width,

@@ -26,8 +26,8 @@ struct SizeTransformer {
         })
     }
 
-    func centerAndScale(using reduce: ((CGFloat, CGFloat)) -> CGFloat) -> CGAffineTransform {
-        let scale = reduce(scaleToFill().scale)
+    func centerAndScale(using reduce: (CGFloat, CGFloat) -> CGFloat) -> CGAffineTransform {
+        let scale = scaleToFill().scale(using: reduce)
         return translateAndScale(sizeScale: scale).scaledBy(scale)
     }
 }

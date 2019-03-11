@@ -5,11 +5,14 @@ import Nimble
 class CGAffineTransform_Scale_Spec: QuickSpec {
     override func spec() {
         describe(CGAffineTransform.self) {
-            context(\CGAffineTransform.scale) {
-                it("should be multiplier for X and Y axis") {
-                    let transform = CGAffineTransform(scaleX: 123.456, y: 987.654)
-                    expect(transform.scale.0) == 123.456
-                    expect(transform.scale.1) == 987.654
+            context(CGAffineTransform.scale) {
+                it("should pass X and Y to block and return block result") {
+                    let transform = CGAffineTransform(scaleX: 2, y: 3)
+                    expect(transform.scale(using: {
+                        expect($0) == 2
+                        expect($1) == 3
+                        return 5
+                    })) == 5
                 }
             }
 
