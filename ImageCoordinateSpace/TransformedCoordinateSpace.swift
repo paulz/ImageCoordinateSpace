@@ -14,18 +14,9 @@ class TransformedCoordinateSpace: NSObject {
 
     lazy var bounds = CGRect(origin: .zero, size: size)
 
-    init(size contentSize: CGSize, using: CGAffineTransform, basedOn: UICoordinateSpace) {
+    init(size contentSize: CGSize, transformer spaceTransformer: SpaceTransformer) {
         size = contentSize
-        transformer = SpaceTransformer(transform: using, reference: basedOn)
-    }
-}
-
-struct SpaceTransformer {
-    let transform: CGAffineTransform
-    let reference: UICoordinateSpace
-
-    func invertedTransform() -> CGAffineTransform {
-        return transform.inverted()
+        transformer = spaceTransformer
     }
 }
 

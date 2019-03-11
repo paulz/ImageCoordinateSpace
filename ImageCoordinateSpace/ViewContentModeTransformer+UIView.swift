@@ -26,8 +26,7 @@ extension ViewContentModeTransformer {
     func coordinateSpace(basedOn space: UICoordinateSpace) -> UICoordinateSpace {
         return TransformedCoordinateSpace(
             size: sizeTransformer.contentSize,
-            using: transform(),
-            basedOn: space
+            transformer: SpaceTransformer(transform: transform(), reference: space)
         )
     }
 }
