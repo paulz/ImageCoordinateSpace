@@ -50,6 +50,7 @@
 		4BA0C126217320CD005BD417 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0C125217320CD005BD417 /* Converter.swift */; };
 		4BB5058B2235EE7000ED7765 /* SizeFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5058A2235EE7000ED7765 /* SizeFactor.swift */; };
 		4BB5058D2235F6BA00ED7765 /* SizeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5058C2235F6BA00ED7765 /* SizeTransformer.swift */; };
+		4BB5058F223624BC00ED7765 /* CGSize+AxesPathMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5058E223624BC00ED7765 /* CGSize+AxesPathMap.swift */; };
 		4BE2CB2A1C718CE3008BB9E0 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CB281C718CE3008BB9E0 /* Cartfile.private */; };
 		4BE2CB2B1C718CE3008BB9E0 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */; };
 		4BE2CB2E1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2CB2D1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift */; };
@@ -155,6 +156,7 @@
 		4BA0C125217320CD005BD417 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		4BB5058A2235EE7000ED7765 /* SizeFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactor.swift; sourceTree = "<group>"; };
 		4BB5058C2235F6BA00ED7765 /* SizeTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeTransformer.swift; sourceTree = "<group>"; };
+		4BB5058E223624BC00ED7765 /* CGSize+AxesPathMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+AxesPathMap.swift"; sourceTree = "<group>"; };
 		4BE2CB281C718CE3008BB9E0 /* Cartfile.private */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Cartfile.private; sourceTree = "<group>"; };
 		4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Cartfile.resolved; sourceTree = "<group>"; };
 		4BE2CB2D1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewContentModeTransformer+UIView.swift"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				4B76EDD320565C25009492EC /* ScaleFactor.swift */,
 				4BB5058C2235F6BA00ED7765 /* SizeTransformer.swift */,
 				4BB5058A2235EE7000ED7765 /* SizeFactor.swift */,
+				4BB5058E223624BC00ED7765 /* CGSize+AxesPathMap.swift */,
 				4B76EDD520565C57009492EC /* CGAffineTransform+Scale.swift */,
 				4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */,
 				4BA0C125217320CD005BD417 /* Converter.swift */,
@@ -543,6 +546,7 @@
 				4BE2CB2E1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift in Sources */,
 				4BB5058B2235EE7000ED7765 /* SizeFactor.swift in Sources */,
 				4B7AFC741C759C5D00BBC46D /* ViewContentModeTransformer.swift in Sources */,
+				4BB5058F223624BC00ED7765 /* CGSize+AxesPathMap.swift in Sources */,
 				4BB5058D2235F6BA00ED7765 /* SizeTransformer.swift in Sources */,
 				4B7AFC721C758E2D00BBC46D /* TransformedCoordinateSpace.swift in Sources */,
 			);
