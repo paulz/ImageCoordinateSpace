@@ -8,16 +8,7 @@
 import CoreGraphics
 
 extension CGAffineTransform {
-    var scaleX: CGFloat {
-        get {
-            return a
-        }
-    }
-    var scaleY: CGFloat {
-        get {
-            return d
-        }
-    }
+    var scale: (CGFloat, CGFloat) {return (a, d)}
 
     init(scaleTo size: CGSize, from: CGSize) {
         self.init(scaleX: size.width / from.width,

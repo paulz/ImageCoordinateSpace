@@ -5,17 +5,11 @@ import Nimble
 class CGAffineTransform_Scale_Spec: QuickSpec {
     override func spec() {
         describe(CGAffineTransform.self) {
-            context(\CGAffineTransform.scaleX) {
-                it("should be multiplier for X axis") {
-                    let transform = CGAffineTransform(scaleX: 123.456, y: CGFloat.nextRandom())
-                    expect(transform.scaleX) == 123.456
-                }
-            }
-
-            context(\CGAffineTransform.scaleY) {
-                it("should be multiplier for Y axis") {
-                    let transform = CGAffineTransform(scaleX: CGFloat.nextRandom(), y: 987.654)
-                    expect(transform.scaleY) == 987.654
+            context(\CGAffineTransform.scale) {
+                it("should be multiplier for X and Y axis") {
+                    let transform = CGAffineTransform(scaleX: 123.456, y: 987.654)
+                    expect(transform.scale.0) == 123.456
+                    expect(transform.scale.1) == 987.654
                 }
             }
 
