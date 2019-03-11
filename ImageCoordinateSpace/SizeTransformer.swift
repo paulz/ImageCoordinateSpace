@@ -19,7 +19,7 @@ struct SizeTransformer {
         return CGAffineTransform(scaleTo: boundsSize, from: contentSize)
     }
 
-    private func translateAxies(by factor: CGFloat, sizeScale scale: CGFloat, path: KeyPath<CGSize, CGFloat>) -> CGFloat {
+    private func translateAlong(path: KeyPath<CGSize, CGFloat>, by factor: CGFloat, sizeScale scale: CGFloat) -> CGFloat {
         return factor * (boundsSize[keyPath: path] - contentSize[keyPath: path] * scale)
     }
 
@@ -30,7 +30,7 @@ struct SizeTransformer {
          \CGSize.height: factor.height
             ].forEach {
                 let (path, factor) = $0
-                translation[keyPath:path] = translateAxies(by: factor, sizeScale: scale, path: path)
+                translation[keyPath:path] = translateAlong(path: path, by: factor, sizeScale: scale)
         }
         return CGAffineTransform(translation: translation)
     }
