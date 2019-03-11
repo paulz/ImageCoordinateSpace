@@ -9,20 +9,16 @@
 import UIKit
 
 class TransformedCoordinateSpace: NSObject {
-    let reference: UICoordinateSpace
-    lazy var transform: CGAffineTransform = {
-        return getTransform()
-    }()
-    let getTransform: () -> CGAffineTransform
-    lazy var bounds: CGRect = {
-        return CGRect(origin: .zero, size: size)
-    }()
     let size: CGSize
-    lazy var invertedTransform = transform.inverted()
+    let transform: CGAffineTransform
+    let reference: UICoordinateSpace
 
-    init(size contentSize: CGSize, transform: @escaping () -> CGAffineTransform, basedOn: UICoordinateSpace) {
+    lazy var invertedTransform = transform.inverted()
+    lazy var bounds = CGRect(origin: .zero, size: size)
+
+    init(size contentSize: CGSize, using: CGAffineTransform, basedOn: UICoordinateSpace) {
         reference = basedOn
-        getTransform = transform
+        transform = using
         size = contentSize
     }
 }

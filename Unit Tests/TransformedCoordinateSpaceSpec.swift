@@ -24,12 +24,12 @@ class SpaceStub: NSObject, UICoordinateSpace {
 
 private class TransformedCoordinateSpaceSpec: QuickSpec {
     override func spec() {
-        context(TransformedCoordinateSpace.init(size:transform:basedOn:)) {
+        context(TransformedCoordinateSpace.init(size:using:basedOn:)) {
             context(\UICoordinateSpace.bounds) {
                 it("should be zero to size") {
                     let size = CGSize.nextRandom()
                     let space = TransformedCoordinateSpace(size: size,
-                                                           transform: {CGAffineTransform.nextRandom()},
+                                                           using: CGAffineTransform.nextRandom(),
                                                            basedOn: SpaceStub())
                     expect(space.bounds) == CGRect(origin: CGPoint.zero, size: size)
                 }
@@ -44,7 +44,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
 
                 func createSubject(space: UICoordinateSpace) -> TransformedCoordinateSpace {
                     return TransformedCoordinateSpace(size: anySize,
-                                                      transform: {anyTransform},
+                                                      using: anyTransform,
                                                       basedOn: space)
                 }
 
