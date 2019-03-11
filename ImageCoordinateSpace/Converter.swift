@@ -22,19 +22,3 @@ extension CGPoint: Convertible {
         return from.convert(self, to: to)
     }
 }
-
-struct Converter<T: Convertible> {
-    let object: T
-
-    init(_ convertible: T) {
-        object = convertible
-    }
-
-    func convert(to: UICoordinateSpace, using transformer: SpaceTransformer) -> T {
-        return object.applying(transformer.transform).convert(from: transformer.reference, to: to)
-    }
-
-    func convert(from: UICoordinateSpace, using transformer: SpaceTransformer) -> T {
-        return object.convert(from: from, to: transformer.reference).applying(transformer.invertedTransform())
-    }
-}

@@ -22,16 +22,16 @@ class TransformedCoordinateSpace: NSObject {
 
 extension TransformedCoordinateSpace: UICoordinateSpace {
     func convert(_ object: CGPoint, to space: UICoordinateSpace) -> CGPoint {
-        return Converter(object).convert(to: space, using: transformer)
+        return transformer.convert(object: object, to: space)
     }
     func convert(_ object: CGRect, to space: UICoordinateSpace) -> CGRect {
-        return Converter(object).convert(to: space, using: transformer)
+        return transformer.convert(object: object, to: space)
     }
 
     func convert(_ object: CGPoint, from space: UICoordinateSpace) -> CGPoint {
-        return Converter(object).convert(from: space, using: transformer)
+        return transformer.convert(object: object, from: space)
     }
     func convert(_ object: CGRect, from space: UICoordinateSpace) -> CGRect {
-        return Converter(object).convert(from: space, using: transformer)
+        return transformer.convert(object: object, from: space)
     }
 }
