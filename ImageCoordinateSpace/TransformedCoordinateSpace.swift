@@ -10,8 +10,6 @@ class TransformedCoordinateSpace: NSObject {
     let size: CGSize
     let converter: Converter
 
-    lazy var bounds = CGRect(origin: .zero, size: size)
-
     init(size contentSize: CGSize, converter spaceConverter: Converter) {
         size = contentSize
         converter = spaceConverter
@@ -19,6 +17,10 @@ class TransformedCoordinateSpace: NSObject {
 }
 
 extension TransformedCoordinateSpace: UICoordinateSpace {
+    var bounds: CGRect {
+        return CGRect(origin: .zero, size: size)
+    }
+
     func convert(_ object: CGPoint, to space: UICoordinateSpace) -> CGPoint {
         return converter.convert(object, to: space)
     }
