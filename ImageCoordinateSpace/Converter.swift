@@ -30,11 +30,11 @@ struct Converter<T: Convertible> {
         object = convertible
     }
 
-    func convert(to: UICoordinateSpace, using transformed: TransformedCoordinateSpace) -> T {
-        return object.applying(transformed.transform).convert(from: transformed.reference, to: to)
+    func convert(to: UICoordinateSpace, using transformer: SpaceTransformer) -> T {
+        return object.applying(transformer.transform).convert(from: transformer.reference, to: to)
     }
 
-    func convert(from: UICoordinateSpace, using transformed: TransformedCoordinateSpace) -> T {
-        return object.convert(from: from, to: transformed.reference).applying(transformed.invertedTransform)
+    func convert(from: UICoordinateSpace, using transformer: SpaceTransformer) -> T {
+        return object.convert(from: from, to: transformer.reference).applying(transformer.invertedTransform())
     }
 }
