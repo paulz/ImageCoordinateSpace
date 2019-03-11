@@ -20,7 +20,7 @@ enum ScaleFactor: CGFloat {
     static var left = ScaleFactor.none
     static var right = ScaleFactor.full
 
-    func scale(value: @autoclosure () -> CGFloat) -> CGFloat {
-        return rawValue * value()
+    func scale(value: CGFloat) -> CGFloat {
+        return rawValue * value
     }
 }
