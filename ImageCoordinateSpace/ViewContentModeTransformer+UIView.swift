@@ -8,8 +8,9 @@
 
 extension UIView {
     var viewContentModeTransformer: ViewContentModeTransformer {
-        let transformer = SizeTransformer(boundsSize: bounds.size, contentSize: intrinsicContentSize)
-        return ViewContentModeTransformer(contentMode: contentMode, sizeTransformer: transformer)
+        return .init(contentMode: contentMode,
+                     sizeTransformer: .init(boundsSize: bounds.size,
+                                            contentSize: intrinsicContentSize))
     }
 }
 
@@ -19,7 +20,8 @@ extension ViewContentModeTransformer {
     }
 
     func coordinateSpace(basedOn space: UICoordinateSpace) -> UICoordinateSpace {
-        let converter = Converter(transform: transform(), reference: space)
-        return TransformedCoordinateSpace(size: sizeTransformer.contentSize, converter: converter)
+        return TransformedCoordinateSpace(size: sizeTransformer.contentSize,
+                                          converter: .init(transform: transform(),
+                                                           reference: space))
     }
 }

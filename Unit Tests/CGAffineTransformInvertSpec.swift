@@ -14,12 +14,13 @@ internal class CGAffineTransformInvertSpec: QuickSpec {
 
         describe("any transform become identity") {
             context("concatenating inverted") {
-                itBehavesLike("reverts to identity") {["transform":CGAffineTransform(scaleX: 2, y: 3)]}
-                itBehavesLike("reverts to identity") {["transform":CGAffineTransform.identity]}
-                itBehavesLike("reverts to identity") {["transform":CGAffineTransform(translationX: 100, y: 200)]}
-                itBehavesLike("reverts to identity") {["transform":CGAffineTransform(translationX: 100, y: 200).scaledBy(x: 2, y: 3)]}
-                itBehavesLike("reverts to identity") {["transform":CGAffineTransform(scaleX: 2, y: 3).translatedBy(x: 200, y: 300)]}
-                itBehavesLike("reverts to identity") {["transform":CGAffineTransform.nextRandom()]}
+                let anyTransform: [CGAffineTransform] = [.init(scaleX: 2, y: 3),
+                                                         .identity,
+                                                         .init(translationX: 100, y: 200),
+                                                         .nextRandom()]
+                anyTransform.forEach { transform in
+                    itBehavesLike("reverts to identity") {["transform":transform]}
+                }
             }
         }
     }

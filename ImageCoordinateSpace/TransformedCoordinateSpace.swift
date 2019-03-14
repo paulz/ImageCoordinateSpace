@@ -18,7 +18,7 @@ class TransformedCoordinateSpace: NSObject {
 
 extension TransformedCoordinateSpace: UICoordinateSpace {
     var bounds: CGRect {
-        return CGRect(origin: .zero, size: size)
+        return .init(origin: .zero, size: size)
     }
 
     func convert(_ object: CGPoint, to space: UICoordinateSpace) -> CGPoint {

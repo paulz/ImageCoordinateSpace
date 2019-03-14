@@ -19,7 +19,7 @@ class SpaceStub: NSObject, UICoordinateSpace {
         fatalError()
     }
 
-    var bounds: CGRect = CGRect.init(x: Double.nan, y: Double.nan, width: Double.nan, height: Double.nan)
+    var bounds: CGRect = .init(x: Double.nan, y: Double.nan, width: Double.nan, height: Double.nan)
 }
 
 private class TransformedCoordinateSpaceSpec: QuickSpec {
@@ -28,9 +28,9 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
             context(\UICoordinateSpace.bounds) {
                 it("should be zero to size") {
                     let size = CGSize.nextRandom()
-                    let converter = Converter(transform: CGAffineTransform.nextRandom(), reference: SpaceStub())
+                    let converter = Converter(transform: .nextRandom(), reference: SpaceStub())
                     let space = TransformedCoordinateSpace(size: size, converter: converter)
-                    expect(space.bounds) == CGRect(origin: CGPoint.zero, size: size)
+                    expect(space.bounds) == CGRect(origin: .zero, size: size)
                 }
             }
         }
@@ -48,7 +48,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
 
                 context(CGRect.self) {
                     class ConvertRectToMockSpace: SpaceStub {
-                        var result: CGRect = CGRect.nextRandom()
+                        var result: CGRect = .nextRandom()
                         var argument: CGRect?
 
                         override func convert(_ rect: CGRect, to coordinateSpace: UICoordinateSpace) -> CGRect {
@@ -92,7 +92,7 @@ private class TransformedCoordinateSpaceSpec: QuickSpec {
 
                 context(CGPoint.self) {
                     class ConvertPointToMockSpace: SpaceStub {
-                        var result: CGPoint = CGPoint.nextRandom()
+                        var result: CGPoint = .nextRandom()
                         var argument: CGPoint?
 
                         override func convert(_ point: CGPoint, to coordinateSpace: UICoordinateSpace) -> CGPoint {
