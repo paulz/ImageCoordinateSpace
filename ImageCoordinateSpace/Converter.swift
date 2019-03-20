@@ -2,39 +2,17 @@
 //  Converter.swift
 //  ImageCoordinateSpace
 //
-//  Created by Paul Zabelin on 10/13/18.
+//  Created by Paul Zabelin on 3/11/19.
 //
 
-import UIKit
+struct Converter {
+    let transform: CGAffineTransform
+    let reference: UICoordinateSpace
 
-protocol Convertible {
-    func applying(_ t: CGAffineTransform) -> Self
-    func convert(from: UICoordinateSpace, to: UICoordinateSpace) -> Self
-}
-
-extension CGRect: Convertible {
-    func convert(from: UICoordinateSpace, to: UICoordinateSpace) -> CGRect {
-        return from.convert(self, to: to)
+    func convert<T: Convertible>(_ object: T, to: UICoordinateSpace) -> T {
+        return object.applying(transform).convert(from: reference, to: to)
     }
-}
-extension CGPoint: Convertible {
-    func convert(from: UICoordinateSpace, to: UICoordinateSpace) -> CGPoint {
-        return from.convert(self, to: to)
-    }
-}
-
-struct Converter<T: Convertible> {
-    let object: T
-
-    init(_ convertible: T) {
-        object = convertible
-    }
-
-    func convert(to: UICoordinateSpace, using transformed: TransformedCoordinateSpace) -> T {
-        return object.applying(transformed.transform).convert(from: transformed.reference, to: to)
-    }
-
-    func convert(from: UICoordinateSpace, using transformed: TransformedCoordinateSpace) -> T {
-        return object.convert(from: from, to: transformed.reference).applying(transformed.invertedTransform)
+    func convert<T: Convertible>(_ object: T, from: UICoordinateSpace) -> T {
+        return object.convert(from: from, to: reference).applying(transform.inverted())
     }
 }

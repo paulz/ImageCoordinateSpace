@@ -6,16 +6,9 @@
 //
 //
 
-import UIKit
-
 struct ViewContentModeTransformer {
     let contentMode: UIView.ContentMode
     let sizeTransformer: SizeTransformer
-
-    init(bounds: CGSize, content: CGSize, mode: UIView.ContentMode) {
-        sizeTransformer = SizeTransformer(boundsSize: bounds, contentSize: content)
-        contentMode = mode
-    }
 
     func contentToViewTransform() -> CGAffineTransform {
         switch contentMode {
@@ -28,7 +21,7 @@ struct ViewContentModeTransformer {
         case .topLeft:
             return .identity
         default:
-            return sizeTransformer.translateAndScale(by: SizeFactor(contentMode))
+            return sizeTransformer.translateAndScale(by: .init(contentMode))
         }
     }
 }

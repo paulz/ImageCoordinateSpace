@@ -5,11 +5,9 @@
 //  Created by Paul Zabelin on 3/10/19.
 //
 
-import Foundation
-
 extension CGSize {
     func axesPathMap(block: (KeyPath<CGSize, CGFloat>, CGFloat) -> CGFloat) -> CGSize {
-        return CGSize(width: block(\.width, width),
-                      height: block(\.height, height))
+        return .init(width: block(\.width, width),
+                     height: block(\.height, height))
     }
 }

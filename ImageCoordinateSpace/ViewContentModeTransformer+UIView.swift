@@ -1,20 +1,16 @@
 //
-//  ContentAdjustment.swift
+//  ViewContentModeTransformer+UIView.swift
 //  ImageCoordinateSpace
 //
 //  Created by Paul Zabelin on 2/14/16.
 //
 //
 
-import UIKit
-
 extension UIView {
     var viewContentModeTransformer: ViewContentModeTransformer {
-        get {
-            return ViewContentModeTransformer(bounds: bounds.size,
-                                              content: intrinsicContentSize,
-                                              mode: contentMode)
-        }
+        return .init(contentMode: contentMode,
+                     sizeTransformer: .init(boundsSize: bounds.size,
+                                            contentSize: intrinsicContentSize))
     }
 }
 
@@ -24,10 +20,8 @@ extension ViewContentModeTransformer {
     }
 
     func coordinateSpace(basedOn space: UICoordinateSpace) -> UICoordinateSpace {
-        return TransformedCoordinateSpace(
-            size: sizeTransformer.contentSize,
-            transform: transform,
-            basedOn: space
-        )
+        return TransformedCoordinateSpace(size: sizeTransformer.contentSize,
+                                          converter: .init(transform: transform(),
+                                                           reference: space))
     }
 }

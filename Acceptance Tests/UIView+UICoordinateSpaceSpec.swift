@@ -16,17 +16,17 @@ class UIView_contentSpaceSpec: QuickSpec {
             var randomRect: CGRect!
 
             beforeEach {
-                image = UIImage.testImage(CGSize(width: 145, height: 109))
-                imageView = UIImageView(image: image)
-                randomPoint = CGPoint.nextRandom()
-                randomRect = CGRect.nextRandom()
+                image = .testImage(CGSize(width: 145, height: 109))
+                imageView = .init(image: image)
+                randomPoint = .nextRandom()
+                randomRect = .nextRandom()
             }
 
             context(UIView.contentToBoundsTransform) {
                 context("same sizes") {
                     it("should be identity") {
                         imageView.contentMode = .topLeft
-                        expect(imageView.contentToBoundsTransform()) == CGAffineTransform.identity
+                        expect(imageView.contentToBoundsTransform()) == .identity
                     }
                 }
 
@@ -44,8 +44,8 @@ class UIView_contentSpaceSpec: QuickSpec {
                         var randomScale: CGAffineTransform!
 
                         beforeEach {
-                            randomScale = CGAffineTransform(scaleX: CGFloat.nextRandom(),
-                                                            y: CGFloat.nextRandom())
+                            randomScale = .init(scaleX: .nextRandom(),
+                                                y: .nextRandom())
                         }
 
                         it("should be equal to transform") {
@@ -66,17 +66,17 @@ class UIView_contentSpaceSpec: QuickSpec {
 
                 context(CGPoint.zero) {
                     it("should return zero") {
-                        expect(imageSpace.convert(CGPoint.zero, from: imageView)) == CGPoint.zero
-                        expect(imageSpace.convert(CGPoint.zero, to: imageView)) == CGPoint.zero
-                        expect(imageSpace.convert(CGRect.zero, from: imageView)) == CGRect.zero
-                        expect(imageSpace.convert(CGRect.zero, to: imageView)) == CGRect.zero
+                        expect(imageSpace.convert(CGRect.zero, from: imageView)) == .zero
+                        expect(imageSpace.convert(CGRect.zero, to: imageView)) == .zero
+                        expect(imageSpace.convert(CGPoint.zero, from: imageView)) == .zero
+                        expect(imageSpace.convert(CGPoint.zero, to: imageView)) == .zero
                     }
                 }
 
                 context(\UICoordinateSpace.bounds) {
                     it("should be size of image") {
                         expect(imageSpace.bounds.size) == image.size
-                        expect(imageSpace.bounds.origin) == CGPoint.zero
+                        expect(imageSpace.bounds.origin) == .zero
                     }
                 }
 
@@ -92,7 +92,7 @@ class UIView_contentSpaceSpec: QuickSpec {
 
                     context(\UICoordinateSpace.bounds) {
                         it("should equal to -1 rect") {
-                            expect(noImageSpace.bounds) == CGRect(x: 0, y: 0, width: -1, height: -1)
+                            expect(noImageSpace.bounds) == .init(x: 0, y: 0, width: -1, height: -1)
                         }
                     }
 
@@ -125,7 +125,7 @@ class UIView_contentSpaceSpec: QuickSpec {
 
                 beforeEach {
                     let square = CGSize(width: 100, height: 100)
-                    imageView.bounds = CGRect(origin: CGPoint.zero, size: square)
+                    imageView.bounds = .init(origin: .zero, size: square)
                     imageSize = image.size
                     viewSize  = imageView.bounds.size
                     widthRatio = viewSize.width / imageSize.width

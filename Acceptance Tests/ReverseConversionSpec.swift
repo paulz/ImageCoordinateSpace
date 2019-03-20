@@ -5,14 +5,14 @@ import ImageCoordinateSpace
 public class ReverseConversionSpec: QuickSpec {
     override public func spec() {
         describe("convert fromCoordinateSpace") {
-            let image = UIImage.testImage(CGSize(width: 145, height: 109))
+            let image = UIImage.testImage(.init(width: 145, height: 109))
             let imageView = UIImageView(image: image)
 
             let imagePoint = CGPoint.zero
 
             beforeEach {
                 let square = CGSize(width: 100, height: 100)
-                imageView.bounds = CGRect(origin: CGPoint.zero, size: square)
+                imageView.bounds = .init(origin: .zero, size: square)
             }
 
             let allContentModes = stride(from: UIView.ContentMode.scaleToFill.rawValue,

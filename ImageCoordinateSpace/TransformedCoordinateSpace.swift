@@ -6,39 +6,32 @@
 //
 //
 
-import UIKit
-
 class TransformedCoordinateSpace: NSObject {
-    let reference: UICoordinateSpace
-    lazy var transform: CGAffineTransform = {
-        return getTransform()
-    }()
-    let getTransform: () -> CGAffineTransform
-    lazy var bounds: CGRect = {
-        return CGRect(origin: .zero, size: size)
-    }()
     let size: CGSize
-    lazy var invertedTransform = transform.inverted()
+    let converter: Converter
 
-    init(size contentSize: CGSize, transform: @escaping () -> CGAffineTransform, basedOn: UICoordinateSpace) {
-        reference = basedOn
-        getTransform = transform
+    init(size contentSize: CGSize, converter spaceConverter: Converter) {
         size = contentSize
+        converter = spaceConverter
     }
 }
 
 extension TransformedCoordinateSpace: UICoordinateSpace {
+    var bounds: CGRect {
+        return .init(origin: .zero, size: size)
+    }
+
     func convert(_ object: CGPoint, to space: UICoordinateSpace) -> CGPoint {
-        return Converter(object).convert(to: space, using: self)
+        return converter.convert(object, to: space)
     }
     func convert(_ object: CGRect, to space: UICoordinateSpace) -> CGRect {
-        return Converter(object).convert(to: space, using: self)
+        return converter.convert(object, to: space)
     }
 
     func convert(_ object: CGPoint, from space: UICoordinateSpace) -> CGPoint {
-        return Converter(object).convert(from: space, using: self)
+        return converter.convert(object, from: space)
     }
     func convert(_ object: CGRect, from space: UICoordinateSpace) -> CGRect {
-        return Converter(object).convert(from: space, using: self)
+        return converter.convert(object, from: space)
     }
 }

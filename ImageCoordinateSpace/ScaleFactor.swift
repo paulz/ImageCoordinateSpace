@@ -5,8 +5,6 @@
 //  Created by Paul Zabelin on 3/11/18.
 //
 
-import CoreGraphics
-
 enum ScaleFactor: CGFloat {
     case none = 0
     case half = 0.5
