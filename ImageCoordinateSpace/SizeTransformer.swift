@@ -19,26 +19,15 @@ struct SizeTransformer {
         return CGAffineTransform(scaleTo: boundsSize, from: contentSize)
     }
 
-    private func translateAxies(by factor: ScaleFactor, sizeScale scale: CGFloat, path: KeyPath<CGSize, CGFloat>) -> CGFloat {
-        return factor.scale(value: boundsSize[keyPath: path] - contentSize[keyPath: path] * scale)
+    func translateAndScale(by factor: SizeFactor = SizeFactor(height: .center, width: .center),
+                           sizeScale scale: CGFloat = 1.0) -> CGAffineTransform {
+        return CGAffineTransform(translation: factor.axesPathMap { path, factorValue in
+            factorValue * (boundsSize[keyPath: path] - contentSize[keyPath: path] * scale)
+        })
     }
 
-    func translate(factor: SizeFactor, sizeScale scale: CGFloat = 1.0) -> CGAffineTransform {
-        var translation = CGSize()
-        [\CGSize.width: factor.width,
-         \CGSize.height: factor.height
-            ].forEach {
-                let (path, factor) = $0
-                translation[keyPath:path] = translateAxies(by: factor, sizeScale: scale, path: path)
-        }
-        return CGAffineTransform(translation: translation)
-    }
-
-    func translateAndScale(using reduceFunction: (CGFloat, CGFloat) -> CGFloat) -> CGAffineTransform {
-        let scale: CGFloat = {
-            let fill = scaleToFill()
-            return reduceFunction(fill.scaleX, fill.scaleY)
-        }()
-        return translate(factor: SizeFactor(), sizeScale: scale).scaledBy(scale)
+    func centerAndScale(using reduce: (CGFloat, CGFloat) -> CGFloat) -> CGAffineTransform {
+        let scale = scaleToFill().scale(using: reduce)
+        return translateAndScale(sizeScale: scale).scaledBy(scale)
     }
 }

@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct SizeFactor {
-    var width: ScaleFactor
-    var height: ScaleFactor
+typealias SizeFactor = CGSize
 
+extension SizeFactor {
     init(height: ScaleFactor = .center, width: ScaleFactor = .center) {
-        self.width = width
-        self.height = height
+        self.init(width: width.rawValue, height: height.rawValue)
     }
 
     init(_ mode: UIView.ContentMode) {
@@ -33,7 +31,7 @@ struct SizeFactor {
         case .bottomRight:
             self.init(height: .bottom, width: .right)
         default:
-            self.init()
+            self.init(height: .center, width: .center)
         }
     }
 }

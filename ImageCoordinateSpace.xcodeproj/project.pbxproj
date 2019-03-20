@@ -18,19 +18,19 @@
 		4B017DA41C6F6BDB003ECCE7 /* UIView+UICoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIView+UICoordinateSpace.swift */; };
 		4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */; };
 		4B320CC41C71767800FA8663 /* ImageCoordinateSpace.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */; };
+		4B489BC822420A8100412FF6 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B489BC722420A8100412FF6 /* PerformanceTest.swift */; };
 		4B4ABDAE20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4ABDAD20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift */; };
 		4B5D97D62178F55B005D6D93 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
 		4B5D97D72178F55B005D6D93 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; };
 		4B5D97DB2178F5C0005D6D93 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B5D97DC2178F5C5005D6D93 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4B5D97DF2178F6D9005D6D93 /* SizeFactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D97DE2178F6D9005D6D93 /* SizeFactorSpec.swift */; };
-		4B5D97E12178F8BE005D6D93 /* ScaleFactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D97E02178F8BE005D6D93 /* ScaleFactorSpec.swift */; };
 		4B5D97E32178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D97E22178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift */; };
 		4B6866D92002C4CF00DFDFCF /* RandomTestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */; };
 		4B714003205E1231004441A8 /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 4B714001205E1231004441A8 /* Gemfile.lock */; };
 		4B714004205E1231004441A8 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 4B714002205E1231004441A8 /* Gemfile */; };
 		4B76EDD420565C25009492EC /* ScaleFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76EDD320565C25009492EC /* ScaleFactor.swift */; };
-		4B76EDD620565C57009492EC /* CGAffineTransform+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76EDD520565C57009492EC /* CGAffineTransform+Scale.swift */; };
+		4B76EDD620565C57009492EC /* CGAffineTransform+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76EDD520565C57009492EC /* CGAffineTransform+Extensions.swift */; };
 		4B7AE6CF21750E940076140F /* Quick+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7AE6CE21750E940076140F /* Quick+Additions.swift */; };
 		4B7AE6D92176BBC50076140F /* ImageCoordinateSpace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B017D801C6F6A02003ECCE7 /* ImageCoordinateSpace.framework */; };
 		4B7AE6DF2176BC360076140F /* UIView+UICoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116A1C6F402C0027F0C9 /* UIView+UICoordinateSpaceSpec.swift */; };
@@ -51,6 +51,7 @@
 		4BA0C126217320CD005BD417 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA0C125217320CD005BD417 /* Converter.swift */; };
 		4BB5058B2235EE7000ED7765 /* SizeFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5058A2235EE7000ED7765 /* SizeFactor.swift */; };
 		4BB5058D2235F6BA00ED7765 /* SizeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5058C2235F6BA00ED7765 /* SizeTransformer.swift */; };
+		4BB5058F223624BC00ED7765 /* CGSize+AxesPathMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB5058E223624BC00ED7765 /* CGSize+AxesPathMap.swift */; };
 		4BE2CB2A1C718CE3008BB9E0 /* Cartfile.private in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CB281C718CE3008BB9E0 /* Cartfile.private */; };
 		4BE2CB2B1C718CE3008BB9E0 /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */; };
 		4BE2CB2E1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2CB2D1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift */; };
@@ -126,15 +127,15 @@
 		4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseConversionSpec.swift; sourceTree = "<group>"; };
 		4B320CC01C71718200FA8663 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ImageCoordinateSpace.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4B489BC722420A8100412FF6 /* PerformanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTest.swift; sourceTree = "<group>"; };
 		4B4ABDAD20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformedCoordinateSpaceSpec.swift; sourceTree = "<group>"; };
 		4B5D97DE2178F6D9005D6D93 /* SizeFactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactorSpec.swift; sourceTree = "<group>"; };
-		4B5D97E02178F8BE005D6D93 /* ScaleFactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleFactorSpec.swift; sourceTree = "<group>"; };
 		4B5D97E22178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+Scale_Spec.swift"; sourceTree = "<group>"; };
 		4B6866D82002C4CF00DFDFCF /* RandomTestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomTestable.swift; sourceTree = "<group>"; };
 		4B714001205E1231004441A8 /* Gemfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		4B714002205E1231004441A8 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Gemfile; sourceTree = "<group>"; };
 		4B76EDD320565C25009492EC /* ScaleFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleFactor.swift; sourceTree = "<group>"; };
-		4B76EDD520565C57009492EC /* CGAffineTransform+Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+Scale.swift"; sourceTree = "<group>"; };
+		4B76EDD520565C57009492EC /* CGAffineTransform+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+Extensions.swift"; sourceTree = "<group>"; };
 		4B799A902171A9BF00C43C41 /* UIImage+testImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImage+testImage.swift"; path = "../Unit Tests/UIImage+testImage.swift"; sourceTree = "<group>"; };
 		4B7AE6CE21750E940076140F /* Quick+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Quick+Additions.swift"; sourceTree = "<group>"; };
 		4B7AE6D42176BBC50076140F /* Acceptance Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Acceptance Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +158,7 @@
 		4BA0C125217320CD005BD417 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		4BB5058A2235EE7000ED7765 /* SizeFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactor.swift; sourceTree = "<group>"; };
 		4BB5058C2235F6BA00ED7765 /* SizeTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeTransformer.swift; sourceTree = "<group>"; };
+		4BB5058E223624BC00ED7765 /* CGSize+AxesPathMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+AxesPathMap.swift"; sourceTree = "<group>"; };
 		4BE2CB281C718CE3008BB9E0 /* Cartfile.private */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Cartfile.private; sourceTree = "<group>"; };
 		4BE2CB291C718CE3008BB9E0 /* Cartfile.resolved */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Cartfile.resolved; sourceTree = "<group>"; };
 		4BE2CB2D1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewContentModeTransformer+UIView.swift"; sourceTree = "<group>"; };
@@ -212,7 +214,8 @@
 				4B76EDD320565C25009492EC /* ScaleFactor.swift */,
 				4BB5058C2235F6BA00ED7765 /* SizeTransformer.swift */,
 				4BB5058A2235EE7000ED7765 /* SizeFactor.swift */,
-				4B76EDD520565C57009492EC /* CGAffineTransform+Scale.swift */,
+				4BB5058E223624BC00ED7765 /* CGSize+AxesPathMap.swift */,
+				4B76EDD520565C57009492EC /* CGAffineTransform+Extensions.swift */,
 				4B7AFC711C758E2D00BBC46D /* TransformedCoordinateSpace.swift */,
 				4BA0C125217320CD005BD417 /* Converter.swift */,
 				4B017D821C6F6A02003ECCE7 /* ImageCoordinateSpace.h */,
@@ -227,7 +230,6 @@
 				4B4ABDAD20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift */,
 				4B5D97DE2178F6D9005D6D93 /* SizeFactorSpec.swift */,
 				4B5D97E22178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift */,
-				4B5D97E02178F8BE005D6D93 /* ScaleFactorSpec.swift */,
 				4B5D97DD2178F652005D6D93 /* Exploratory Specs */,
 				4B4ABDB020BCCAFA006D052B /* Supporting Files */,
 			);
@@ -259,6 +261,7 @@
 				4B87116A1C6F402C0027F0C9 /* UIView+UICoordinateSpaceSpec.swift */,
 				4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */,
 				4B7AE6E22176BC660076140F /* Supporting Files */,
+				4B489BC722420A8100412FF6 /* PerformanceTest.swift */,
 			);
 			path = "Acceptance Tests";
 			sourceTree = "<group>";
@@ -541,11 +544,12 @@
 			files = (
 				4B017DA41C6F6BDB003ECCE7 /* UIView+UICoordinateSpace.swift in Sources */,
 				4B76EDD420565C25009492EC /* ScaleFactor.swift in Sources */,
-				4B76EDD620565C57009492EC /* CGAffineTransform+Scale.swift in Sources */,
+				4B76EDD620565C57009492EC /* CGAffineTransform+Extensions.swift in Sources */,
 				4BA0C126217320CD005BD417 /* Converter.swift in Sources */,
 				4BE2CB2E1C7191B9008BB9E0 /* ViewContentModeTransformer+UIView.swift in Sources */,
 				4BB5058B2235EE7000ED7765 /* SizeFactor.swift in Sources */,
 				4B7AFC741C759C5D00BBC46D /* ViewContentModeTransformer.swift in Sources */,
+				4BB5058F223624BC00ED7765 /* CGSize+AxesPathMap.swift in Sources */,
 				4BB5058D2235F6BA00ED7765 /* SizeTransformer.swift in Sources */,
 				4B7AFC721C758E2D00BBC46D /* TransformedCoordinateSpace.swift in Sources */,
 			);
@@ -558,7 +562,6 @@
 				4B5D97DF2178F6D9005D6D93 /* SizeFactorSpec.swift in Sources */,
 				4B7AE6CF21750E940076140F /* Quick+Additions.swift in Sources */,
 				4B6866D92002C4CF00DFDFCF /* RandomTestable.swift in Sources */,
-				4B5D97E12178F8BE005D6D93 /* ScaleFactorSpec.swift in Sources */,
 				4B4ABDAE20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift in Sources */,
 				4B5D97E32178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift in Sources */,
 				4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */,
@@ -575,6 +578,7 @@
 				4B7AE6E32176BCCD0076140F /* ApproximateMatchers.swift in Sources */,
 				4B7AE6E42176BCCD0076140F /* RandomTestable.swift in Sources */,
 				4B7AE6DF2176BC360076140F /* UIView+UICoordinateSpaceSpec.swift in Sources */,
+				4B489BC822420A8100412FF6 /* PerformanceTest.swift in Sources */,
 				4B7AE6E02176BC360076140F /* ReverseConversionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

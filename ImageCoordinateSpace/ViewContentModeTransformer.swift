@@ -20,15 +20,15 @@ struct ViewContentModeTransformer {
     func contentToViewTransform() -> CGAffineTransform {
         switch contentMode {
         case .scaleAspectFill:
-            return sizeTransformer.translateAndScale(using: max)
+            return sizeTransformer.centerAndScale(using: max)
         case .scaleAspectFit:
-            return sizeTransformer.translateAndScale(using: min)
+            return sizeTransformer.centerAndScale(using: min)
         case .scaleToFill, .redraw:
             return sizeTransformer.scaleToFill()
         case .topLeft:
             return .identity
         default:
-            return sizeTransformer.translate(factor: SizeFactor(contentMode))
+            return sizeTransformer.translateAndScale(by: SizeFactor(contentMode))
         }
     }
 }

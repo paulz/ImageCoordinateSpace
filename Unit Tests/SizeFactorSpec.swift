@@ -7,16 +7,16 @@ class SizeFactorSpec: QuickSpec {
         describe(SizeFactor.self) {
             context(SizeFactor.init(height:width:)) {
                 it("should create size factor") {
-                    let sizeFactor = SizeFactor(height: ScaleFactor.right, width: ScaleFactor.left)
-                    expect(sizeFactor.height) == ScaleFactor.right
-                    expect(sizeFactor.width) == ScaleFactor.left
+                    let sizeFactor = SizeFactor(height: .right, width: .left)
+                    expect(sizeFactor.height) == ScaleFactor.right.rawValue
+                    expect(sizeFactor.width) == ScaleFactor.left.rawValue
                 }
 
                 context("default arguments") {
                     it("should be center for both height and width") {
-                        let sizeFactor = SizeFactor()
-                        expect(sizeFactor.height) == ScaleFactor.center
-                        expect(sizeFactor.width) == ScaleFactor.center
+                        let sizeFactor = SizeFactor(height: .center)
+                        expect(sizeFactor.height) == ScaleFactor.center.rawValue
+                        expect(sizeFactor.width) == ScaleFactor.center.rawValue
                     }
                 }
             }

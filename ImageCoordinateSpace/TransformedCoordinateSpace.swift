@@ -14,13 +14,16 @@ class TransformedCoordinateSpace: NSObject {
         return getTransform()
     }()
     let getTransform: () -> CGAffineTransform
-    let bounds: CGRect
+    lazy var bounds: CGRect = {
+        return CGRect(origin: .zero, size: size)
+    }()
+    let size: CGSize
     lazy var invertedTransform = transform.inverted()
 
-    init(original: UICoordinateSpace, transform applying: @escaping () -> CGAffineTransform, bounds limitedTo: CGRect) {
-        reference = original
-        getTransform = applying
-        bounds = limitedTo
+    init(size contentSize: CGSize, transform: @escaping () -> CGAffineTransform, basedOn: UICoordinateSpace) {
+        reference = basedOn
+        getTransform = transform
+        size = contentSize
     }
 }
 
@@ -37,11 +40,5 @@ extension TransformedCoordinateSpace: UICoordinateSpace {
     }
     func convert(_ object: CGRect, from space: UICoordinateSpace) -> CGRect {
         return Converter(object).convert(from: space, using: self)
-    }
-}
-
-extension TransformedCoordinateSpace {
-    convenience init(size: CGSize, transform: @escaping () -> CGAffineTransform, destination: UICoordinateSpace) {
-        self.init(original: destination, transform: transform, bounds: CGRect(origin: .zero, size: size))
     }
 }

@@ -19,8 +19,4 @@ enum ScaleFactor: CGFloat {
 
     static var left = ScaleFactor.none
     static var right = ScaleFactor.full
-
-    func scale(value: CGFloat) -> CGFloat {
-        return rawValue * value
-    }
 }
