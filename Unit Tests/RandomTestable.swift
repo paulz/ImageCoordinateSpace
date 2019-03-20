@@ -25,7 +25,7 @@ extension CGPoint: TestableRandom {
 
 extension CGSize: TestableRandom {
     static func nextRandom() -> CGSize {
-        return CGSize(width: Int.nextRandom(), height: Int.nextRandom())
+        return CGSize(width: 1 + Int.nextRandom(), height: 1 + Int.nextRandom())
     }
 }
 
