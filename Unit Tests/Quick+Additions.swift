@@ -11,3 +11,11 @@ public func context(_ selectorOrFunction: Any, flags: FilterFlags = [:], closure
 public func fcontext(_ selectorOrFunction: Any, flags: FilterFlags = [:], closure: () -> Void) {
     fcontext(String(describing: selectorOrFunction), flags: flags, closure: closure)
 }
+
+extension Int {
+    func times(block: () -> Void) {
+        for _ in 1...self {
+            block()
+        }
+    }
+}
