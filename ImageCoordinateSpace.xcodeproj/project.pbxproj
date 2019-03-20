@@ -18,6 +18,7 @@
 		4B017DA41C6F6BDB003ECCE7 /* UIView+UICoordinateSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87116C1C6F404F0027F0C9 /* UIView+UICoordinateSpace.swift */; };
 		4B1985581C70B01600BD1208 /* CGAffineTransformInvertSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1985571C70B01600BD1208 /* CGAffineTransformInvertSpec.swift */; };
 		4B320CC41C71767800FA8663 /* ImageCoordinateSpace.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */; };
+		4B489BC822420A8100412FF6 /* PerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B489BC722420A8100412FF6 /* PerformanceTest.swift */; };
 		4B4ABDAE20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4ABDAD20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift */; };
 		4B5D97D62178F55B005D6D93 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711641C6F3FBC0027F0C9 /* Quick.framework */; };
 		4B5D97D72178F55B005D6D93 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B8711631C6F3FBC0027F0C9 /* Nimble.framework */; };
@@ -126,6 +127,7 @@
 		4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseConversionSpec.swift; sourceTree = "<group>"; };
 		4B320CC01C71718200FA8663 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4B320CC31C71767800FA8663 /* ImageCoordinateSpace.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = ImageCoordinateSpace.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4B489BC722420A8100412FF6 /* PerformanceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTest.swift; sourceTree = "<group>"; };
 		4B4ABDAD20BCCA33006D052B /* TransformedCoordinateSpaceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformedCoordinateSpaceSpec.swift; sourceTree = "<group>"; };
 		4B5D97DE2178F6D9005D6D93 /* SizeFactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactorSpec.swift; sourceTree = "<group>"; };
 		4B5D97E22178F996005D6D93 /* CGAffineTransform+Scale_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGAffineTransform+Scale_Spec.swift"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				4B87116A1C6F402C0027F0C9 /* UIView+UICoordinateSpaceSpec.swift */,
 				4B1985591C70B6A000BD1208 /* ReverseConversionSpec.swift */,
 				4B7AE6E22176BC660076140F /* Supporting Files */,
+				4B489BC722420A8100412FF6 /* PerformanceTest.swift */,
 			);
 			path = "Acceptance Tests";
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				4B7AE6E32176BCCD0076140F /* ApproximateMatchers.swift in Sources */,
 				4B7AE6E42176BCCD0076140F /* RandomTestable.swift in Sources */,
 				4B7AE6DF2176BC360076140F /* UIView+UICoordinateSpaceSpec.swift in Sources */,
+				4B489BC822420A8100412FF6 /* PerformanceTest.swift in Sources */,
 				4B7AE6E02176BC360076140F /* ReverseConversionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
