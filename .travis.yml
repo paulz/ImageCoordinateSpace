@@ -42,4 +42,4 @@ deploy:
 git:
   depth: 1
 language: swift
-osx_image: xcode10.1
+osx_image: xcode10.2
