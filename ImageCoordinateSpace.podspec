@@ -19,13 +19,12 @@ Pod::Spec.new do |s|
     s.requires_arc        = true
     s.source_files        = 'ImageCoordinateSpace/**/*.{h,swift}'
     s.frameworks          = 'UIKit'
-    s.test_spec 'UnitSpecs' do |ts|
-        ts.resource       = 'Example/Assets.xcassets'
-        ts.source_files   = 'Unit Tests/**/*.{h,swift}'
-        ts.dependencies   = {
+    s.test_spec do |test|
+        test.source_files   = 'Unit Tests/**/*.{h,swift}'
+        test.dependencies   = {
             'Quick' => '~> 2.0.0',
             'Nimble' => '~> 8.0.1'
         }
-        ts.requires_app_host = false
+        test.requires_app_host = false
     end
 end
