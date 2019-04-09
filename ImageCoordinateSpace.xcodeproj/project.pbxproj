@@ -450,10 +450,11 @@
 					};
 					4B7AE6D32176BBC50076140F = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 					4B87112E1C6F3D4D0027F0C9 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -746,6 +747,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.paulz.ImageCoordinateSpace.Acceptance-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -765,6 +767,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.paulz.ImageCoordinateSpace.Acceptance-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -879,6 +882,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ImageCoordinateSpace.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -897,6 +901,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.ImageCoordinateSpace.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

@@ -8,7 +8,7 @@
 import UIKit
 
 public extension UIImage {
-    public static func testImage(_ size: CGSize) -> UIImage {
+    static func testImage(_ size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
