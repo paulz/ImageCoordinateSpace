@@ -119,7 +119,7 @@ Paul Zabelin, [https://github.com/paulz](https://github.com/paulz)
 
 ImageCoordinateSpace is available under the MIT license. See the LICENSE file for more info.
 
-[swift-badge]: https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat
+[swift-badge]: https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat
 [swift-url]: https://swift.org
 [dependencies-badge]: https://badges.depfu.com/badges/a44d9ce434edd4b20b1d85b09ac1433a/overview.svg
 [dependencies-url]: https://depfu.com/github/paulz/ImageCoordinateSpace
