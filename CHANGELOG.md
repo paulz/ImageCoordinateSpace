@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.1](https://github.com/paulz/ImageCoordinateSpace/tree/1.1) (2019-04-09)
+[Full Changelog](https://github.com/paulz/ImageCoordinateSpace/compare/1.0.7...1.1)
+
+* Upgrade to Swift 5.0
+* Upgrade to Xcode 10.2
+* Refactor implementation, same API
+* Simplify calculation without caching transform
+
 ## [1.0.7](https://github.com/paulz/ImageCoordinateSpace/tree/1.0.7) (2018-11-13)
 [Full Changelog](https://github.com/paulz/ImageCoordinateSpace/compare/1.0.6...1.0.7)
 
