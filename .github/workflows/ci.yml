@@ -9,6 +9,8 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: Prepare
+      run: carthage bootstrap --cache-builds --platform ios
     - name: Build and test
       run: xcodebuild test -scheme Example -destination 'platform=iOS Simulator,name=iPhone XS'
     - name: Run a multi-line script
