@@ -8,14 +8,14 @@ jobs:
     runs-on: macos-latest
     
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@master
     - name: Prepare
       run: carthage bootstrap --cache-builds --platform ios
     - name: Build and test
       run: xcodebuild test -scheme Example -destination 'platform=iOS Simulator,name=iPhone XS' | xcpretty
       run: bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
-    - uses: codecov/codecov-action@v1.0.2
+    - name: Upload coverage to Codecov  
+      uses: codecov/codecov-action@v1.0.2
       with:
         token: ${{secrets.CODECOV_TOKEN}}
         flags: -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
-        name: Unit test action code coverage
