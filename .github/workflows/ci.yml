@@ -13,7 +13,6 @@ jobs:
       run: carthage bootstrap --cache-builds --platform ios
     - name: Build and test
       run: xcodebuild test -scheme Example -destination 'platform=iOS Simulator,name=iPhone XS' | xcpretty
-      run: bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix
     - name: Upload coverage to Codecov  
       uses: codecov/codecov-action@v1.0.2
       with:
