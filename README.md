@@ -1,7 +1,7 @@
 # Image Coordinate Space
 `UICoordinateSpace` for `UIImageView` image
 
-[![Build Status](https://travis-ci.org/paulz/ImageCoordinateSpace.svg?branch=master)](https://travis-ci.org/paulz/ImageCoordinateSpace)
+[![CI](https://github.com/paulz/ImageCoordinateSpace/workflows/CI/badge.svg)](https://github.com/paulz/ImageCoordinateSpace/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/paulz/ImageCoordinateSpace/branch/master/graph/badge.svg)](https://codecov.io/gh/paulz/ImageCoordinateSpace)
 [![Depfu][dependencies-badge]][dependencies-url]
 
