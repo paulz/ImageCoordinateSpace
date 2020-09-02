@@ -102,7 +102,7 @@ carthage bootstrap
 Run tests:
 
 ```sh
-xcodebuild test -scheme ImageCoordinateSpace -destination 'platform=iOS Simulator,name=iPhone X'
+xcodebuild test -scheme ImageCoordinateSpace -destination 'platform=iOS Simulator,name=iPhone 11 Pro'
 ```
 See them pass at lightning speed:
 ```

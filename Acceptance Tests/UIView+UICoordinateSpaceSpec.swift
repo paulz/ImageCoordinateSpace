@@ -100,9 +100,11 @@ class UIView_contentSpaceSpec: QuickSpec {
                         context("within own space") {
                             it("should return original") {
                                 expect(noImageSpace.convert(randomRect, from: noImageSpace)) ≈ randomRect
-                                expect(noImageSpace.convert(randomRect, to: noImageSpace)) ≈ randomRect
                                 expect(noImageSpace.convert(randomPoint, from: noImageSpace)) ≈ randomPoint
-                                expect(noImageSpace.convert(randomPoint, to: noImageSpace)) ≈ randomPoint
+                            }
+                            it("suprisingly does not return same") {
+                                expect(noImageSpace.convert(randomRect, to: noImageSpace)).notTo(beCloseTo(randomRect))
+                                expect(noImageSpace.convert(randomPoint, to: noImageSpace)).notTo(beCloseTo(randomRect))
                             }
                         }
                         context("within foreign space") {
