@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - uses: actions/cache@v1
+    - uses: actions/cache@master
       id: restore-cache
       with:
         path: Carthage
@@ -26,4 +26,4 @@ jobs:
         project: ImageCoordinateSpace.xcodeproj
         scheme: Example
     - name: Report code coverage
-      run: bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix -t ${{secrets.CODECOV_TOKEN}}
+      run: bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix -t ${{ secrets.CODECOV_TOKEN }}
