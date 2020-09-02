@@ -14,16 +14,16 @@ jobs:
       with:
         path: Carthage
         key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-    - name: Prepare
+    - name: Bootstrap Carthage
       if: steps.restore-cache.outputs.cache-hit != 'true'
       run: carthage bootstrap --cache-builds --platform ios
       env:
         GITHUB_ACCESS_TOKEN: ${{ github.token }}
     - name: Unit Specs
-          uses: sersoft-gmbh/xcodebuild-action@v1.1.0
-          with:
-            destination: platform=iOS Simulator,name=iPhone 11 Pro
-            project: ImageCoordinateSpace.xcodeproj
-            scheme: Example
+      uses: sersoft-gmbh/xcodebuild-action@v1.1.0
+      with:
+        destination: platform=iOS Simulator,name=iPhone 11 Pro
+        project: ImageCoordinateSpace.xcodeproj
+        scheme: Example
     - name: Report code coverage
       run: bash <(curl -s 'https://codecov.io/bash') -Z -J '^ImageCoordinateSpace$' -X gcov -X fix -t ${{secrets.CODECOV_TOKEN}}
