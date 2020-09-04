@@ -22,7 +22,6 @@ GEM
       cocoapods-stats (>= 1.0.0, < 2.0)
       cocoapods-trunk (>= 1.0.0, < 2.0)
       cocoapods-try (>= 1.0.0, < 2.0)
-      colored (~> 1.2)
       escape (~> 0.0.4)
       fourflusher (~> 0.3.0)
       molinillo (~> 0.4.5)
