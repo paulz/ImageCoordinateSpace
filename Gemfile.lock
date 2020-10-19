@@ -46,8 +46,9 @@ GEM
     colored2 (3.1.2)
     concurrent-ruby (1.1.7)
     escape (0.0.4)
-    faraday (1.0.1)
+    faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
+      ruby2_keywords
     faraday-http-cache (2.2.0)
       faraday (>= 0.8)
     faraday_middleware (1.0.0)
@@ -97,6 +98,7 @@ GEM
     rake (13.0.1)
     retriable (3.1.2)
     rouge (2.0.7)
+    ruby2_keywords (0.0.2)
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
