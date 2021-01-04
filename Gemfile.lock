@@ -85,7 +85,7 @@ GEM
       retriable (~> 3.0)
     highline (2.0.3)
     httpclient (2.8.3)
-    i18n (1.8.5)
+    i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     json (2.3.1)
     json_pure (2.3.1)
